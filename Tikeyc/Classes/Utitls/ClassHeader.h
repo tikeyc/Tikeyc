@@ -9,8 +9,10 @@
 #ifndef ClassHeader_h
 #define ClassHeader_h
 
-//creat
+//
+#import "AppDelegate.h"
 
+//creat
 #import "CommenDefine.h"
 #import "TKCAppTools.h"
 #import "TNotificationDefine.h"
@@ -22,5 +24,9 @@
 
 #import "YYKit.h"
 #import "AFNetworking.h"
+// RAC
+#import "ReactiveCocoa.h"
+#import "NSObject+RACKVOWrapper.h"
+#import "RACReturnSignal.h"
 
 #endif /* ClassHeader_h */

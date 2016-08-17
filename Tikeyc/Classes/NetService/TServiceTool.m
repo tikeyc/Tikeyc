@@ -40,6 +40,69 @@
 @implementation TServiceTool
 
 
+#pragma mark - 网络监测
++ (void)networkMonitoring
+{
+    AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
+    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        // 当网络状态发生改变的时候调用这个block
+        switch (status) {
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                NSLog(@"WiFi状态");
+                [TAlertView showWithTitle:@"提示" message:@"正在使用WiFi" cancelButtonTitle:@"知道了" otherButtonTitles:nil andAction:^(NSInteger buttonIndex) {
+                    NSLog(@"%ld",(long)buttonIndex);
+                } andParentView:nil];
+                break;
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+            {
+                [TAlertView showWithTitle:@"提示" message:@"正在使用移动数据流量" cancelButtonTitle:@"知道了" otherButtonTitles:nil andAction:^(NSInteger buttonIndex) {
+                    NSLog(@"%ld",(long)buttonIndex);
+                } andParentView:nil];
+                
+                YYReachability *reach = [YYReachability reachability];
+                YYReachabilityWWANStatus wwanStatus = reach.wwanStatus;
+                switch (wwanStatus) {
+                    case YYReachabilityWWANStatusNone:
+                    {
+                        NSLog(@"蜂窝网络");
+                        break;
+                    }
+                    case YYReachabilityWWANStatus2G:
+                    {
+                        NSLog(@"2G");
+                        break;
+                    }
+                    case YYReachabilityWWANStatus3G:
+                    {
+                        NSLog(@"3G");
+                        break;
+                    }
+                    case YYReachabilityWWANStatus4G:
+                    {
+                        NSLog(@"4G");
+                        break;
+                    }
+                    default:
+                        break;
+                }
+                
+                break;
+            }
+            case AFNetworkReachabilityStatusNotReachable:
+                NSLog(@"没有网络");
+                break;
+            case AFNetworkReachabilityStatusUnknown:
+                NSLog(@"未知网络");
+                break;
+            default:
+                break;
+        }
+    }];
+    // 开始监控
+    [mgr startMonitoring];
+}
+
+
 + (nullable NSURLSessionDataTask *)GET:(NSString *)URLString
                             parameters:(nullable id)parameters
                               progress:(nullable void (^)(NSProgress *downloadProgress))downloadProgress

@@ -11,9 +11,8 @@
 #import "TBaseNavigationViewController.h"
 
 #import "TMainMenuViewController.h"
-#import "TMenuCenterViewController.h"
-#import "TMenuLeftTableViewController.h"
-#import "TMenuRightTableViewController.h"
+
+#import "TMainViewController.h"
 
 @interface AppDelegate ()
 
@@ -28,18 +27,21 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     UIStoryboard *centerStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    TMenuCenterViewController *center = [centerStoryboard instantiateInitialViewController];
-    UIStoryboard *leftStoryboard = [UIStoryboard storyboardWithName:@"LeftView" bundle:[NSBundle mainBundle]];
-    TMenuLeftTableViewController *left = [leftStoryboard instantiateInitialViewController];
-    UIStoryboard *rightStoryboard = [UIStoryboard storyboardWithName:@"RightView" bundle:[NSBundle mainBundle]];
-    TMenuRightTableViewController *right = [rightStoryboard instantiateInitialViewController];
+    TMainViewController *center = [centerStoryboard instantiateInitialViewController];
+    TBaseNavigationViewController *centerNav = [[TBaseNavigationViewController alloc] initWithRootViewController:center];
     
-    TMainMenuViewController *mainMenu = [[TMainMenuViewController alloc] initMainMenuWithCenterViewController:center
+    UIStoryboard *leftStoryboard = [UIStoryboard storyboardWithName:@"LeftView" bundle:[NSBundle mainBundle]];
+    UIViewController *left = [leftStoryboard instantiateInitialViewController];
+    
+    UIStoryboard *rightStoryboard = [UIStoryboard storyboardWithName:@"RightView" bundle:[NSBundle mainBundle]];
+    UIViewController *right = [rightStoryboard instantiateInitialViewController];
+    
+    TMainMenuViewController *mainMenu = [[TMainMenuViewController alloc] initMainMenuWithCenterViewController:centerNav
                                                                                            leftViewController:left
                                                                                           rightViewController:right];
     mainMenu.showLeftBarButtonItem = YES;
     mainMenu.showRighBarButtonItem = YES;
-    self.window.rootViewController = [[TBaseNavigationViewController alloc] initWithRootViewController:mainMenu];
+    self.window.rootViewController = mainMenu;//[[TBaseNavigationViewController alloc] initWithRootViewController:mainMenu]
     
     
     return YES;
@@ -68,7 +70,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     // 网络监测
-    [self networkMonitoring];
+    [TServiceTool networkMonitoring];
 }
 
 
@@ -78,65 +80,6 @@
     [self saveContext];
 }
 
-
-#pragma mark - 网络监测
-- (void)networkMonitoring
-{
-    AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];
-    [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        // 当网络状态发生改变的时候调用这个block
-        switch (status) {
-            case AFNetworkReachabilityStatusReachableViaWiFi:
-                NSLog(@"WIFI状态");
-                break;
-            case AFNetworkReachabilityStatusReachableViaWWAN:
-            {
-                [TAlertView showWithTitle:@"提示" message:@"正在使用移动数据流量" cancelButtonTitle:@"知道了" otherButtonTitles:nil andAction:^(NSInteger buttonIndex) {
-                    NSLog(@"%ld",(long)buttonIndex);
-                } andParentView:self.window];
-                
-                YYReachability *reach = [YYReachability reachability];
-                YYReachabilityWWANStatus wwanStatus = reach.wwanStatus;
-                switch (wwanStatus) {
-                    case YYReachabilityWWANStatusNone:
-                    {
-                        NSLog(@"蜂窝网络");
-                        break;
-                    }
-                    case YYReachabilityWWANStatus2G:
-                    {
-                        NSLog(@"2G");
-                        break;
-                    }
-                    case YYReachabilityWWANStatus3G:
-                    {
-                        NSLog(@"3G");
-                        break;
-                    }
-                    case YYReachabilityWWANStatus4G:
-                    {
-                        NSLog(@"4G");
-                        break;
-                    }
-                    default:
-                        break;
-                }
-                
-                break;
-            }
-            case AFNetworkReachabilityStatusNotReachable:
-                NSLog(@"没有网络");
-                break;
-            case AFNetworkReachabilityStatusUnknown:
-                NSLog(@"未知网络");
-                break;
-            default:
-                break;
-        }
-    }];
-    // 开始监控
-    [mgr startMonitoring];
-}
 
 #pragma mark - Life Cycle
 - (void)dealloc

@@ -56,6 +56,9 @@
 #define TFileManager [NSFileManager defaultManager]
 #define TDevice [UIDevice currentDevice]
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+#define WEAKSELF __weak typeof(self) weakSelf = self;
+
 #endif /* CommenDefine_h */
 
 

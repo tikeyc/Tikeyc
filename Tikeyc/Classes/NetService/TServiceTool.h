@@ -27,6 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TServiceTool : NSObject
 
+//网络监测
++ (void)networkMonitoring;
+
 
 + (nullable NSURLSessionDataTask *)GET:(NSString *)URLString
                             parameters:(nullable id)parameters

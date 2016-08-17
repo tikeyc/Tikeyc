@@ -17,6 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UIImage *image = [UIImage imageNamed:@"main_title"];
+    UIImageView *titleView = [[UIImageView alloc] initWithImage:image];
+    titleView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+    titleView.backgroundColor = [UIColor cyanColor];
+    self.navigationItem.titleView = titleView;
 }
 
 - (void)didReceiveMemoryWarning {

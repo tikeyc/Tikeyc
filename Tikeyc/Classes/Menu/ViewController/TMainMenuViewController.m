@@ -33,9 +33,9 @@
 
 @implementation TMainMenuViewController
 
-- (instancetype)initMainMenuWithCenterViewController:(TMenuCenterViewController *)centerViewController
-                                  leftViewController:(TMenuLeftTableViewController *)leftViewController
-                                 rightViewController:(TMenuRightTableViewController *)rightViewController{
+- (instancetype)initMainMenuWithCenterViewController:(UIViewController *)centerViewController
+                                  leftViewController:(UIViewController *)leftViewController
+                                 rightViewController:(UIViewController *)rightViewController{
     self = [super init];
     
     if (self) {
@@ -54,7 +54,7 @@
     return self;
 }
 
-- (instancetype _Nullable)initMainMenuWithCenterViewController:(TMenuCenterViewController *_Nullable)centerViewController{
+- (instancetype _Nullable)initMainMenuWithCenterViewController:(UIViewController *_Nullable)centerViewController{
     self = [super init];
     
     if (self) {
@@ -97,7 +97,7 @@
 
 #pragma mark - set
 
-- (void)setCenterViewController:(TMenuCenterViewController * _Nullable)centerViewController{
+- (void)setCenterViewController:(UIViewController * _Nullable)centerViewController{
     _centerViewController = centerViewController;
     
     //
@@ -107,7 +107,7 @@
     self.centerView.backgroundColor = [UIColor orangeColor];
 }
 
-- (void)setLeftViewController:(TMenuLeftTableViewController *)leftViewController{
+- (void)setLeftViewController:(UIViewController *)leftViewController{
     _leftViewController = leftViewController;
     
     //
@@ -118,7 +118,7 @@
     self.leftView.backgroundColor = [UIColor redColor];
 }
 
-- (void)setRightViewController:(TMenuRightTableViewController *)rightViewController{
+- (void)setRightViewController:(UIViewController *)rightViewController{
     _rightViewController = rightViewController;
     
     //
@@ -132,15 +132,25 @@
 - (void)setShowLeftBarButtonItem:(BOOL)showLeftBarButtonItem{
     _showLeftBarButtonItem = showLeftBarButtonItem;
     
+    if (![_centerViewController isKindOfClass:[UINavigationController class]]) {
+        return;
+    }
     if (!_leftPopButton) {
         _leftPopButton = [TPopButton button];
         _leftPopButton.tag = 1;
         [_leftPopButton addTarget:self action:@selector(showLeftOrRightView:) forControlEvents:UIControlEventTouchUpInside];
         _leftPopButton.tintColor = [UIColor blackColor];
         UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:_leftPopButton];
-        self.navigationItem.leftBarButtonItem = barButton;
+        self.centerViewController.navigationItem.leftBarButtonItem = barButton;
+        
+    }
+    if (_showLeftBarButtonItem){
+        UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:_leftPopButton];
+        UIViewController *firstVC = [((UINavigationController *)self.centerViewController).viewControllers firstObject];
+        firstVC.navigationItem.leftBarButtonItem = barButton;
     }else{
-        self.navigationItem.leftBarButtonItem = nil;
+        UIViewController *firstVC = [((UINavigationController *)self.centerViewController).viewControllers firstObject];
+        firstVC.navigationItem.leftBarButtonItem = nil;
     }
 }
 
@@ -148,6 +158,9 @@
 - (void)setShowRighBarButtonItem:(BOOL)showRighBarButtonItem{
     _showRighBarButtonItem = showRighBarButtonItem;
     
+    if (![_centerViewController isKindOfClass:[UINavigationController class]]) {
+        return;
+    }
     if (!_rightPopButton) {
         _rightPopButton = [TPopButton button];
         _rightPopButton.tag = 2;
@@ -155,9 +168,15 @@
         _rightPopButton.tintColor = [UIColor blackColor];
         UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:_rightPopButton];
         
-        self.navigationItem.rightBarButtonItem = barButton;
+        self.centerViewController.navigationItem.rightBarButtonItem = barButton;
+    }
+    if (_showRighBarButtonItem){
+        UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:_rightPopButton];
+        UIViewController *firstVC = [((UINavigationController *)self.centerViewController).viewControllers firstObject];
+        firstVC.navigationItem.rightBarButtonItem = barButton;
     }else{
-        self.navigationItem.rightBarButtonItem = nil;
+        UIViewController *firstVC = [((UINavigationController *)self.centerViewController).viewControllers firstObject];
+        firstVC.navigationItem.rightBarButtonItem = nil;
     }
 
 }
@@ -180,12 +199,19 @@
     if (!_leftViewController && !_rightViewController) {
         return;
     }
+    
     _panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];
 
     [self.centerView addGestureRecognizer:_panGestureRecognizer];
     //
     _backCenterTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
-    [self.centerView addGestureRecognizer:_backCenterTap];
+    if ([_centerViewController isKindOfClass:[UINavigationController class]]) {
+        UIViewController *firstVC = [((UINavigationController *)self.centerViewController).viewControllers firstObject];
+        [firstVC.view addGestureRecognizer:_backCenterTap];
+    }else{
+        [self.centerView addGestureRecognizer:_backCenterTap];
+    }
+
 }
 
 
