@@ -6,8 +6,8 @@
 //  Copyright © 2016年 tikeyc. All rights reserved.
 //
 
-#ifndef CommenHeader_h
-#define CommenHeader_h
+#ifndef CommenDefine_h
+#define CommenDefine_h
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #ifdef DEBUG
@@ -56,7 +56,7 @@
 #define TFileManager [NSFileManager defaultManager]
 #define TDevice [UIDevice currentDevice]
 
-#endif /* CommenHeader_h */
+#endif /* CommenDefine_h */
 
 
 
