@@ -1,0 +1,903 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4E27810C1D61B210003CA490 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E27810B1D61B210003CA490 /* main.m */; };
+		4E27810F1D61B210003CA490 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E27810E1D61B210003CA490 /* AppDelegate.m */; };
+		4E27811A1D61B210003CA490 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E2781191D61B210003CA490 /* Assets.xcassets */; };
+		4E2781281D61B210003CA490 /* TikeycTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2781271D61B210003CA490 /* TikeycTests.m */; };
+		4E2781331D61B210003CA490 /* TikeycUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2781321D61B210003CA490 /* TikeycUITests.m */; };
+		4E2781451D61B32C003CA490 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E2781431D61B32C003CA490 /* LaunchScreen.storyboard */; };
+		4E2781461D61B32C003CA490 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E2781441D61B32C003CA490 /* Main.storyboard */; };
+		4E2781491D61B344003CA490 /* Tikeyc.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E2781471D61B344003CA490 /* Tikeyc.xcdatamodeld */; };
+		4E731CA21D6405620026997A /* TMenuCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E731CA11D6405620026997A /* TMenuCenterViewController.m */; };
+		4E731CA51D6406960026997A /* TMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E731CA41D6406960026997A /* TMainViewController.m */; };
+		4E731CAE1D640C8D0026997A /* CryptorTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E731CA91D640C8D0026997A /* CryptorTools.m */; };
+		4E731CAF1D640C8D0026997A /* p.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 4E731CAA1D640C8D0026997A /* p.p12 */; };
+		4E731CB01D640C8D0026997A /* RSA.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E731CAC1D640C8D0026997A /* RSA.m */; };
+		4E731CB11D640C8D0026997A /* rsacert.der in Resources */ = {isa = PBXBuildFile; fileRef = 4E731CAD1D640C8D0026997A /* rsacert.der */; };
+		4E731CB51D6419B10026997A /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 4E731CB41D6419B10026997A /* README.md */; };
+		4E777CCE1D62CCCC00C40B07 /* LeftView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E777CCD1D62CCCC00C40B07 /* LeftView.storyboard */; };
+		4E777CD01D62CCDF00C40B07 /* RightView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E777CCF1D62CCDF00C40B07 /* RightView.storyboard */; };
+		4E92F8341D61C55F0028EE25 /* TBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E92F8331D61C55F0028EE25 /* TBaseViewController.m */; };
+		4E92F8371D61C5790028EE25 /* TBaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E92F8361D61C5790028EE25 /* TBaseNavigationViewController.m */; };
+		4EE4D9821D62F17C008F9F48 /* TPopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4D9811D62F17C008F9F48 /* TPopButton.m */; };
+		4EE4D98A1D630A24008F9F48 /* TMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4D9881D630A24008F9F48 /* TMainMenuViewController.m */; };
+		4EE4D9941D630B9C008F9F48 /* TKCAppTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4D9931D630B9C008F9F48 /* TKCAppTools.m */; };
+		4EE4D99E1D630DC5008F9F48 /* TMenuLeftTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4D99D1D630DC5008F9F48 /* TMenuLeftTableViewController.m */; };
+		4EE4D9A11D630DE5008F9F48 /* TMenuRightTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4D9A01D630DE5008F9F48 /* TMenuRightTableViewController.m */; };
+		AEAA8449A95E86A0354DBF27 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C446CF204461694CAE9DAEA6 /* Pods.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4E2781241D61B210003CA490 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E2780FF1D61B20F003CA490 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4E2781061D61B20F003CA490;
+			remoteInfo = Tikeyc;
+		};
+		4E27812F1D61B210003CA490 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E2780FF1D61B20F003CA490 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4E2781061D61B20F003CA490;
+			remoteInfo = Tikeyc;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4E2781071D61B210003CA490 /* Tikeyc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tikeyc.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E27810B1D61B210003CA490 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4E27810D1D61B210003CA490 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4E27810E1D61B210003CA490 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4E2781191D61B210003CA490 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4E27811E1D61B210003CA490 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E2781231D61B210003CA490 /* TikeycTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TikeycTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E2781271D61B210003CA490 /* TikeycTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TikeycTests.m; sourceTree = "<group>"; };
+		4E2781291D61B210003CA490 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E27812E1D61B210003CA490 /* TikeycUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TikeycUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E2781321D61B210003CA490 /* TikeycUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TikeycUITests.m; sourceTree = "<group>"; };
+		4E2781341D61B210003CA490 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E2781431D61B32C003CA490 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4E2781441D61B32C003CA490 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4E2781481D61B344003CA490 /* Tikeyc.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tikeyc.xcdatamodel; sourceTree = "<group>"; };
+		4E731CA01D6405620026997A /* TMenuCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMenuCenterViewController.h; sourceTree = "<group>"; };
+		4E731CA11D6405620026997A /* TMenuCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMenuCenterViewController.m; sourceTree = "<group>"; };
+		4E731CA31D6406960026997A /* TMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMainViewController.h; sourceTree = "<group>"; };
+		4E731CA41D6406960026997A /* TMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMainViewController.m; sourceTree = "<group>"; };
+		4E731CA81D640C8D0026997A /* CryptorTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CryptorTools.h; sourceTree = "<group>"; };
+		4E731CA91D640C8D0026997A /* CryptorTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CryptorTools.m; sourceTree = "<group>"; };
+		4E731CAA1D640C8D0026997A /* p.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = p.p12; sourceTree = "<group>"; };
+		4E731CAB1D640C8D0026997A /* RSA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSA.h; sourceTree = "<group>"; };
+		4E731CAC1D640C8D0026997A /* RSA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSA.m; sourceTree = "<group>"; };
+		4E731CAD1D640C8D0026997A /* rsacert.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = rsacert.der; sourceTree = "<group>"; };
+		4E731CB21D640E430026997A /* TNotificationDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNotificationDefine.h; sourceTree = "<group>"; };
+		4E731CB31D640EB30026997A /* TUserDefaultDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TUserDefaultDefine.h; sourceTree = "<group>"; };
+		4E731CB41D6419B10026997A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4E777CCD1D62CCCC00C40B07 /* LeftView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LeftView.storyboard; sourceTree = "<group>"; };
+		4E777CCF1D62CCDF00C40B07 /* RightView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RightView.storyboard; sourceTree = "<group>"; };
+		4E92F8321D61C55F0028EE25 /* TBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBaseViewController.h; sourceTree = "<group>"; };
+		4E92F8331D61C55F0028EE25 /* TBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBaseViewController.m; sourceTree = "<group>"; };
+		4E92F8351D61C5790028EE25 /* TBaseNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBaseNavigationViewController.h; sourceTree = "<group>"; };
+		4E92F8361D61C5790028EE25 /* TBaseNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBaseNavigationViewController.m; sourceTree = "<group>"; };
+		4E92F83B1D61C87B0028EE25 /* Tikeyc.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tikeyc.pch; sourceTree = "<group>"; };
+		4EE4D9801D62F17C008F9F48 /* TPopButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPopButton.h; sourceTree = "<group>"; };
+		4EE4D9811D62F17C008F9F48 /* TPopButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPopButton.m; sourceTree = "<group>"; };
+		4EE4D9871D630A24008F9F48 /* TMainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMainMenuViewController.h; sourceTree = "<group>"; };
+		4EE4D9881D630A24008F9F48 /* TMainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMainMenuViewController.m; sourceTree = "<group>"; };
+		4EE4D9921D630B9C008F9F48 /* TKCAppTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCAppTools.h; sourceTree = "<group>"; };
+		4EE4D9931D630B9C008F9F48 /* TKCAppTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKCAppTools.m; sourceTree = "<group>"; };
+		4EE4D9951D630C0A008F9F48 /* CommenDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommenDefine.h; sourceTree = "<group>"; };
+		4EE4D99C1D630DC5008F9F48 /* TMenuLeftTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMenuLeftTableViewController.h; sourceTree = "<group>"; };
+		4EE4D99D1D630DC5008F9F48 /* TMenuLeftTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMenuLeftTableViewController.m; sourceTree = "<group>"; };
+		4EE4D99F1D630DE5008F9F48 /* TMenuRightTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMenuRightTableViewController.h; sourceTree = "<group>"; };
+		4EE4D9A01D630DE5008F9F48 /* TMenuRightTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMenuRightTableViewController.m; sourceTree = "<group>"; };
+		5009AA6D9910FACA4FD58BB4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		7C3F81779E97791548301D2F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C446CF204461694CAE9DAEA6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4E2781041D61B20F003CA490 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEAA8449A95E86A0354DBF27 /* Pods.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E2781201D61B210003CA490 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E27812B1D61B210003CA490 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		432BA8236BF68BEB367FEC5B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C446CF204461694CAE9DAEA6 /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4E2780FE1D61B20F003CA490 = {
+			isa = PBXGroup;
+			children = (
+				4E2781091D61B210003CA490 /* Tikeyc */,
+				4E2781261D61B210003CA490 /* TikeycTests */,
+				4E2781311D61B210003CA490 /* TikeycUITests */,
+				4E2781081D61B210003CA490 /* Products */,
+				BFB8117C3C1EAA1EBC14CA62 /* Pods */,
+				432BA8236BF68BEB367FEC5B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		4E2781081D61B210003CA490 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4E2781071D61B210003CA490 /* Tikeyc.app */,
+				4E2781231D61B210003CA490 /* TikeycTests.xctest */,
+				4E27812E1D61B210003CA490 /* TikeycUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4E2781091D61B210003CA490 /* Tikeyc */ = {
+			isa = PBXGroup;
+			children = (
+				4E27810D1D61B210003CA490 /* AppDelegate.h */,
+				4E27810E1D61B210003CA490 /* AppDelegate.m */,
+				4E2781421D61B2B3003CA490 /* Xib */,
+				4E2781401D61B299003CA490 /* Classes */,
+				4E2781411D61B299003CA490 /* CoreData */,
+				4E27814A1D61B373003CA490 /* Resources */,
+				4E2781191D61B210003CA490 /* Assets.xcassets */,
+				4E27811E1D61B210003CA490 /* Info.plist */,
+				4E92F83B1D61C87B0028EE25 /* Tikeyc.pch */,
+				4E27810A1D61B210003CA490 /* Supporting Files */,
+			);
+			path = Tikeyc;
+			sourceTree = "<group>";
+		};
+		4E27810A1D61B210003CA490 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4E27810B1D61B210003CA490 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4E2781261D61B210003CA490 /* TikeycTests */ = {
+			isa = PBXGroup;
+			children = (
+				4E2781271D61B210003CA490 /* TikeycTests.m */,
+				4E2781291D61B210003CA490 /* Info.plist */,
+			);
+			path = TikeycTests;
+			sourceTree = "<group>";
+		};
+		4E2781311D61B210003CA490 /* TikeycUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4E2781321D61B210003CA490 /* TikeycUITests.m */,
+				4E2781341D61B210003CA490 /* Info.plist */,
+			);
+			path = TikeycUITests;
+			sourceTree = "<group>";
+		};
+		4E2781401D61B299003CA490 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4E731CA61D640C8D0026997A /* Lib */,
+				4EE4D9911D630B9C008F9F48 /* Utitls */,
+				4EE4D97F1D62F170008F9F48 /* Custom */,
+				4E92F8251D61C4CB0028EE25 /* Base */,
+				4EE4D9831D630A24008F9F48 /* Menu */,
+				4EE4D98B1D630A4C008F9F48 /* Main */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		4E2781411D61B299003CA490 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				4E2781471D61B344003CA490 /* Tikeyc.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		4E2781421D61B2B3003CA490 /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				4E2781431D61B32C003CA490 /* LaunchScreen.storyboard */,
+				4E2781441D61B32C003CA490 /* Main.storyboard */,
+				4E777CCD1D62CCCC00C40B07 /* LeftView.storyboard */,
+				4E777CCF1D62CCDF00C40B07 /* RightView.storyboard */,
+			);
+			path = Xib;
+			sourceTree = "<group>";
+		};
+		4E27814A1D61B373003CA490 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4E731CB41D6419B10026997A /* README.md */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4E731CA61D640C8D0026997A /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				4E731CA71D640C8D0026997A /* RSA */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		4E731CA71D640C8D0026997A /* RSA */ = {
+			isa = PBXGroup;
+			children = (
+				4E731CA81D640C8D0026997A /* CryptorTools.h */,
+				4E731CA91D640C8D0026997A /* CryptorTools.m */,
+				4E731CAA1D640C8D0026997A /* p.p12 */,
+				4E731CAB1D640C8D0026997A /* RSA.h */,
+				4E731CAC1D640C8D0026997A /* RSA.m */,
+				4E731CAD1D640C8D0026997A /* rsacert.der */,
+			);
+			path = RSA;
+			sourceTree = "<group>";
+		};
+		4E92F8251D61C4CB0028EE25 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4E92F82B1D61C4F90028EE25 /* Model */,
+				4E92F82C1D61C4F90028EE25 /* View */,
+				4E92F82D1D61C4F90028EE25 /* ViewController */,
+				4E92F82E1D61C4F90028EE25 /* ViewModel */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		4E92F82B1D61C4F90028EE25 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4E92F82C1D61C4F90028EE25 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4E92F82D1D61C4F90028EE25 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4E92F8321D61C55F0028EE25 /* TBaseViewController.h */,
+				4E92F8331D61C55F0028EE25 /* TBaseViewController.m */,
+				4E92F8351D61C5790028EE25 /* TBaseNavigationViewController.h */,
+				4E92F8361D61C5790028EE25 /* TBaseNavigationViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4E92F82E1D61C4F90028EE25 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4EE4D97F1D62F170008F9F48 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				4EE4D9801D62F17C008F9F48 /* TPopButton.h */,
+				4EE4D9811D62F17C008F9F48 /* TPopButton.m */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		4EE4D9831D630A24008F9F48 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				4EE4D9841D630A24008F9F48 /* Model */,
+				4EE4D9851D630A24008F9F48 /* View */,
+				4EE4D9861D630A24008F9F48 /* ViewController */,
+				4EE4D9891D630A24008F9F48 /* ViewModel */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		4EE4D9841D630A24008F9F48 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4EE4D9851D630A24008F9F48 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4EE4D9861D630A24008F9F48 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4EE4D9871D630A24008F9F48 /* TMainMenuViewController.h */,
+				4EE4D9881D630A24008F9F48 /* TMainMenuViewController.m */,
+				4E731CA01D6405620026997A /* TMenuCenterViewController.h */,
+				4E731CA11D6405620026997A /* TMenuCenterViewController.m */,
+				4EE4D99C1D630DC5008F9F48 /* TMenuLeftTableViewController.h */,
+				4EE4D99D1D630DC5008F9F48 /* TMenuLeftTableViewController.m */,
+				4EE4D99F1D630DE5008F9F48 /* TMenuRightTableViewController.h */,
+				4EE4D9A01D630DE5008F9F48 /* TMenuRightTableViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4EE4D9891D630A24008F9F48 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4EE4D98B1D630A4C008F9F48 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				4EE4D98C1D630A4C008F9F48 /* Model */,
+				4EE4D98D1D630A4C008F9F48 /* View */,
+				4EE4D98E1D630A4C008F9F48 /* ViewController */,
+				4EE4D98F1D630A4C008F9F48 /* ViewModel */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		4EE4D98C1D630A4C008F9F48 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4EE4D98D1D630A4C008F9F48 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4EE4D98E1D630A4C008F9F48 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4E731CA31D6406960026997A /* TMainViewController.h */,
+				4E731CA41D6406960026997A /* TMainViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4EE4D98F1D630A4C008F9F48 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4EE4D9911D630B9C008F9F48 /* Utitls */ = {
+			isa = PBXGroup;
+			children = (
+				4EE4D9921D630B9C008F9F48 /* TKCAppTools.h */,
+				4EE4D9931D630B9C008F9F48 /* TKCAppTools.m */,
+				4EE4D9951D630C0A008F9F48 /* CommenDefine.h */,
+				4E731CB21D640E430026997A /* TNotificationDefine.h */,
+				4E731CB31D640EB30026997A /* TUserDefaultDefine.h */,
+			);
+			path = Utitls;
+			sourceTree = "<group>";
+		};
+		BFB8117C3C1EAA1EBC14CA62 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5009AA6D9910FACA4FD58BB4 /* Pods.debug.xcconfig */,
+				7C3F81779E97791548301D2F /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4E2781061D61B20F003CA490 /* Tikeyc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E2781371D61B210003CA490 /* Build configuration list for PBXNativeTarget "Tikeyc" */;
+			buildPhases = (
+				D2AC0561EB901D2587F777B3 /* Check Pods Manifest.lock */,
+				4E2781031D61B20F003CA490 /* Sources */,
+				4E2781041D61B20F003CA490 /* Frameworks */,
+				4E2781051D61B20F003CA490 /* Resources */,
+				7EF35D5BC6CE1B23B013CCEB /* Embed Pods Frameworks */,
+				E3A3CD1D3C941E93BA181B29 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Tikeyc;
+			productName = Tikeyc;
+			productReference = 4E2781071D61B210003CA490 /* Tikeyc.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4E2781221D61B210003CA490 /* TikeycTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E27813A1D61B210003CA490 /* Build configuration list for PBXNativeTarget "TikeycTests" */;
+			buildPhases = (
+				4E27811F1D61B210003CA490 /* Sources */,
+				4E2781201D61B210003CA490 /* Frameworks */,
+				4E2781211D61B210003CA490 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4E2781251D61B210003CA490 /* PBXTargetDependency */,
+			);
+			name = TikeycTests;
+			productName = TikeycTests;
+			productReference = 4E2781231D61B210003CA490 /* TikeycTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4E27812D1D61B210003CA490 /* TikeycUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4E27813D1D61B210003CA490 /* Build configuration list for PBXNativeTarget "TikeycUITests" */;
+			buildPhases = (
+				4E27812A1D61B210003CA490 /* Sources */,
+				4E27812B1D61B210003CA490 /* Frameworks */,
+				4E27812C1D61B210003CA490 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4E2781301D61B210003CA490 /* PBXTargetDependency */,
+			);
+			name = TikeycUITests;
+			productName = TikeycUITests;
+			productReference = 4E27812E1D61B210003CA490 /* TikeycUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4E2780FF1D61B20F003CA490 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = tikeyc;
+				TargetAttributes = {
+					4E2781061D61B20F003CA490 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = MX688SUQZ4;
+						DevelopmentTeamName = "WAYS CONSULTING CO.,LTD.";
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+					};
+					4E2781221D61B210003CA490 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = MX688SUQZ4;
+						DevelopmentTeamName = "WAYS CONSULTING CO.,LTD.";
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 4E2781061D61B20F003CA490;
+					};
+					4E27812D1D61B210003CA490 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = MX688SUQZ4;
+						DevelopmentTeamName = "WAYS CONSULTING CO.,LTD.";
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 4E2781061D61B20F003CA490;
+					};
+				};
+			};
+			buildConfigurationList = 4E2781021D61B20F003CA490 /* Build configuration list for PBXProject "Tikeyc" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4E2780FE1D61B20F003CA490;
+			productRefGroup = 4E2781081D61B210003CA490 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4E2781061D61B20F003CA490 /* Tikeyc */,
+				4E2781221D61B210003CA490 /* TikeycTests */,
+				4E27812D1D61B210003CA490 /* TikeycUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4E2781051D61B20F003CA490 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E731CAF1D640C8D0026997A /* p.p12 in Resources */,
+				4E731CB11D640C8D0026997A /* rsacert.der in Resources */,
+				4E777CCE1D62CCCC00C40B07 /* LeftView.storyboard in Resources */,
+				4E777CD01D62CCDF00C40B07 /* RightView.storyboard in Resources */,
+				4E2781461D61B32C003CA490 /* Main.storyboard in Resources */,
+				4E2781451D61B32C003CA490 /* LaunchScreen.storyboard in Resources */,
+				4E27811A1D61B210003CA490 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E2781211D61B210003CA490 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E27812C1D61B210003CA490 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7EF35D5BC6CE1B23B013CCEB /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2AC0561EB901D2587F777B3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E3A3CD1D3C941E93BA181B29 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4E2781031D61B20F003CA490 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E731CB01D640C8D0026997A /* RSA.m in Sources */,
+				4E731CA51D6406960026997A /* TMainViewController.m in Sources */,
+				4EE4D9A11D630DE5008F9F48 /* TMenuRightTableViewController.m in Sources */,
+				4EE4D99E1D630DC5008F9F48 /* TMenuLeftTableViewController.m in Sources */,
+				4EE4D9821D62F17C008F9F48 /* TPopButton.m in Sources */,
+				4EE4D98A1D630A24008F9F48 /* TMainMenuViewController.m in Sources */,
+				4E2781491D61B344003CA490 /* Tikeyc.xcdatamodeld in Sources */,
+				4E27810F1D61B210003CA490 /* AppDelegate.m in Sources */,
+				4E731CA21D6405620026997A /* TMenuCenterViewController.m in Sources */,
+				4EE4D9941D630B9C008F9F48 /* TKCAppTools.m in Sources */,
+				4E92F8371D61C5790028EE25 /* TBaseNavigationViewController.m in Sources */,
+				4E731CAE1D640C8D0026997A /* CryptorTools.m in Sources */,
+				4E731CB51D6419B10026997A /* README.md in Sources */,
+				4E92F8341D61C55F0028EE25 /* TBaseViewController.m in Sources */,
+				4E27810C1D61B210003CA490 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E27811F1D61B210003CA490 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E2781281D61B210003CA490 /* TikeycTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4E27812A1D61B210003CA490 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E2781331D61B210003CA490 /* TikeycUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4E2781251D61B210003CA490 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4E2781061D61B20F003CA490 /* Tikeyc */;
+			targetProxy = 4E2781241D61B210003CA490 /* PBXContainerItemProxy */;
+		};
+		4E2781301D61B210003CA490 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4E2781061D61B20F003CA490 /* Tikeyc */;
+			targetProxy = 4E27812F1D61B210003CA490 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4E2781351D61B210003CA490 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4E2781361D61B210003CA490 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4E2781381D61B210003CA490 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5009AA6D9910FACA4FD58BB4 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: fan fang qiang (QF2UL855TU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Tikeyc/Tikeyc.pch;
+				INFOPLIST_FILE = Tikeyc/Info.plist;
+				INFOPLIST_PREFIX_HEADER = "";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ways.test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		4E2781391D61B210003CA490 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C3F81779E97791548301D2F /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: fan fang qiang (QF2UL855TU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Tikeyc/Tikeyc.pch;
+				INFOPLIST_FILE = Tikeyc/Info.plist;
+				INFOPLIST_PREFIX_HEADER = "";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ways.test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		4E27813B1D61B210003CA490 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TikeycTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ways.TikeycTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tikeyc.app/Tikeyc";
+			};
+			name = Debug;
+		};
+		4E27813C1D61B210003CA490 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TikeycTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ways.TikeycTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tikeyc.app/Tikeyc";
+			};
+			name = Release;
+		};
+		4E27813E1D61B210003CA490 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TikeycUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ways.TikeycUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
+				TEST_TARGET_NAME = Tikeyc;
+			};
+			name = Debug;
+		};
+		4E27813F1D61B210003CA490 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = TikeycUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ways.TikeycUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
+				TEST_TARGET_NAME = Tikeyc;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4E2781021D61B20F003CA490 /* Build configuration list for PBXProject "Tikeyc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E2781351D61B210003CA490 /* Debug */,
+				4E2781361D61B210003CA490 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4E2781371D61B210003CA490 /* Build configuration list for PBXNativeTarget "Tikeyc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E2781381D61B210003CA490 /* Debug */,
+				4E2781391D61B210003CA490 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4E27813A1D61B210003CA490 /* Build configuration list for PBXNativeTarget "TikeycTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E27813B1D61B210003CA490 /* Debug */,
+				4E27813C1D61B210003CA490 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4E27813D1D61B210003CA490 /* Build configuration list for PBXNativeTarget "TikeycUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4E27813E1D61B210003CA490 /* Debug */,
+				4E27813F1D61B210003CA490 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		4E2781471D61B344003CA490 /* Tikeyc.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				4E2781481D61B344003CA490 /* Tikeyc.xcdatamodel */,
+			);
+			currentVersion = 4E2781481D61B344003CA490 /* Tikeyc.xcdatamodel */;
+			path = Tikeyc.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 4E2780FF1D61B20F003CA490 /* Project object */;
+}

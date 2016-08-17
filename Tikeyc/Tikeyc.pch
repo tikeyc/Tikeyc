@@ -1,0 +1,23 @@
+//
+//  Tikeyc.pch
+//  Tikeyc
+//
+//  Created by ways on 16/8/15.
+//  Copyright © 2016年 tikeyc. All rights reserved.
+//
+
+#ifndef Tikeyc_pch
+#define Tikeyc_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+//creat
+#import "CommenDefine.h"
+#import "TKCAppTools.h"
+
+//pod
+#import "YYKit.h"
+
+#endif /* Tikeyc_pch */
