@@ -82,7 +82,7 @@
 {
     if (self.childViewControllers.count > 0) { // 如果push进来的不是第一个控制器
         
-        if ([viewController isKindOfClass:NSClassFromString(@"WebViewController")]) {
+        if ([viewController isKindOfClass:NSClassFromString(@"TWebViewController")]) {
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
             button.titleLabel.font = [UIFont boldSystemFontOfSize:17];
             button.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);

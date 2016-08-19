@@ -26,6 +26,7 @@
 #import "AFNetworking.h"
 // RAC
 #import "ReactiveCocoa.h"
+#import "EXTScope.h"
 #import "NSObject+RACKVOWrapper.h"
 #import "RACReturnSignal.h"
 
