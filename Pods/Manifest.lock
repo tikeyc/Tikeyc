@@ -25,6 +25,9 @@ PODS:
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
+  - MagicalRecord (2.3.2):
+    - MagicalRecord/Core (= 2.3.2)
+  - MagicalRecord/Core (2.3.2)
   - Masonry (1.0.1)
   - MJExtension (3.0.13)
   - MJRefresh (3.1.12)
@@ -59,6 +62,7 @@ DEPENDENCIES:
   - AFNetworking
   - AsyncDisplayKit
   - FMDB
+  - MagicalRecord
   - Masonry
   - MJExtension
   - MJRefresh
@@ -73,6 +77,7 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   AsyncDisplayKit: 011ea22a76a79a5bbfc14501fede6e0196a3c2f0
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806

@@ -24,3 +24,5 @@ pod 'MJRefresh'
 pod 'FMDB'
 
 pod 'Masonry'
+
+pod 'MagicalRecord'
