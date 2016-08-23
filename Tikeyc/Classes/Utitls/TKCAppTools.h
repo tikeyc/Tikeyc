@@ -14,6 +14,7 @@
 
 @interface TKCAppTools : NSObject
 
+#pragma mark - 获取磁盘总空间大小
 /**
  *  获取磁盘总空间大小
  *
@@ -21,6 +22,7 @@
  */
 + (CGFloat)diskOfAllSizeMBytes;
 
+#pragma mark - 获取磁盘可用空间大小
 /**
  *  获取磁盘可用空间大小
  *
@@ -28,7 +30,7 @@
  */
 + (CGFloat)diskOfFreeSizeMBytes;
 
-
+#pragma mark - 获取指定路径下某个文件的大小
 /**
  *  获取指定路径下某个文件的大小
  *
@@ -37,7 +39,7 @@
  *  @return 获取文件大小
  */
 + (long long)fileSizeAtPath:(NSString *)filePath;
-
+#pragma mark - 获取文件夹下所有文件的大小
 /**
  *  获取文件夹下所有文件的大小
  *
@@ -47,7 +49,7 @@
  */
 + (long long)folderSizeAtPath:(NSString *)folderPath;
 
-
+#pragma mark - 获取字符串(或汉字)首字母
 /**
  *  获取字符串(或汉字)首字母
  *
@@ -57,7 +59,7 @@
  */
 + (NSString *)firstCharacterWithString:(NSString *)string;
 
-
+#pragma mark - 将字符串数组按照元素首字母顺序进行排序分组
 /**
  *  将字符串数组按照元素首字母顺序进行排序分组
  *  NSArray *arr = @[@"guangzhou", @"shanghai", @"北京", @"henan", @"hainan"];
@@ -70,7 +72,7 @@
  */
 + (NSDictionary *)dictionaryOrderByCharacterWithOriginalArray:(NSArray *)array;
 
-
+#pragma mark - 获取当前时间
 /**
  *  获取当前时间
  *
@@ -80,7 +82,7 @@
  */
 + (NSString *)currentDateWithFormat:(NSString *)format;
 
-
+#pragma mark -计算上次日期距离现在多久
 /**
  *  计算上次日期距离现在多久
  *  NSLog(@"\n\nresult: %@", [TKCAppTools timeIntervalFromLastTime:@"2016年06月01日 15:50"
@@ -100,7 +102,7 @@
                          ToCurrentTime:(NSString *)currentTime
                      currentTimeFormat:(NSString *)format2;
 
-
+#pragma mark - 计算上次日期距离现在多久
 /**
  *  计算上次日期距离现在多久
  *
@@ -110,7 +112,7 @@
  *  @return xx分钟前、xx小时前、xx天前
  */
 + (NSString *)timeIntervalFromLastTime:(NSDate *)lastTime ToCurrentTime:(NSDate *)currentTime;
-
+#pragma mark - 判断手机号码格式是否正确
 /**
  *  判断手机号码格式是否正确
  *
@@ -119,7 +121,7 @@
  *  @return 手机号码格式是否正确
  */
 + (BOOL)valiMobile:(NSString *)mobile;
-
+#pragma mark - 判断邮箱格式是否正确 利用正则表达式验证
 /**
  *  判断邮箱格式是否正确 利用正则表达式验证
  *
@@ -129,7 +131,7 @@
  */
 + (BOOL)isAvailableEmail:(NSString *)email;
 
-
+#pragma mark - 将十六进制颜色转换为 UIColor 对象
 /**
  *  将十六进制颜色转换为 UIColor 对象
  *
@@ -139,7 +141,7 @@
  */
 + (UIColor *)colorWithHexString:(NSString *)color;
 
-
+#pragma mark - 绘制虚线
 /**
  *  绘制虚线
  *
@@ -154,9 +156,17 @@
                            lineLength:(int)length
                           lineSpacing:(int)spacing
                             lineColor:(UIColor *)color;
+#pragma mark - 通过图片Data数据第一个字节 来获取图片扩展名
+/**  通过图片Data数据第一个字节 来获取图片扩展名
+ *
+ *  @param data  name description
+ *
+ *  @return string
+ */
+- (NSString *)contentTypeForImageData:(NSData *)data;
 
 
-
+#pragma mark - 对图片进行滤镜处理
 /**  对图片进行滤镜处理
  *   怀旧 --> CIPhotoEffectInstant                         单色 --> CIPhotoEffectMono
  *   黑白 --> CIPhotoEffectNoir                            褪色 --> CIPhotoEffectFade
@@ -173,7 +183,7 @@
 
 
 
-
+#pragma mark - 对图片进行模糊处理
 /**
  *  对图片进行模糊处理
  *  CIGaussianBlur ---> 高斯模糊
@@ -191,7 +201,7 @@
  */
 + (UIImage *)blurWithOriginalImage:(UIImage *)image blurName:(NSString *)name radius:(NSInteger)radius;
 
-
+#pragma mark - 调整图片饱和度, 亮度, 对比度
 /**
  *  调整图片饱和度, 亮度, 对比度
  *
@@ -206,7 +216,7 @@
                                  brightness:(CGFloat)brightness
                                    contrast:(CGFloat)contrast;
 
-
+#pragma mark - 创建一张实时模糊效果 View (毛玻璃效果)
 /**
  *  创建一张实时模糊效果 View (毛玻璃效果)
  *
@@ -217,7 +227,7 @@
 // NS_DEPRECATED(8_0, 8_0, 8_0, 8_0, "Avilable in iOS 8.0 and later")
 + (UIVisualEffectView *)effectViewWithFrame:(CGRect)frame __deprecated_msg("Avilable in iOS 8.0 and later");
 
-
+#pragma mark - 全屏截图
 /**
  *  全屏截图
  *
@@ -225,7 +235,7 @@
  */
 + (UIImage *)shotScreen;
 
-
+#pragma mark - 截取view生成一张图片
 /**
  *  截取view生成一张图片
  *
@@ -235,7 +245,19 @@
  */
 + (UIImage *)shotWithView:(UIView *)view;
 
+#pragma mark - 设置圆形图片(放到分类中使用)
+/** 设置圆形图片 */
++ (UIImage *)cutCircleImage:(UIImage *)image;
 
+#pragma mark - 把view设置成圆形
+/**
+ *  把view设置成圆形
+ *
+ *  @param view 需要设置成圆形的view
+ */
++ (void)setViewCornerCircleWithView:(UIView *)view;
+
+#pragma mark - 截取view中某个区域生成一张图片
 /**
  *  截取view中某个区域生成一张图片
  *
@@ -246,7 +268,7 @@
  */
 + (UIImage *)shotWithView:(UIView *)view scope:(CGRect)scope;
 
-
+#pragma mark - 压缩图片到指定尺寸大小
 /**
  *  压缩图片到指定尺寸大小
  *
@@ -257,6 +279,7 @@
  */
 + (UIImage *)compressOriginalImage:(UIImage *)image toSize:(CGSize)size;
 
+#pragma mark -  压缩图片到指定文件大小
 /**
  *  压缩图片到指定文件大小
  *
@@ -268,8 +291,7 @@
 + (NSData *)compressOriginalImage:(UIImage *)image toMaxDataSizeKBytes:(CGFloat)size;
 
 
-
-// 获取设备 IP 地址
+#pragma mark - 获取设备 IP 地址
 
 /**
  *  获取设备 IP 地址
@@ -278,7 +300,7 @@
  */
 + (NSString *)getIPAddress;
 
-
+#pragma mark - 判断字符串中是否含有空格
 /**
  *  判断字符串中是否含有空格
  *
@@ -288,6 +310,7 @@
  */
 - (BOOL)isHaveSpaceInString:(NSString *)string;
 
+#pragma mark - 判断字符串中是否含有某个字符串
 /**
  *  判断字符串中是否含有某个字符串
  *
@@ -298,6 +321,7 @@
  */
 + (BOOL)isHaveString:(NSString *)string1 InString:(NSString *)string2;
 
+#pragma mark - 判断字符串中是否含有中文
 /**
  *  判断字符串中是否含有中文
  *
@@ -307,7 +331,7 @@
  */
 + (BOOL)isHaveChineseInString:(NSString *)string;
 
-
+#pragma mark - 判断字符串是否全部为数字
 /**
  *  判断字符串是否全部为数字
  *
@@ -344,36 +368,48 @@
 
 @interface SystemInfo : NSObject
 
+
+#pragma mark - 系统版本
 /*系统版本*/
 + (NSString*)osVersion;
 
+#pragma mark - 硬件版本
 /*硬件版本*/
 + (NSString*)platform;
 
+#pragma mark - 硬件版本名称
 /*硬件版本名称*/
 + (NSString*)platformString;
 
+#pragma mark - 系统当前时间 格式：yyyy-MM-dd HH:mm:ss
 /*系统当前时间 格式：yyyy-MM-dd HH:mm:ss*/
 + (NSString*)systemTimeInfo;
 
+#pragma mark - 软件版本
 /*软件版本*/
 + (NSString*)appVersion;
 
+#pragma mark - 是否是iPhone5
 /*是否是iPhone5*/
 + (BOOL)is_iPhone_5;
 
+#pragma mark - 是否越狱
 /*是否越狱*/
 //+ (BOOL)isJailBroken;
 
+#pragma mark - 越狱版本
 /*越狱版本*/
 + (NSString*)jailBreaker;
 
+#pragma mark - 本地ip
 /*本地ip*/
 //+ (NSString *)localIPAddress;
 
+#pragma mark - 获取运营商
 /** 获取运营商 */
 + (NSString*)getCarrierName;
 
+#pragma mark - UUID解决方案
 /** UUID解决方案 */
 //+ (NSString*)uuidSolution;
 
@@ -388,16 +424,21 @@
 
 + (instancetype)shareInstance;
 
+#pragma mark - 提取对象的全部属性名
 /**
  *  提取对象的全部属性名
  */
 - (NSArray*)extractPropertyNamesFromOjbect:(NSObject*)object;
 
+
+#pragma mark - 提取对象的指定类名的全部属性值
 /**
  *  提取对象的指定类名的全部属性值
  */
 - (NSArray*)extractValuesFromObject:(NSObject*)object forPropertiesWithClass:(NSString*)className;
 
+
+#pragma mark - 提取对象的指定协议的全部属性值
 /**
  *  提取对象的指定协议的全部属性值
  */

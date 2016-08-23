@@ -22,6 +22,8 @@
 #define MyNSLog(FORMAT, ...) nil
 #endif
 
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /** RGB颜色 */
 #define TColor_RGB(r, g, b) [UIColor colorWithRed:(r) / 255.0 green:(g) / 255.0 blue:(b) / 255.0 alpha:1.0]
@@ -57,7 +59,9 @@
 #define TDevice [UIDevice currentDevice]
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-#define WEAKSELF __weak typeof(self) weakSelf = self;
+//#define WEAKSELF __weak typeof(self) weakSelf = self;
+#define TWeakSelf(type)  __weak typeof(type) weak##type = type;//#的意思是紧跟着它的后面的标识符添加一个双引号""
+
 
 #endif /* CommenDefine_h */
 

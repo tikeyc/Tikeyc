@@ -899,6 +899,26 @@
     
 }
 
+
+#pragma mark - 替换Delegate
+- (RACSignal *)rac_isActiveSignal {
+    self.replaceRACdelegate = self;
+    RACSignal *signal = objc_getAssociatedObject(self, _cmd);
+    if (signal != nil) return signal;
+    
+    /* Create two signals and merge them */
+    RACSignal *didBeginEditing = [[self rac_signalForSelector:@selector(testReplaceRACdelegate1:)
+                                                 fromProtocol:@protocol(RACdelegate)] mapReplace:@YES];
+    RACSignal *didEndEditing = [[self rac_signalForSelector:@selector(testReplaceRACdelegate2:)
+                                               fromProtocol:@protocol(RACdelegate)] mapReplace:@NO];
+    signal = [RACSignal merge:@[didBeginEditing, didEndEditing]];
+    
+    
+    objc_setAssociatedObject(self, _cmd, signal, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    return signal;
+}
+
+
 @end
 
 

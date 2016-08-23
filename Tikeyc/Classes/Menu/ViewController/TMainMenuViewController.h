@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-
+#define Pan_left_MaxWith self.view.frame.size.width*3/4
+#define Pan_right_MaxWith self.view.frame.size.width*1/3
+#define Center_Animation_durition 1.0
 
 @interface TMainMenuViewController : UIViewController
 

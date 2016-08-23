@@ -33,8 +33,15 @@
 		4E731CDE1D6440150026997A /* TNormalRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E731CDD1D6440150026997A /* TNormalRefresh.m */; };
 		4E777CCE1D62CCCC00C40B07 /* LeftView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E777CCD1D62CCCC00C40B07 /* LeftView.storyboard */; };
 		4E777CD01D62CCDF00C40B07 /* RightView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E777CCF1D62CCDF00C40B07 /* RightView.storyboard */; };
+		4E910E601D6C336C00305238 /* TMenuRightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E910E5F1D6C336C00305238 /* TMenuRightCell.m */; };
 		4E92F8341D61C55F0028EE25 /* TBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E92F8331D61C55F0028EE25 /* TBaseViewController.m */; };
 		4E92F8371D61C5790028EE25 /* TBaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E92F8361D61C5790028EE25 /* TBaseNavigationViewController.m */; };
+		4E98D0AB1D6A9B7500E810D1 /* TipsFile.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4E98D0AA1D6A9B7500E810D1 /* TipsFile.rtf */; };
+		4EA093BE1D6BFBFE0037E98E /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EA093BD1D6BFBFE0037E98E /* city.plist */; };
+		4ED8342C1D6AF76E00325985 /* TMenuViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED8342B1D6AF76E00325985 /* TMenuViewModel.m */; };
+		4ED8342F1D6AF94500325985 /* TMenuLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED8342E1D6AF94500325985 /* TMenuLeftCell.m */; };
+		4ED834321D6B019800325985 /* TMenuLeftHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED834311D6B019800325985 /* TMenuLeftHeadView.m */; };
+		4ED834341D6B01A600325985 /* TMenuLeftHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ED834331D6B01A600325985 /* TMenuLeftHeadView.xib */; };
 		4EE4D9821D62F17C008F9F48 /* TPopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4D9811D62F17C008F9F48 /* TPopButton.m */; };
 		4EE4D98A1D630A24008F9F48 /* TMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4D9881D630A24008F9F48 /* TMainMenuViewController.m */; };
 		4EE4D9941D630B9C008F9F48 /* TKCAppTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4D9931D630B9C008F9F48 /* TKCAppTools.m */; };
@@ -111,11 +118,22 @@
 		4E731CE01D6442660026997A /* ClassHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassHeader.h; sourceTree = "<group>"; };
 		4E777CCD1D62CCCC00C40B07 /* LeftView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LeftView.storyboard; sourceTree = "<group>"; };
 		4E777CCF1D62CCDF00C40B07 /* RightView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RightView.storyboard; sourceTree = "<group>"; };
+		4E910E5E1D6C336C00305238 /* TMenuRightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMenuRightCell.h; sourceTree = "<group>"; };
+		4E910E5F1D6C336C00305238 /* TMenuRightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMenuRightCell.m; sourceTree = "<group>"; };
 		4E92F8321D61C55F0028EE25 /* TBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBaseViewController.h; sourceTree = "<group>"; };
 		4E92F8331D61C55F0028EE25 /* TBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBaseViewController.m; sourceTree = "<group>"; };
 		4E92F8351D61C5790028EE25 /* TBaseNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBaseNavigationViewController.h; sourceTree = "<group>"; };
 		4E92F8361D61C5790028EE25 /* TBaseNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBaseNavigationViewController.m; sourceTree = "<group>"; };
 		4E92F83B1D61C87B0028EE25 /* Tikeyc.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tikeyc.pch; sourceTree = "<group>"; };
+		4E98D0AA1D6A9B7500E810D1 /* TipsFile.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = TipsFile.rtf; sourceTree = "<group>"; };
+		4EA093BD1D6BFBFE0037E98E /* city.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = city.plist; sourceTree = "<group>"; };
+		4ED8342A1D6AF76E00325985 /* TMenuViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMenuViewModel.h; sourceTree = "<group>"; };
+		4ED8342B1D6AF76E00325985 /* TMenuViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMenuViewModel.m; sourceTree = "<group>"; };
+		4ED8342D1D6AF94500325985 /* TMenuLeftCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMenuLeftCell.h; sourceTree = "<group>"; };
+		4ED8342E1D6AF94500325985 /* TMenuLeftCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMenuLeftCell.m; sourceTree = "<group>"; };
+		4ED834301D6B019800325985 /* TMenuLeftHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMenuLeftHeadView.h; sourceTree = "<group>"; };
+		4ED834311D6B019800325985 /* TMenuLeftHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMenuLeftHeadView.m; sourceTree = "<group>"; };
+		4ED834331D6B01A600325985 /* TMenuLeftHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMenuLeftHeadView.xib; sourceTree = "<group>"; };
 		4EE4D9801D62F17C008F9F48 /* TPopButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPopButton.h; sourceTree = "<group>"; };
 		4EE4D9811D62F17C008F9F48 /* TPopButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPopButton.m; sourceTree = "<group>"; };
 		4EE4D9871D630A24008F9F48 /* TMainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMainMenuViewController.h; sourceTree = "<group>"; };
@@ -268,6 +286,7 @@
 		4E27814A1D61B373003CA490 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4EA093BD1D6BFBFE0037E98E /* city.plist */,
 				4E48E4CA1D66EC9C00C7A477 /* Document */,
 				4E731CB41D6419B10026997A /* README.md */,
 			);
@@ -277,6 +296,7 @@
 		4E48E4CA1D66EC9C00C7A477 /* Document */ = {
 			isa = PBXGroup;
 			children = (
+				4E98D0AA1D6A9B7500E810D1 /* TipsFile.rtf */,
 			);
 			path = Document;
 			sourceTree = "<group>";
@@ -448,6 +468,13 @@
 		4EE4D9851D630A24008F9F48 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4ED8342D1D6AF94500325985 /* TMenuLeftCell.h */,
+				4ED8342E1D6AF94500325985 /* TMenuLeftCell.m */,
+				4E910E5E1D6C336C00305238 /* TMenuRightCell.h */,
+				4E910E5F1D6C336C00305238 /* TMenuRightCell.m */,
+				4ED834301D6B019800325985 /* TMenuLeftHeadView.h */,
+				4ED834311D6B019800325985 /* TMenuLeftHeadView.m */,
+				4ED834331D6B01A600325985 /* TMenuLeftHeadView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -470,6 +497,8 @@
 		4EE4D9891D630A24008F9F48 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4ED8342A1D6AF76E00325985 /* TMenuViewModel.h */,
+				4ED8342B1D6AF76E00325985 /* TMenuViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -657,10 +686,13 @@
 			files = (
 				4E731CAF1D640C8D0026997A /* p.p12 in Resources */,
 				4E731CB11D640C8D0026997A /* rsacert.der in Resources */,
+				4ED834341D6B01A600325985 /* TMenuLeftHeadView.xib in Resources */,
 				4E777CCE1D62CCCC00C40B07 /* LeftView.storyboard in Resources */,
 				4E777CD01D62CCDF00C40B07 /* RightView.storyboard in Resources */,
 				4E2781461D61B32C003CA490 /* Main.storyboard in Resources */,
 				4E2781451D61B32C003CA490 /* LaunchScreen.storyboard in Resources */,
+				4EA093BE1D6BFBFE0037E98E /* city.plist in Resources */,
+				4E98D0AB1D6A9B7500E810D1 /* TipsFile.rtf in Resources */,
 				4E27811A1D61B210003CA490 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -742,6 +774,7 @@
 				4E731CCE1D643BCE0026997A /* UIAlertController+TAlertView.m in Sources */,
 				4EE4D99E1D630DC5008F9F48 /* TMenuLeftTableViewController.m in Sources */,
 				4EE4D9821D62F17C008F9F48 /* TPopButton.m in Sources */,
+				4ED834321D6B019800325985 /* TMenuLeftHeadView.m in Sources */,
 				4EE4D98A1D630A24008F9F48 /* TMainMenuViewController.m in Sources */,
 				4E731CCD1D643BCE0026997A /* TAlertView.m in Sources */,
 				4E731CDE1D6440150026997A /* TNormalRefresh.m in Sources */,
@@ -750,13 +783,16 @@
 				4E27810F1D61B210003CA490 /* AppDelegate.m in Sources */,
 				4E731CA21D6405620026997A /* TMenuCenterViewController.m in Sources */,
 				4EE4D9941D630B9C008F9F48 /* TKCAppTools.m in Sources */,
+				4ED8342C1D6AF76E00325985 /* TMenuViewModel.m in Sources */,
 				4E92F8371D61C5790028EE25 /* TBaseNavigationViewController.m in Sources */,
 				4E731CAE1D640C8D0026997A /* CryptorTools.m in Sources */,
 				4E731CDA1D643E6B0026997A /* YZFlowLayout.m in Sources */,
 				4E731CB91D6439120026997A /* TServiceTool.m in Sources */,
+				4E910E601D6C336C00305238 /* TMenuRightCell.m in Sources */,
 				4E731CD91D643E6B0026997A /* YZDisplayViewController.m in Sources */,
 				4E731CB51D6419B10026997A /* README.md in Sources */,
 				4E92F8341D61C55F0028EE25 /* TBaseViewController.m in Sources */,
+				4ED8342F1D6AF94500325985 /* TMenuLeftCell.m in Sources */,
 				4E27810C1D61B210003CA490 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -835,7 +871,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "c1dcc1a4-8eb2-407b-8a35-2151cb173c81";
+				PROVISIONING_PROFILE = "e91a3d73-6486-4ca2-9927-094a68ef8a1d";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -875,7 +911,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "c1dcc1a4-8eb2-407b-8a35-2151cb173c81";
+				PROVISIONING_PROFILE = "e91a3d73-6486-4ca2-9927-094a68ef8a1d";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -893,7 +929,7 @@
 				INFOPLIST_FILE = Tikeyc/Info.plist;
 				INFOPLIST_PREFIX_HEADER = "";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.ways.gtsmis;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ways.GTMC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -913,7 +949,7 @@
 				INFOPLIST_FILE = Tikeyc/Info.plist;
 				INFOPLIST_PREFIX_HEADER = "";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = cn.ways.gtsmis;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ways.GTMC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

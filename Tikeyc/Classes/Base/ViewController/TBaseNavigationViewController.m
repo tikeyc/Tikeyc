@@ -91,10 +91,10 @@
             [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             [button setTitleColor:[UIColor blackColor] forState:UIControlStateHighlighted];
 //            @weakify(self);
-            WEAKSELF
+            TWeakSelf(self)
             [[button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
 //                @strongify(self);
-                [weakSelf popViewControllerAnimated:YES];
+                [weakself popViewControllerAnimated:YES];
             }];
             
             viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];

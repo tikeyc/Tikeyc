@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11173.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11143.2"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Dgt-o2-ZNe" customClass="TMenuLeftHeadView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="202"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu_user_phono" translatesAutoresizingMaskIntoConstraints="NO" id="ZWd-P2-7Vi">
+                    <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="qiJ-TV-gzb"/>
+                        <constraint firstAttribute="height" constant="60" id="vkG-p7-l60"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tikeyc" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1JV-Yi-DmX">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U7j-Bl-8cO">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="0Py-oi-Ngd"/>
+                        <constraint firstAttribute="height" constant="50" id="tc1-N4-FWR"/>
+                    </constraints>
+                    <state key="normal" title="Button" image="menu_QRcode_button1"/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot;个性源于自信，运气来自实力&quot;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qim-Be-5Sc">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="U7j-Bl-8cO" firstAttribute="top" secondItem="Dgt-o2-ZNe" secondAttribute="top" constant="20" id="1qg-Z1-8tr"/>
+                <constraint firstItem="Qim-Be-5Sc" firstAttribute="top" secondItem="ZWd-P2-7Vi" secondAttribute="bottom" constant="8" id="CsS-ZS-a43"/>
+                <constraint firstItem="1JV-Yi-DmX" firstAttribute="top" secondItem="Dgt-o2-ZNe" secondAttribute="top" constant="20" id="Dns-yJ-kaZ"/>
+                <constraint firstItem="ZWd-P2-7Vi" firstAttribute="leading" secondItem="Dgt-o2-ZNe" secondAttribute="leading" constant="16" id="MDn-zG-mYm"/>
+                <constraint firstAttribute="trailing" secondItem="Qim-Be-5Sc" secondAttribute="trailing" constant="16" id="Qil-sM-Dy1"/>
+                <constraint firstItem="ZWd-P2-7Vi" firstAttribute="top" secondItem="Dgt-o2-ZNe" secondAttribute="top" constant="20" id="Z4g-pT-Qex"/>
+                <constraint firstItem="Qim-Be-5Sc" firstAttribute="leading" secondItem="Dgt-o2-ZNe" secondAttribute="leading" constant="16" id="gEm-Kh-TmO"/>
+                <constraint firstItem="1JV-Yi-DmX" firstAttribute="leading" secondItem="ZWd-P2-7Vi" secondAttribute="trailing" constant="8" id="l9R-cP-B9Z"/>
+                <constraint firstAttribute="trailing" secondItem="U7j-Bl-8cO" secondAttribute="trailing" constant="12" id="lPG-0Y-v0g"/>
+                <constraint firstAttribute="bottom" secondItem="Qim-Be-5Sc" secondAttribute="bottom" constant="20" id="vAx-hZ-LBP"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="userDescriptionLabel" destination="Qim-Be-5Sc" id="gep-NL-chc"/>
+                <outlet property="userNickNameLabel" destination="1JV-Yi-DmX" id="iUk-WC-paz"/>
+                <outlet property="userPhotoImgView" destination="ZWd-P2-7Vi" id="M2o-A8-ZTz"/>
+                <outlet property="userQRCodeButton" destination="U7j-Bl-8cO" id="uA6-04-X5T"/>
+            </connections>
+            <point key="canvasLocation" x="-13.5" y="-145"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="menu_QRcode_button1" width="64" height="64"/>
+        <image name="menu_user_phono" width="60" height="60"/>
+    </resources>
+</document>

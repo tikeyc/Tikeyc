@@ -388,6 +388,49 @@
 }
 
 
+/**  通过图片Data数据第一个字节 来获取图片扩展名
+ *
+ *  @param data  name description
+ *
+ *  @return string
+ */
+- (NSString *)contentTypeForImageData:(NSData *)data {
+    //////////////此方法存在BUG
+    //假设这是一个网络获取的URL
+    NSString *path = @"http://pic3.nipic.com/20090709/2893198_075124038_2.gif";
+    // 判断是否为gif
+    NSString *extensionName = path.pathExtension;
+    if ([extensionName.lowercaseString isEqualToString:@"gif"]) {
+        //是gif图片
+    } else {
+        //不是gif图片
+    }
+    //////////////下面方法无BUG
+    uint8_t c;
+    [data getBytes:&c length:1];
+    switch (c) {
+        case 0xFF:
+            return @"jpeg";
+        case 0x89:
+            return @"png";
+        case 0x47:
+            return @"gif";
+        case 0x49:
+        case 0x4D:
+            return @"tiff";
+        case 0x52:
+            if ([data length] < 12) {
+                return nil;
+            }
+            NSString *testString = [[NSString alloc] initWithData:[data subdataWithRange:NSMakeRange(0, 12)] encoding:NSASCIIStringEncoding];
+            if ([testString hasPrefix:@"RIFF"] && [testString hasSuffix:@"WEBP"]) {
+                return @"webp";
+            }
+            return nil;
+    }
+    return nil;
+}
+
 /**  对图片进行滤镜处理
  *   怀旧 --> CIPhotoEffectInstant                         单色 --> CIPhotoEffectMono
  *   黑白 --> CIPhotoEffectNoir                            褪色 --> CIPhotoEffectFade
@@ -523,6 +566,39 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return image;
+}
+
+/** 设置圆形图片*/
++ (UIImage *)cutCircleImage:(UIImage *)image {
+    UIGraphicsBeginImageContextWithOptions(image.size, NO, 0.0);
+    // 获取上下文
+    CGContextRef ctr = UIGraphicsGetCurrentContext();
+    // 设置圆形
+    CGRect rect = CGRectMake(0, 0, image.size.width, image.size.height);
+    CGContextAddEllipseInRect(ctr, rect);
+    // 裁剪
+    CGContextClip(ctr);
+    // 将图片画上去
+    [image drawInRect:rect];
+    UIImage *circleImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return circleImage;
+}
+
+
+/**
+ *  把view设置成圆形
+ *
+ *  @param view 需要设置成圆形的view
+ */
++ (void)setViewCornerCircleWithView:(UIView *)view{
+    //
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds cornerRadius:view.bounds.size.width/2];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = view.bounds;
+    maskLayer.path = maskPath.CGPath;
+    view.layer.mask = maskLayer;
+    
 }
 
 /**

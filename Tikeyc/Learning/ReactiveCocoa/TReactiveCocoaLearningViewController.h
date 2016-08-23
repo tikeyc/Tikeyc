@@ -8,11 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TReactiveCocoaLearningViewController : UIViewController
+@protocol RACdelegate <NSObject>
+
+@optional
+- (void)testReplaceRACdelegate1;
+- (void)testReplaceRACdelegate2;
+
+@end
+
+@interface TReactiveCocoaLearningViewController : UIViewController<RACdelegate>
 
 /*
  * ReactiveCocoa框架学习笔记 ReactiveCocoa框架学习笔记
  * ReactiveCocoa框架学习笔记 ReactiveCocoa框架学习笔记
  */
+
+
+@property (nonatomic,weak)id<RACdelegate> replaceRACdelegate;
 
 @end

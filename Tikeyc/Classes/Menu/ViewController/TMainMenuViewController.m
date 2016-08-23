@@ -10,9 +10,7 @@
 
 #import "TPopButton.h"
 
-#define Pan_left_MaxWith self.view.width*2/3
-#define Pan_right_MaxWith self.view.width*1/3
-#define Center_Animation_durition 1.0
+
 
 @interface TMainMenuViewController ()
 
@@ -114,8 +112,8 @@
     self.leftView = _leftViewController.view;
     [self.view insertSubview:self.leftView belowSubview:self.centerView];//self.centerView已经创建
 //    [self.view addSubview:self.leftView];
-    self.leftView.frame = self.view.frame;
-    self.leftView.backgroundColor = [UIColor redColor];
+    self.leftView.frame = CGRectMake(0, 0, Pan_left_MaxWith, self.view.frame.size.height);//self.view.frame;
+    self.leftView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"menu_background"]];
 }
 
 - (void)setRightViewController:(UIViewController *)rightViewController{
@@ -125,8 +123,8 @@
     self.rightView = _rightViewController.view;
     [self.view insertSubview:self.rightView belowSubview:self.centerView];//self.centerView已经创建
 //    [self.view addSubview:self.rightView];
-    self.rightView.frame = self.view.frame;
-    
+    self.rightView.frame = CGRectMake(self.view.frame.size.width - Pan_right_MaxWith, 0, Pan_right_MaxWith, self.view.frame.size.height);//self.view.frame;
+    self.rightView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"menu_background"]];
 }
 
 - (void)setShowLeftBarButtonItem:(BOOL)showLeftBarButtonItem{

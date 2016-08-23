@@ -49,9 +49,9 @@
         switch (status) {
             case AFNetworkReachabilityStatusReachableViaWiFi:
                 NSLog(@"WiFi状态");
-                [TAlertView showWithTitle:@"提示" message:@"正在使用WiFi" cancelButtonTitle:@"知道了" otherButtonTitles:nil andAction:^(NSInteger buttonIndex) {
-                    NSLog(@"%ld",(long)buttonIndex);
-                } andParentView:nil];
+//                [TAlertView showWithTitle:@"提示" message:@"正在使用WiFi" cancelButtonTitle:@"知道了" otherButtonTitles:nil andAction:^(NSInteger buttonIndex) {
+//                    NSLog(@"%ld",(long)buttonIndex);
+//                } andParentView:nil];
                 break;
             case AFNetworkReachabilityStatusReachableViaWWAN:
             {
