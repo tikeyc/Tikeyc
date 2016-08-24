@@ -24,6 +24,25 @@
     titleView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
     self.navigationItem.titleView = titleView;
 
+    
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self.mainMenuViewController removePanGestureRecognizerTarget:NO];
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    
+    [self.mainMenuViewController removePanGestureRecognizerTarget:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,7 +59,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-
 
 
 

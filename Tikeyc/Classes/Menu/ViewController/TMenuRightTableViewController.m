@@ -67,8 +67,8 @@
 - (void)initBindViewModel{
     self.menuViewModel = [[TMenuViewModel alloc] initMenuViewModelWitchTableViewCellIdentifier:rightMenuTableViewCellIdentifier];
     
-    self.tableView.dataSource = self.menuViewModel;
-    self.tableView.delegate = self.menuViewModel;
+    self.tableView.dataSource = (id)self.menuViewModel;
+    self.tableView.delegate = (id)self.menuViewModel;
 }
 
 @end

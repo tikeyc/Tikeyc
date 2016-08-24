@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-
+#import "TMainMenuViewController.h"
+@class TMainMenuViewController;
 //由开发者自定义继承TMenuCenterViewController设置centerViewController,本项目由TMainViewController担任
 @interface TMenuCenterViewController : UIViewController
+
+@property (nonatomic,strong)TMainMenuViewController *mainMenuViewController;
 
 @end

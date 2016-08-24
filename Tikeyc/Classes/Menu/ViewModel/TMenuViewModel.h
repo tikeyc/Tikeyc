@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "TBaseViewController.h"
 
 #import "TMenuLeftHeadView.h"
 

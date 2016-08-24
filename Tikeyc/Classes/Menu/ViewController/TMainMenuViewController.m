@@ -8,6 +8,7 @@
 
 #import "TMainMenuViewController.h"
 
+
 #import "TPopButton.h"
 
 
@@ -75,7 +76,15 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    [self addGestureRecognizerToCenterView];
+    if (!_panGestureRecognizer && (_leftViewController || _rightViewController)) {
+        [self addGestureRecognizerToCenterView];
+    }
+
+}
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -98,6 +107,15 @@
 - (void)setCenterViewController:(UIViewController * _Nullable)centerViewController{
     _centerViewController = centerViewController;
     
+    if ([_centerViewController isKindOfClass:[UINavigationController class]]) {
+        UIViewController *VC = ((UINavigationController *)_centerViewController).topViewController;
+        ((TMenuCenterViewController *)VC).mainMenuViewController = self;
+    }else{
+        ((TMenuCenterViewController *)_centerViewController).mainMenuViewController = self;
+    }
+    if ([_centerViewController isKindOfClass:[TMenuCenterViewController class]]) {
+        ((TMenuCenterViewController *)_centerViewController).mainMenuViewController = self;
+    }
     //
     self.centerView = _centerViewController.view;
     [self.view addSubview:self.centerView];
@@ -107,6 +125,10 @@
 
 - (void)setLeftViewController:(UIViewController *)leftViewController{
     _leftViewController = leftViewController;
+    
+    if ([_leftViewController isKindOfClass:[TMenuLeftTableViewController class]]) {
+        ((TMenuLeftTableViewController *)_leftViewController).mainMenuViewController = self;
+    }
     
     //
     self.leftView = _leftViewController.view;
@@ -119,6 +141,9 @@
 - (void)setRightViewController:(UIViewController *)rightViewController{
     _rightViewController = rightViewController;
     
+    if ([_rightViewController isKindOfClass:[TMenuRightTableViewController class]]) {
+        ((TMenuRightTableViewController *)_rightViewController).mainMenuViewController = self;
+    }
     //
     self.rightView = _rightViewController.view;
     [self.view insertSubview:self.rightView belowSubview:self.centerView];//self.centerView已经创建
@@ -194,12 +219,8 @@
 }
 
 - (void)addGestureRecognizerToCenterView{
-    if (!_leftViewController && !_rightViewController) {
-        return;
-    }
-    
     _panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panAction:)];
-
+    
     [self.centerView addGestureRecognizer:_panGestureRecognizer];
     //
     _backCenterTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
@@ -209,72 +230,21 @@
     }else{
         [self.centerView addGestureRecognizer:_backCenterTap];
     }
-
+    //先移除，避免手势冲突，在显示左或右测视图时在添加
+    [_backCenterTap removeTarget:self action:@selector(tapAction:)];
 }
 
+- (void)removePanGestureRecognizerTarget:(BOOL)remove{
+    if (remove) {
+        _panGestureRecognizer.enabled = NO;
+//        [_panGestureRecognizer removeTarget:self action:@selector(panAction:)];此方法屏蔽手势影响系统自带左滑动返回手势
+    }else{
+        _panGestureRecognizer.enabled = YES;
+//        [_panGestureRecognizer addTarget:self action:@selector(panAction:)];此方法屏蔽手势影响系统自带左滑动返回手势
+    }
+}
 
 #pragma mark - Method Actions
-
-- (void)showLeftOrRightView:(TPopButton *)button{
-    CGFloat left_X;
-    if (button == _leftPopButton) {
-        NSAssert(_leftViewController, @"没有设置左侧控制器");
-        if (_rightPopButton.showMenu) {
-            [_rightPopButton animateToMenu];
-        }
-        
-        if (button.selected) {
-            left_X = 0;
-            button.selected = NO;
-        }else{
-            left_X = Pan_left_MaxWith;
-            button.selected = YES;
-        }
-    }else if (button == _rightPopButton){
-        NSAssert(_leftViewController, @"没有设置右侧控制器");
-        if (_leftPopButton.showMenu) {
-            [_leftPopButton animateToMenu];
-        }
-        
-        if (button.selected) {
-            left_X = 0;
-            button.selected = NO;
-        }else{
-            left_X = -Pan_right_MaxWith;
-            button.selected = YES;
-        }
-        
-    }
-    
-    _panGestureRecognizer.enabled = NO;//防止动画过程中滑动手势
-    [UIView animateWithDuration:Center_Animation_durition delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.centerView.left = left_X;
-        if (left_X > 0) {
-            self.leftView.hidden = NO;
-            self.rightView.hidden = YES;
-        }else{
-            self.leftView.hidden = YES;
-            self.rightView.hidden = NO;
-        }
-    } completion:^(BOOL finished) {
-        _panGestureRecognizer.enabled = YES;
-        
-    }];
-}
-
-- (void)tapAction:(UITapGestureRecognizer *)backCenterTap{
-    self.leftView.hidden = YES;
-    self.rightView.hidden = YES;
-    [_leftPopButton animateToMenu];
-    [_rightPopButton animateToMenu];
-    [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.centerView.left = 0;
-    } completion:^(BOOL finished) {
-        
-        
-    }];
-}
-
 
 - (void)panAction:(UIPanGestureRecognizer *)pan{
     CGPoint point = [pan locationInView:self.centerView];
@@ -284,7 +254,8 @@
         case UIGestureRecognizerStateBegan:
         {
             _startPoint = point;
-            _backCenterTap.enabled = YES;//当出现左右视图时打开手势
+            [_backCenterTap addTarget:self action:@selector(tapAction:)];
+//            _backCenterTap.enabled = YES;//当出现左右视图时打开手势
         }
             break;
         case UIGestureRecognizerStateChanged:
@@ -301,7 +272,7 @@
                     self.rightView.hidden = YES;
                 }else{
                     //当不存在左控制器时
-//                    pan.enabled = NO;
+                    //                    pan.enabled = NO;
                     self.centerView.left = 0;
                     return;
                 }
@@ -312,11 +283,11 @@
                     self.rightView.hidden = NO;
                 }else{
                     //当不存在右控制器时
-//                    pan.enabled = NO;
+                    //                    pan.enabled = NO;
                     self.centerView.left = 0;
                     return;
                 }
- 
+                
             }
             //////////控制centerView的位置
             //显示左侧视图逻辑
@@ -410,7 +381,8 @@
             //显示左侧视图逻辑
             if (x_offSet <= 0 && self.centerView.left > 0) {
                 
-                _backCenterTap.enabled = NO;//当左右视图消失时关闭手势
+                [_backCenterTap removeTarget:self action:@selector(tapAction:)];
+                //_backCenterTap.enabled = NO;//当左右视图消失时关闭手势
                 
                 CGFloat left_X;
                 if (self.centerView.left <= Pan_left_MaxWith*2/3) {
@@ -430,7 +402,8 @@
             //显示右侧视图逻辑
             if (x_offSet >= 0 && self.centerView.left < 0) {
                 [_rightPopButton animateToMenu];
-                _backCenterTap.enabled = NO;//当左右视图消失时关闭手势
+                [_backCenterTap removeTarget:self action:@selector(tapAction:)];
+                //_backCenterTap.enabled = NO;//当左右视图消失时关闭手势
                 
                 CGFloat left_X;
                 if (self.centerView.left >= -Pan_right_MaxWith*2/3) {
@@ -448,14 +421,108 @@
                 
                 
             }
-
+            
         }
             break;
+            case UIGestureRecognizerStateCancelled:
+        {
             
+        }
+            break;
         default:
             break;
     }
 }
+
+- (void)showLeftOrRightView:(TPopButton *)button{
+    CGFloat left_X;
+    if (button == _leftPopButton) {
+        NSAssert(_leftViewController, @"没有设置左侧控制器");
+        
+        if (button.selected) {
+            left_X = 0;
+            button.selected = NO;
+            [_leftPopButton animateToMenu];
+        }else{
+            left_X = Pan_left_MaxWith;
+            button.selected = YES;
+            [_leftPopButton animateToClose];
+        }
+    }else if (button == _rightPopButton){
+        NSAssert(_leftViewController, @"没有设置右侧控制器");
+        
+        if (button.selected) {
+            left_X = 0;
+            button.selected = NO;
+            [_rightPopButton animateToMenu];
+        }else{
+            left_X = -Pan_right_MaxWith;
+            button.selected = YES;
+            [_rightPopButton animateToClose];
+        }
+        
+    }
+    
+    _panGestureRecognizer.enabled = NO;//防止动画过程中滑动手势
+    [UIView animateWithDuration:Center_Animation_durition delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.centerView.left = left_X;
+        if (left_X > 0) {
+            self.leftView.hidden = NO;
+            self.rightView.hidden = YES;
+        }else{
+            self.leftView.hidden = YES;
+            self.rightView.hidden = NO;
+        }
+    } completion:^(BOOL finished) {
+        _panGestureRecognizer.enabled = YES;
+        if (left_X != 0) {
+            [_backCenterTap addTarget:self action:@selector(tapAction:)];
+        }
+    }];
+}
+
+- (void)tapAction:(UITapGestureRecognizer *)backCenterTap{
+    [self showCenterControllerWithAnimation:YES];
+}
+
+- (void)showCenterControllerWithAnimation:(BOOL)animation{
+    [_backCenterTap removeTarget:self action:@selector(tapAction:)];
+    self.leftView.hidden = YES;
+    self.rightView.hidden = YES;
+    [_leftPopButton animateToMenu];
+    [_rightPopButton animateToMenu];
+    if (animation) {
+        [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            self.centerView.left = 0;
+        } completion:^(BOOL finished) {
+            _leftPopButton.selected = NO;
+            _rightPopButton.selected = NO;
+        }];
+    }else{
+        self.centerView.left = 0;
+        
+    }
+    
+}
+
+- (void)showCenterControllerWithAnimation:(BOOL)animation toShowNextController:(UIViewController *_Nullable)nextViewController{
+    [self showCenterControllerWithAnimation:animation];
+    
+    if ([self.centerViewController isKindOfClass:[UINavigationController class]]) {
+        if (((UINavigationController*)self.centerViewController).viewControllers.count %2 == 0) {
+            nextViewController.view.backgroundColor = [UIColor redColor];
+        }
+        [(UINavigationController*)self.centerViewController pushViewController:nextViewController animated:YES];
+    }else{
+        
+        [self.centerViewController presentViewController:nextViewController animated:YES completion:^{
+            
+        }];
+    }
+    
+}
+
+
 
 @end
 

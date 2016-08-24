@@ -17,13 +17,41 @@
                     <view key="view" contentMode="scaleToFill" id="XaK-Ua-dbq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vK6-Pb-dUY">
+                                <frame key="frameInset" minX="164" minY="92" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="vZk-IF-egr" kind="push" id="RTH-Eu-xk1"/>
+                                </connections>
+                            </button>
+                        </subviews>
                     </view>
                     <navigationItem key="navigationItem" id="RYI-UV-GW5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W3w-oJ-nT6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1126" y="-37"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jQ9-YV-e1E">
+            <objects>
+                <viewController id="vZk-IF-egr" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="chG-I9-CwA"/>
+                        <viewControllerLayoutGuide type="bottom" id="4Ff-1o-nT7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2sO-bV-PQM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.57254910469999998" green="0.80392163989999998" blue="0.43921571970000001" alpha="1" colorSpace="deviceRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="uxf-qG-Zs7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YR0-Dc-Bpu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-378" y="-37"/>
         </scene>
     </scenes>
 </document>

@@ -34,10 +34,12 @@
 		4E777CCE1D62CCCC00C40B07 /* LeftView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E777CCD1D62CCCC00C40B07 /* LeftView.storyboard */; };
 		4E777CD01D62CCDF00C40B07 /* RightView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E777CCF1D62CCDF00C40B07 /* RightView.storyboard */; };
 		4E910E601D6C336C00305238 /* TMenuRightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E910E5F1D6C336C00305238 /* TMenuRightCell.m */; };
+		4E910E631D6C470600305238 /* TAppDelegateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E910E621D6C470600305238 /* TAppDelegateManager.m */; };
 		4E92F8341D61C55F0028EE25 /* TBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E92F8331D61C55F0028EE25 /* TBaseViewController.m */; };
 		4E92F8371D61C5790028EE25 /* TBaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E92F8361D61C5790028EE25 /* TBaseNavigationViewController.m */; };
 		4E98D0AB1D6A9B7500E810D1 /* TipsFile.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4E98D0AA1D6A9B7500E810D1 /* TipsFile.rtf */; };
 		4EA093BE1D6BFBFE0037E98E /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EA093BD1D6BFBFE0037E98E /* city.plist */; };
+		4EBB7EBF1D6C4CB600E39DC9 /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EBB7EBE1D6C4CB600E39DC9 /* UIView+ViewController.m */; };
 		4ED8342C1D6AF76E00325985 /* TMenuViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED8342B1D6AF76E00325985 /* TMenuViewModel.m */; };
 		4ED8342F1D6AF94500325985 /* TMenuLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED8342E1D6AF94500325985 /* TMenuLeftCell.m */; };
 		4ED834321D6B019800325985 /* TMenuLeftHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED834311D6B019800325985 /* TMenuLeftHeadView.m */; };
@@ -120,6 +122,8 @@
 		4E777CCF1D62CCDF00C40B07 /* RightView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RightView.storyboard; sourceTree = "<group>"; };
 		4E910E5E1D6C336C00305238 /* TMenuRightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMenuRightCell.h; sourceTree = "<group>"; };
 		4E910E5F1D6C336C00305238 /* TMenuRightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMenuRightCell.m; sourceTree = "<group>"; };
+		4E910E611D6C470600305238 /* TAppDelegateManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAppDelegateManager.h; sourceTree = "<group>"; };
+		4E910E621D6C470600305238 /* TAppDelegateManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAppDelegateManager.m; sourceTree = "<group>"; };
 		4E92F8321D61C55F0028EE25 /* TBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBaseViewController.h; sourceTree = "<group>"; };
 		4E92F8331D61C55F0028EE25 /* TBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBaseViewController.m; sourceTree = "<group>"; };
 		4E92F8351D61C5790028EE25 /* TBaseNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBaseNavigationViewController.h; sourceTree = "<group>"; };
@@ -127,6 +131,8 @@
 		4E92F83B1D61C87B0028EE25 /* Tikeyc.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tikeyc.pch; sourceTree = "<group>"; };
 		4E98D0AA1D6A9B7500E810D1 /* TipsFile.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = TipsFile.rtf; sourceTree = "<group>"; };
 		4EA093BD1D6BFBFE0037E98E /* city.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = city.plist; sourceTree = "<group>"; };
+		4EBB7EBD1D6C4CB600E39DC9 /* UIView+ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewController.h"; sourceTree = "<group>"; };
+		4EBB7EBE1D6C4CB600E39DC9 /* UIView+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewController.m"; sourceTree = "<group>"; };
 		4ED8342A1D6AF76E00325985 /* TMenuViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMenuViewModel.h; sourceTree = "<group>"; };
 		4ED8342B1D6AF76E00325985 /* TMenuViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMenuViewModel.m; sourceTree = "<group>"; };
 		4ED8342D1D6AF94500325985 /* TMenuLeftCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMenuLeftCell.h; sourceTree = "<group>"; };
@@ -435,9 +441,19 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		4EBB7EBC1D6C4C6F00E39DC9 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				4EBB7EBD1D6C4CB600E39DC9 /* UIView+ViewController.h */,
+				4EBB7EBE1D6C4CB600E39DC9 /* UIView+ViewController.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		4EE4D97F1D62F170008F9F48 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				4EBB7EBC1D6C4C6F00E39DC9 /* Category */,
 				4E731CDB1D6440150026997A /* TRefresh */,
 				4E731CC51D643BCE0026997A /* TAlertView */,
 				4E731CCA1D643BCE0026997A /* TWaterflowLayout */,
@@ -553,6 +569,8 @@
 				4EE4D9951D630C0A008F9F48 /* CommenDefine.h */,
 				4E731CB21D640E430026997A /* TNotificationDefine.h */,
 				4E731CB31D640EB30026997A /* TUserDefaultDefine.h */,
+				4E910E611D6C470600305238 /* TAppDelegateManager.h */,
+				4E910E621D6C470600305238 /* TAppDelegateManager.m */,
 			);
 			path = Utitls;
 			sourceTree = "<group>";
@@ -639,7 +657,7 @@
 						DevelopmentTeam = MX688SUQZ4;
 						DevelopmentTeamName = "WAYS CONSULTING CO.,LTD.";
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					4E2781221D61B210003CA490 = {
 						CreatedOnToolsVersion = 8.0;
@@ -769,6 +787,7 @@
 				4E731CB01D640C8D0026997A /* RSA.m in Sources */,
 				4E731CA51D6406960026997A /* TMainViewController.m in Sources */,
 				4EE4D9A11D630DE5008F9F48 /* TMenuRightTableViewController.m in Sources */,
+				4EBB7EBF1D6C4CB600E39DC9 /* UIView+ViewController.m in Sources */,
 				4E731CD81D643E6B0026997A /* YZDisplayTitleLabel.m in Sources */,
 				4E48E4CF1D66ED1800C7A477 /* TReactiveCocoaLearningViewController.m in Sources */,
 				4E731CCE1D643BCE0026997A /* UIAlertController+TAlertView.m in Sources */,
@@ -779,6 +798,7 @@
 				4E731CCD1D643BCE0026997A /* TAlertView.m in Sources */,
 				4E731CDE1D6440150026997A /* TNormalRefresh.m in Sources */,
 				4E731CCF1D643BCE0026997A /* TWaterflowLayout.m in Sources */,
+				4E910E631D6C470600305238 /* TAppDelegateManager.m in Sources */,
 				4E2781491D61B344003CA490 /* Tikeyc.xcdatamodeld in Sources */,
 				4E27810F1D61B210003CA490 /* AppDelegate.m in Sources */,
 				4E731CA21D6405620026997A /* TMenuCenterViewController.m in Sources */,
@@ -923,7 +943,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: fan fang qiang (QF2UL855TU)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: fan fang qiang (QF2UL855TU)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Tikeyc/Tikeyc.pch;
 				INFOPLIST_FILE = Tikeyc/Info.plist;
@@ -931,8 +951,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ways.GTMC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "e91a3d73-6486-4ca2-9927-094a68ef8a1d";
+				PROVISIONING_PROFILE_SPECIFIER = MX688SUQZ4/gtmadev;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -943,7 +963,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: fan fang qiang (QF2UL855TU)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: fan fang qiang (QF2UL855TU)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Tikeyc/Tikeyc.pch;
 				INFOPLIST_FILE = Tikeyc/Info.plist;
@@ -951,8 +971,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ways.GTMC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "e91a3d73-6486-4ca2-9927-094a68ef8a1d";
+				PROVISIONING_PROFILE_SPECIFIER = MX688SUQZ4/gtmadev;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

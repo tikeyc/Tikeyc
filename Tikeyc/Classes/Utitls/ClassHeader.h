@@ -11,12 +11,14 @@
 
 //
 #import "AppDelegate.h"
+#import "TAppDelegateManager.h"
 
 //creat
 #import "CommenDefine.h"
 #import "TKCAppTools.h"
 #import "TNotificationDefine.h"
 #import "TServiceTool.h"
+#import "UIView+ViewController.h"
 
 #import "TAlertView.h"
 

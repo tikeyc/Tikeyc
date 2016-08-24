@@ -8,6 +8,8 @@
 
 #import "TMenuViewModel.h"
 
+#import "TMainMenuViewController.h"
+
 #import "TMenuLeftCell.h"
 #import "TMenuRightCell.h"
 
@@ -127,6 +129,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if ([tableView.viewController isKindOfClass:[TMenuLeftTableViewController class]] || [tableView.viewController isKindOfClass:[TMenuRightTableViewController class]]) {
+//        [((TMenuLeftTableViewController *)tableView.viewController).mainMenuViewController showCenterControllerWithAnimation:NO];
+        [((TMenuLeftTableViewController *)tableView.viewController).mainMenuViewController showCenterControllerWithAnimation:NO toShowNextController:[[TBaseViewController alloc] init]];
+    }
     
     
 }
