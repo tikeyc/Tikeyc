@@ -31,5 +31,6 @@
 #import "EXTScope.h"
 #import "NSObject+RACKVOWrapper.h"
 #import "RACReturnSignal.h"
+#import "SVProgressHUD.h"
 
 #endif /* ClassHeader_h */

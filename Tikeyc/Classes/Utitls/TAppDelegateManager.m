@@ -14,7 +14,14 @@
 
 #import "TMainViewController.h"
 
+#import "TLoginViewController.h"
+
 @implementation TAppDelegateManager
+
++ (void)gotoLoginController{
+    TLoginViewController *login = [[TLoginViewController alloc] init];
+    TApplication.delegate.window.rootViewController = login;
+}
 
 
 + (void)gotoMainController{
@@ -34,6 +41,14 @@
     mainMenu.showLeftBarButtonItem = YES;
     mainMenu.showRighBarButtonItem = YES;
     TApplication.delegate.window.rootViewController = mainMenu;//[[TBaseNavigationViewController alloc] initWithRootViewController:mainMenu]
+    
+    //animation
+    [UIView transitionWithView:TApplication.delegate.window duration:0.5 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+    
 }
 
 @end

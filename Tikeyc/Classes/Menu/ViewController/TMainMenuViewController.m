@@ -32,6 +32,11 @@
 
 @implementation TMainMenuViewController
 
+- (void)dealloc
+{
+    NSLog(@"%@ 成功销毁了，无内存泄漏",self);
+}
+
 - (instancetype)initMainMenuWithCenterViewController:(UIViewController *)centerViewController
                                   leftViewController:(UIViewController *)leftViewController
                                  rightViewController:(UIViewController *)rightViewController{
@@ -249,7 +254,7 @@
 - (void)panAction:(UIPanGestureRecognizer *)pan{
     CGPoint point = [pan locationInView:self.centerView];
     NSLog(@"move point:%@",NSStringFromCGPoint(point));
-    
+    TWeakSelf(self)
     switch (pan.state) {
         case UIGestureRecognizerStateBegan:
         {
@@ -296,7 +301,7 @@
                     [_leftPopButton animateToClose];
                     pan.enabled = NO;//防止动画过程中滑动手势
                     [UIView animateWithDuration:Center_Animation_durition delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                        self.centerView.left = Pan_left_MaxWith;
+                        weakself.centerView.left = Pan_left_MaxWith;
                     } completion:^(BOOL finished) {
                         pan.enabled = YES;
                         
@@ -310,7 +315,7 @@
                     [_leftPopButton animateToMenu];
                     pan.enabled = NO;//防止动画过程中滑动手势
                     [UIView animateWithDuration:Center_Animation_durition delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                        self.centerView.left = 0;
+                        weakself.centerView.left = 0;
                     } completion:^(BOOL finished) {
                         pan.enabled = YES;
                         
@@ -323,7 +328,7 @@
                     [_rightPopButton animateToClose];
                     pan.enabled = NO;
                     [UIView animateWithDuration:Center_Animation_durition delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                        self.centerView.left = -Pan_right_MaxWith;
+                        weakself.centerView.left = -Pan_right_MaxWith;
                     } completion:^(BOOL finished) {
                         pan.enabled = YES;
                     }];
@@ -335,7 +340,7 @@
                     [_rightPopButton animateToMenu];
                     pan.enabled = NO;//防止动画过程中滑动手势
                     [UIView animateWithDuration:Center_Animation_durition delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                        self.centerView.left = 0;
+                        weakself.centerView.left = 0;
                     } completion:^(BOOL finished) {
                         pan.enabled = YES;
                         
@@ -393,7 +398,7 @@
                     left_X = Pan_left_MaxWith;
                 }
                 [UIView animateWithDuration:Center_Animation_durition delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                    self.centerView.left = left_X;
+                    weakself.centerView.left = left_X;
                 } completion:^(BOOL finished) {
                     
                 }];
@@ -414,7 +419,7 @@
                     left_X = Pan_right_MaxWith;
                 }
                 [UIView animateWithDuration:Center_Animation_durition delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-                    self.centerView.left = left_X;
+                    weakself.centerView.left = left_X;
                 } completion:^(BOOL finished) {
                     
                 }];
@@ -464,19 +469,20 @@
     }
     
     _panGestureRecognizer.enabled = NO;//防止动画过程中滑动手势
+    TWeakSelf(self)
     [UIView animateWithDuration:Center_Animation_durition delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.centerView.left = left_X;
+        weakself.centerView.left = left_X;
         if (left_X > 0) {
-            self.leftView.hidden = NO;
-            self.rightView.hidden = YES;
+            weakself.leftView.hidden = NO;
+            weakself.rightView.hidden = YES;
         }else{
-            self.leftView.hidden = YES;
-            self.rightView.hidden = NO;
+            weakself.leftView.hidden = YES;
+            weakself.rightView.hidden = NO;
         }
     } completion:^(BOOL finished) {
         _panGestureRecognizer.enabled = YES;
         if (left_X != 0) {
-            [_backCenterTap addTarget:self action:@selector(tapAction:)];
+            [_backCenterTap addTarget:weakself action:@selector(tapAction:)];
         }
     }];
 }
@@ -491,9 +497,10 @@
     self.rightView.hidden = YES;
     [_leftPopButton animateToMenu];
     [_rightPopButton animateToMenu];
+    TWeakSelf(self)
     if (animation) {
         [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            self.centerView.left = 0;
+            weakself.centerView.left = 0;
         } completion:^(BOOL finished) {
             _leftPopButton.selected = NO;
             _rightPopButton.selected = NO;
@@ -507,6 +514,7 @@
 
 - (void)showCenterControllerWithAnimation:(BOOL)animation toShowNextController:(UIViewController *_Nullable)nextViewController{
     [self showCenterControllerWithAnimation:animation];
+    [self removePanGestureRecognizerTarget:YES];
     
     if ([self.centerViewController isKindOfClass:[UINavigationController class]]) {
         if (((UINavigationController*)self.centerViewController).viewControllers.count %2 == 0) {

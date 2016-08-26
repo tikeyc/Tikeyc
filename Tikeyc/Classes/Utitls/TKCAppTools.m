@@ -598,7 +598,21 @@
     maskLayer.frame = view.bounds;
     maskLayer.path = maskPath.CGPath;
     view.layer.mask = maskLayer;
+}
+/**
+ *  把view设置圆角
+ *
+ *  @param view 需要设置成圆形的view
+ *  @param rectCorner 需要设置的边rectCorner
+ *  @param size 需要设置大小size
+ */
++ (void)setCornerWithView:(UIView *)view byRoundingCorners:(UIRectCorner)rectCorner cornerRadii:(CGSize)size{
     
+    UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:rectCorner cornerRadii:size];
+    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    maskLayer.frame = view.bounds;
+    maskLayer.path = maskPath.CGPath;
+    view.layer.mask = maskLayer;
 }
 
 /**

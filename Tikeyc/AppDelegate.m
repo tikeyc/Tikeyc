@@ -22,7 +22,7 @@
     
     self.window.backgroundColor = [UIColor whiteColor];
     
-    [TAppDelegateManager gotoMainController];
+    [TAppDelegateManager gotoLoginController];
     
     
     return YES;

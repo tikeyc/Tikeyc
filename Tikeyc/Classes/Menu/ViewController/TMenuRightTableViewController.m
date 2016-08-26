@@ -19,6 +19,12 @@
 
 @implementation TMenuRightTableViewController
 
+
+- (void)dealloc
+{
+    NSLog(@"%@ 成功销毁了，无内存泄漏",self);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

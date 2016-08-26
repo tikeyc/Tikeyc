@@ -15,7 +15,11 @@
 		4E2781451D61B32C003CA490 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E2781431D61B32C003CA490 /* LaunchScreen.storyboard */; };
 		4E2781461D61B32C003CA490 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E2781441D61B32C003CA490 /* Main.storyboard */; };
 		4E2781491D61B344003CA490 /* Tikeyc.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4E2781471D61B344003CA490 /* Tikeyc.xcdatamodeld */; };
+		4E2A43711D6DA80400A9CC28 /* TPopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2A436E1D6DA80400A9CC28 /* TPopButton.m */; };
+		4E2A43721D6DA80400A9CC28 /* TLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2A43701D6DA80400A9CC28 /* TLoginButton.m */; };
 		4E48E4CF1D66ED1800C7A477 /* TReactiveCocoaLearningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E48E4CE1D66ED1800C7A477 /* TReactiveCocoaLearningViewController.m */; };
+		4E59E6621D6D8B360036D14B /* TLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E59E6601D6D8B360036D14B /* TLoginViewController.m */; };
+		4E59E6631D6D8B360036D14B /* TLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E59E6611D6D8B360036D14B /* TLoginViewController.xib */; };
 		4E731CA21D6405620026997A /* TMenuCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E731CA11D6405620026997A /* TMenuCenterViewController.m */; };
 		4E731CA51D6406960026997A /* TMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E731CA41D6406960026997A /* TMainViewController.m */; };
 		4E731CAE1D640C8D0026997A /* CryptorTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E731CA91D640C8D0026997A /* CryptorTools.m */; };
@@ -44,11 +48,12 @@
 		4ED8342F1D6AF94500325985 /* TMenuLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED8342E1D6AF94500325985 /* TMenuLeftCell.m */; };
 		4ED834321D6B019800325985 /* TMenuLeftHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4ED834311D6B019800325985 /* TMenuLeftHeadView.m */; };
 		4ED834341D6B01A600325985 /* TMenuLeftHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4ED834331D6B01A600325985 /* TMenuLeftHeadView.xib */; };
-		4EE4D9821D62F17C008F9F48 /* TPopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4D9811D62F17C008F9F48 /* TPopButton.m */; };
 		4EE4D98A1D630A24008F9F48 /* TMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4D9881D630A24008F9F48 /* TMainMenuViewController.m */; };
 		4EE4D9941D630B9C008F9F48 /* TKCAppTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4D9931D630B9C008F9F48 /* TKCAppTools.m */; };
 		4EE4D99E1D630DC5008F9F48 /* TMenuLeftTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4D99D1D630DC5008F9F48 /* TMenuLeftTableViewController.m */; };
 		4EE4D9A11D630DE5008F9F48 /* TMenuRightTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EE4D9A01D630DE5008F9F48 /* TMenuRightTableViewController.m */; };
+		4EF621071D6FD9C100291A5C /* TLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF621061D6FD9C100291A5C /* TLoginViewModel.m */; };
+		4EF6210A1D6FD9E400291A5C /* TLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EF621091D6FD9E400291A5C /* TLoginModel.m */; };
 		AEAA8449A95E86A0354DBF27 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C446CF204461694CAE9DAEA6 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,8 +90,15 @@
 		4E2781431D61B32C003CA490 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E2781441D61B32C003CA490 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4E2781481D61B344003CA490 /* Tikeyc.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Tikeyc.xcdatamodel; sourceTree = "<group>"; };
+		4E2A436D1D6DA80400A9CC28 /* TPopButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPopButton.h; sourceTree = "<group>"; };
+		4E2A436E1D6DA80400A9CC28 /* TPopButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPopButton.m; sourceTree = "<group>"; };
+		4E2A436F1D6DA80400A9CC28 /* TLoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLoginButton.h; sourceTree = "<group>"; };
+		4E2A43701D6DA80400A9CC28 /* TLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLoginButton.m; sourceTree = "<group>"; };
 		4E48E4CD1D66ED1800C7A477 /* TReactiveCocoaLearningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TReactiveCocoaLearningViewController.h; sourceTree = "<group>"; };
 		4E48E4CE1D66ED1800C7A477 /* TReactiveCocoaLearningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TReactiveCocoaLearningViewController.m; sourceTree = "<group>"; };
+		4E59E65F1D6D8B360036D14B /* TLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLoginViewController.h; sourceTree = "<group>"; };
+		4E59E6601D6D8B360036D14B /* TLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLoginViewController.m; sourceTree = "<group>"; };
+		4E59E6611D6D8B360036D14B /* TLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TLoginViewController.xib; sourceTree = "<group>"; };
 		4E731CA01D6405620026997A /* TMenuCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMenuCenterViewController.h; sourceTree = "<group>"; };
 		4E731CA11D6405620026997A /* TMenuCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMenuCenterViewController.m; sourceTree = "<group>"; };
 		4E731CA31D6406960026997A /* TMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMainViewController.h; sourceTree = "<group>"; };
@@ -140,8 +152,6 @@
 		4ED834301D6B019800325985 /* TMenuLeftHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMenuLeftHeadView.h; sourceTree = "<group>"; };
 		4ED834311D6B019800325985 /* TMenuLeftHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMenuLeftHeadView.m; sourceTree = "<group>"; };
 		4ED834331D6B01A600325985 /* TMenuLeftHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TMenuLeftHeadView.xib; sourceTree = "<group>"; };
-		4EE4D9801D62F17C008F9F48 /* TPopButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPopButton.h; sourceTree = "<group>"; };
-		4EE4D9811D62F17C008F9F48 /* TPopButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPopButton.m; sourceTree = "<group>"; };
 		4EE4D9871D630A24008F9F48 /* TMainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMainMenuViewController.h; sourceTree = "<group>"; };
 		4EE4D9881D630A24008F9F48 /* TMainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMainMenuViewController.m; sourceTree = "<group>"; };
 		4EE4D9921D630B9C008F9F48 /* TKCAppTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKCAppTools.h; sourceTree = "<group>"; };
@@ -151,6 +161,10 @@
 		4EE4D99D1D630DC5008F9F48 /* TMenuLeftTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMenuLeftTableViewController.m; sourceTree = "<group>"; };
 		4EE4D99F1D630DE5008F9F48 /* TMenuRightTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMenuRightTableViewController.h; sourceTree = "<group>"; };
 		4EE4D9A01D630DE5008F9F48 /* TMenuRightTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMenuRightTableViewController.m; sourceTree = "<group>"; };
+		4EF621051D6FD9C100291A5C /* TLoginViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLoginViewModel.h; sourceTree = "<group>"; };
+		4EF621061D6FD9C100291A5C /* TLoginViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLoginViewModel.m; sourceTree = "<group>"; };
+		4EF621081D6FD9E400291A5C /* TLoginModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLoginModel.h; sourceTree = "<group>"; };
+		4EF621091D6FD9E400291A5C /* TLoginModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLoginModel.m; sourceTree = "<group>"; };
 		5009AA6D9910FACA4FD58BB4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7C3F81779E97791548301D2F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C446CF204461694CAE9DAEA6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -265,6 +279,7 @@
 				4EE4D97F1D62F170008F9F48 /* Custom */,
 				4E92F8251D61C4CB0028EE25 /* Base */,
 				4EE4D9831D630A24008F9F48 /* Menu */,
+				4E59E65A1D6D8B100036D14B /* User */,
 				4EE4D98B1D630A4C008F9F48 /* Main */,
 			);
 			path = Classes;
@@ -299,6 +314,17 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		4E2A436C1D6DA80400A9CC28 /* Pop */ = {
+			isa = PBXGroup;
+			children = (
+				4E2A436D1D6DA80400A9CC28 /* TPopButton.h */,
+				4E2A436E1D6DA80400A9CC28 /* TPopButton.m */,
+				4E2A436F1D6DA80400A9CC28 /* TLoginButton.h */,
+				4E2A43701D6DA80400A9CC28 /* TLoginButton.m */,
+			);
+			path = Pop;
+			sourceTree = "<group>";
+		};
 		4E48E4CA1D66EC9C00C7A477 /* Document */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,6 +348,52 @@
 				4E48E4CE1D66ED1800C7A477 /* TReactiveCocoaLearningViewController.m */,
 			);
 			path = ReactiveCocoa;
+			sourceTree = "<group>";
+		};
+		4E59E65A1D6D8B100036D14B /* User */ = {
+			isa = PBXGroup;
+			children = (
+				4E59E65B1D6D8B100036D14B /* Model */,
+				4E59E65C1D6D8B100036D14B /* View */,
+				4E59E65D1D6D8B100036D14B /* ViewController */,
+				4E59E65E1D6D8B100036D14B /* ViewModel */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		4E59E65B1D6D8B100036D14B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4EF621081D6FD9E400291A5C /* TLoginModel.h */,
+				4EF621091D6FD9E400291A5C /* TLoginModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4E59E65C1D6D8B100036D14B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4E59E65D1D6D8B100036D14B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4E59E65F1D6D8B360036D14B /* TLoginViewController.h */,
+				4E59E6601D6D8B360036D14B /* TLoginViewController.m */,
+				4E59E6611D6D8B360036D14B /* TLoginViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4E59E65E1D6D8B100036D14B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4EF621051D6FD9C100291A5C /* TLoginViewModel.h */,
+				4EF621061D6FD9C100291A5C /* TLoginViewModel.m */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		4E731CA61D640C8D0026997A /* Lib */ = {
@@ -453,12 +525,11 @@
 		4EE4D97F1D62F170008F9F48 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				4E2A436C1D6DA80400A9CC28 /* Pop */,
 				4EBB7EBC1D6C4C6F00E39DC9 /* Category */,
 				4E731CDB1D6440150026997A /* TRefresh */,
 				4E731CC51D643BCE0026997A /* TAlertView */,
 				4E731CCA1D643BCE0026997A /* TWaterflowLayout */,
-				4EE4D9801D62F17C008F9F48 /* TPopButton.h */,
-				4EE4D9811D62F17C008F9F48 /* TPopButton.m */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -707,6 +778,7 @@
 				4ED834341D6B01A600325985 /* TMenuLeftHeadView.xib in Resources */,
 				4E777CCE1D62CCCC00C40B07 /* LeftView.storyboard in Resources */,
 				4E777CD01D62CCDF00C40B07 /* RightView.storyboard in Resources */,
+				4E59E6631D6D8B360036D14B /* TLoginViewController.xib in Resources */,
 				4E2781461D61B32C003CA490 /* Main.storyboard in Resources */,
 				4E2781451D61B32C003CA490 /* LaunchScreen.storyboard in Resources */,
 				4EA093BE1D6BFBFE0037E98E /* city.plist in Resources */,
@@ -791,9 +863,10 @@
 				4E731CD81D643E6B0026997A /* YZDisplayTitleLabel.m in Sources */,
 				4E48E4CF1D66ED1800C7A477 /* TReactiveCocoaLearningViewController.m in Sources */,
 				4E731CCE1D643BCE0026997A /* UIAlertController+TAlertView.m in Sources */,
+				4EF621071D6FD9C100291A5C /* TLoginViewModel.m in Sources */,
 				4EE4D99E1D630DC5008F9F48 /* TMenuLeftTableViewController.m in Sources */,
-				4EE4D9821D62F17C008F9F48 /* TPopButton.m in Sources */,
 				4ED834321D6B019800325985 /* TMenuLeftHeadView.m in Sources */,
+				4E2A43721D6DA80400A9CC28 /* TLoginButton.m in Sources */,
 				4EE4D98A1D630A24008F9F48 /* TMainMenuViewController.m in Sources */,
 				4E731CCD1D643BCE0026997A /* TAlertView.m in Sources */,
 				4E731CDE1D6440150026997A /* TNormalRefresh.m in Sources */,
@@ -803,9 +876,11 @@
 				4E27810F1D61B210003CA490 /* AppDelegate.m in Sources */,
 				4E731CA21D6405620026997A /* TMenuCenterViewController.m in Sources */,
 				4EE4D9941D630B9C008F9F48 /* TKCAppTools.m in Sources */,
+				4EF6210A1D6FD9E400291A5C /* TLoginModel.m in Sources */,
 				4ED8342C1D6AF76E00325985 /* TMenuViewModel.m in Sources */,
 				4E92F8371D61C5790028EE25 /* TBaseNavigationViewController.m in Sources */,
 				4E731CAE1D640C8D0026997A /* CryptorTools.m in Sources */,
+				4E2A43711D6DA80400A9CC28 /* TPopButton.m in Sources */,
 				4E731CDA1D643E6B0026997A /* YZFlowLayout.m in Sources */,
 				4E731CB91D6439120026997A /* TServiceTool.m in Sources */,
 				4E910E601D6C336C00305238 /* TMenuRightCell.m in Sources */,
@@ -814,6 +889,7 @@
 				4E92F8341D61C55F0028EE25 /* TBaseViewController.m in Sources */,
 				4ED8342F1D6AF94500325985 /* TMenuLeftCell.m in Sources */,
 				4E27810C1D61B210003CA490 /* main.m in Sources */,
+				4E59E6621D6D8B360036D14B /* TLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

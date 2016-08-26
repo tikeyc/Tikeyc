@@ -251,11 +251,20 @@
 
 #pragma mark - 把view设置成圆形
 /**
- *  把view设置成圆形
+ *  把view设置成圆形 如果是XIB创建的，需延迟设置，第一时间xib的View的fram为0，如果在控制器可以在viewDidAppear中设置无需延迟
  *
  *  @param view 需要设置成圆形的view
  */
 + (void)setViewCornerCircleWithView:(UIView *)view;
+
+/**
+ *  把view设置圆角
+ *
+ *  @param view 需要设置成圆形的view
+ *  @param rectCorner 需要设置的边rectCorner
+ *  @param size 需要设置大小size
+ */
++ (void)setCornerWithView:(UIView *)view byRoundingCorners:(UIRectCorner)rectCorner cornerRadii:(CGSize)size;
 
 #pragma mark - 截取view中某个区域生成一张图片
 /**

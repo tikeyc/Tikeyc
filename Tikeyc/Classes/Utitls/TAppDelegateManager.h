@@ -10,6 +10,7 @@
 
 @interface TAppDelegateManager : NSObject
 
++ (void)gotoLoginController;
 
 + (void)gotoMainController;
 
