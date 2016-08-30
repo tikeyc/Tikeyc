@@ -1,5 +1,5 @@
 //
-//  WSLoginButton.h
+//  TLoginButton.h
 //  Popping
 //
 //  Created by André Schneider on 12.05.14.

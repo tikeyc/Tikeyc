@@ -45,7 +45,6 @@
     if (self) {
         NSAssert(centerViewController, @"没有设置中间控制器");
         
-        
         //
         [self setCenterViewController:centerViewController];//必须第一个设置，以便self.centerView在最上面
         self.leftViewController = leftViewController;
@@ -115,7 +114,7 @@
     if ([_centerViewController isKindOfClass:[UINavigationController class]]) {
         UIViewController *VC = ((UINavigationController *)_centerViewController).topViewController;
         ((TMenuCenterViewController *)VC).mainMenuViewController = self;
-    }else{
+    }else if ([_centerViewController isKindOfClass:[TMenuCenterViewController class]]){
         ((TMenuCenterViewController *)_centerViewController).mainMenuViewController = self;
     }
     if ([_centerViewController isKindOfClass:[TMenuCenterViewController class]]) {
@@ -163,7 +162,7 @@
     if (![_centerViewController isKindOfClass:[UINavigationController class]]) {
         return;
     }
-    if (!_leftPopButton) {
+    if (_showLeftBarButtonItem && !_leftPopButton) {
         _leftPopButton = [TPopButton button];
         _leftPopButton.tag = 1;
         [_leftPopButton addTarget:self action:@selector(showLeftOrRightView:) forControlEvents:UIControlEventTouchUpInside];
@@ -189,7 +188,7 @@
     if (![_centerViewController isKindOfClass:[UINavigationController class]]) {
         return;
     }
-    if (!_rightPopButton) {
+    if (_showRighBarButtonItem && !_rightPopButton) {
         _rightPopButton = [TPopButton button];
         _rightPopButton.tag = 2;
         [_rightPopButton addTarget:self action:@selector(showLeftOrRightView:) forControlEvents:UIControlEventTouchUpInside];
@@ -253,7 +252,7 @@
 
 - (void)panAction:(UIPanGestureRecognizer *)pan{
     CGPoint point = [pan locationInView:self.centerView];
-    NSLog(@"move point:%@",NSStringFromCGPoint(point));
+//    NSLog(@"move point:%@",NSStringFromCGPoint(point));
     TWeakSelf(self)
     switch (pan.state) {
         case UIGestureRecognizerStateBegan:
@@ -493,8 +492,7 @@
 
 - (void)showCenterControllerWithAnimation:(BOOL)animation{
     [_backCenterTap removeTarget:self action:@selector(tapAction:)];
-    self.leftView.hidden = YES;
-    self.rightView.hidden = YES;
+    
     [_leftPopButton animateToMenu];
     [_rightPopButton animateToMenu];
     TWeakSelf(self)
@@ -507,7 +505,8 @@
         }];
     }else{
         self.centerView.left = 0;
-        
+        self.leftView.hidden = YES;
+        self.rightView.hidden = YES;
     }
     
 }

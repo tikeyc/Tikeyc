@@ -43,10 +43,22 @@
     TApplication.delegate.window.rootViewController = mainMenu;//[[TBaseNavigationViewController alloc] initWithRootViewController:mainMenu]
     
     //animation
-    [UIView transitionWithView:TApplication.delegate.window duration:0.5 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
+    TApplication.delegate.window.transform = CGAffineTransformScale(TApplication.delegate.window.transform, 0.3, 0.3);
+    [UIView animateWithDuration:0.8 animations:^{
+        TApplication.delegate.window.transform = CGAffineTransformIdentity;
+    }];
+    [UIView transitionWithView:TApplication.delegate.window duration:0.1 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
         
     } completion:^(BOOL finished) {
-        
+        [UIView transitionWithView:TApplication.delegate.window duration:0.2 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
+            
+        } completion:^(BOOL finished) {
+            [UIView transitionWithView:TApplication.delegate.window duration:0.4 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
+                
+            } completion:^(BOOL finished) {
+                
+            }];
+        }];
     }];
     
 }

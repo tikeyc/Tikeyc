@@ -27,7 +27,7 @@
 
 - (instancetype _Nullable)initMainMenuWithCenterViewController:(UIViewController *_Nullable)centerViewController;
 
-@property (nonatomic,strong,readonly)UIViewController *_Nullable centerViewController;
+@property (nonatomic,strong,readonly)UIViewController *_Nullable centerViewController;//只读
 @property (nonatomic,strong)UIViewController *_Nullable leftViewController;
 @property (nonatomic,strong)UIViewController *_Nullable rightViewController;
 @property (nonatomic,copy)NSString *_Nullable testString;

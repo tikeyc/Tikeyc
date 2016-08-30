@@ -52,6 +52,23 @@
             });
             
             return nil;
+            /*
+            [TServiceTool GET:nil parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                [subscriber sendNext:@"登录成功"];
+                
+                // 数据传送完毕，必须调用完成，否则命令永远处于执行状态
+                [subscriber sendCompleted];
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                [subscriber sendNext:error];
+                
+                // 数据传送完毕，必须调用完成，否则命令永远处于执行状态
+                [subscriber sendCompleted];
+                [subscriber sendError:error];
+            }];
+             
+             return nil;
+            */
+            
         }];
         
         
@@ -78,7 +95,7 @@
             // 隐藏蒙版
             [SVProgressHUD dismiss];
             
-            [TAppDelegateManager gotoMainController];
+            
         }
     }];
     

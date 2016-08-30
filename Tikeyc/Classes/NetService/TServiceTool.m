@@ -111,10 +111,10 @@
 {
     TNetManager *mgr = [TNetManager shareManager];
     NSURLSessionDataTask *task = [mgr GET:URLString parameters:parameters progress:downloadProgress success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        //        YPLog(@"%@",responseObject);
+        //        NSLog(@"%@",responseObject);
         success(task,responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        //        YPLog(@"%@",error);
+        //        NSLog(@"%@",error);
         failure(task,error);
     }];;
     return task;
@@ -128,10 +128,10 @@
                                 failure:(nullable void (^)(NSURLSessionDataTask * _Nullable task, NSError *error))failure
 {
     NSURLSessionDataTask *task = [[TNetManager shareManager] POST:URLString parameters:parameters progress:uploadProgress success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        //        YPLog(@"%@",responseObject);
+        //        NSLog(@"%@",responseObject);
         success(task,responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        //        YPLog(@"%@",error);
+        //        NSLog(@"%@",error);
         failure(task,error);
     }];
     return task;

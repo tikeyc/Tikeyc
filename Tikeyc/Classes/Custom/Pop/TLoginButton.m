@@ -1,5 +1,5 @@
 //
-//  WSLoginButton.m
+//  TLoginButton.m
 //  Popping
 //
 //  Created by André Schneider on 12.05.14.

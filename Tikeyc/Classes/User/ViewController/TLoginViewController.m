@@ -105,10 +105,12 @@
             }];
         }else{
             
-//            [weakself.loginButton exitAnimationCompletion:^{
-//                [TAppDelegateManager gotoMainController];
-//            }];
-            [weakself.loginViewModel.requestCommand execute:nil];
+            
+            [[weakself.loginViewModel.requestCommand execute:nil] subscribeNext:^(id x) {
+                [weakself.loginButton exitAnimationCompletion:^{
+                    [TAppDelegateManager gotoMainController];
+                }];
+            }];
             
         }
         
