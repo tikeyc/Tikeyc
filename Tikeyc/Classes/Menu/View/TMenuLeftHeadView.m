@@ -8,6 +8,9 @@
 
 #import "TMenuLeftHeadView.h"
 
+#import "TMenuLeftTableViewController.h"
+#import "TSelectQRCodeTypeViewController.h"
+
 @implementation TMenuLeftHeadView
 
 - (void)awakeFromNib{
@@ -15,7 +18,13 @@
     
     
     [[self.userQRCodeButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        NSLog(@"RQ Code 功能暂未实现...");
+//        NSLog(@"RQ Code 功能暂未实现...");
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"LeftView" bundle:[NSBundle mainBundle]];
+        TSelectQRCodeTypeViewController *codeVC = [storyboard instantiateViewControllerWithIdentifier:@"TSelectQRCodeTypeViewController"];
+        
+        if ([self.viewController isKindOfClass:[TMenuLeftTableViewController class]]) {
+            [((TMenuLeftTableViewController*)self.viewController).mainMenuViewController showCenterControllerWithAnimation:NO toShowNextController:codeVC];
+        }
     }];
     
     //延迟调用是因为第一时间self.userPhotoImgView.bounds 都是0

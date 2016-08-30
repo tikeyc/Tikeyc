@@ -37,16 +37,17 @@
         }
         
         
-        [self initSubViews];
-        
         [self initRACSignal];
     }
     
     return self;
 }
 
-- (void)initSubViews{
-    self.menuLeftHeadView = [[[NSBundle mainBundle] loadNibNamed:@"TMenuLeftHeadView" owner:nil options:NULL] lastObject];
+- (TMenuLeftHeadView *)menuLeftHeadView{
+    if (!_menuLeftHeadView) {
+        _menuLeftHeadView = [[[NSBundle mainBundle] loadNibNamed:@"TMenuLeftHeadView" owner:nil options:NULL] lastObject];
+    }
+    return _menuLeftHeadView;
 }
 
 

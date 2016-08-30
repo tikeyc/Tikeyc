@@ -83,87 +83,54 @@ static inline BOOL versionBigger9()
     [super layoutSubviews];
 }
 
-#pragma mark - 私有方法 -
-- (void)showWithTitle:(NSString *)title andMessage:(NSString *)message andCancelButtonTitle:(NSString *)cancelButtonTitle andOtherButtonTitles:(NSArray *)otherButtonTitles;
-{
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:cancelButtonTitle otherButtonTitles:nil];
-    
-    for (NSString *otherTitle in otherButtonTitles) {
-        [alertView addButtonWithTitle:otherTitle];
-    }
-    
-    [alertView show];
-}
-
-
 #pragma mark - 公有方法 -
 
-+ (void)showWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSArray *)otherButtonTitles andAction:(TAlertViewBlock) block andParentView:(UIView *)view
++ (void)showWithTitle:(NSString *)title
+              message:(NSString *)message
+    cancelButtonTitle:(NSString *)cancelButtonTitle
+    otherButtonTitles:(NSArray *)otherButtonTitles
+                 type:(UIAlertControllerStyle)alertControllerStyle//UIAlertControllerStyleAlert UIAlertControllerStyleActionSheet
+            andAction:(TAlertViewBlock) block
+        andParentView:(UIView *)view
 {
-    if (versionBigger9()) { // IOS 9以上
-        UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:alertControllerStyle];
+    __block TAlertView *alert = [[TAlertView alloc] init];
+    alert.block = block;
     
-        __block TAlertView *alert = [[TAlertView alloc] init];
-        alert.block = block;
-        
-        if (cancelButtonTitle) {
-            UIAlertAction *action = [UIAlertAction actionWithTitle:cancelButtonTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                
+    if (cancelButtonTitle) {
+        UIAlertAction *action = [UIAlertAction actionWithTitle:cancelButtonTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+            if (alert.block) {
+                alert.block(0);
+            }
+            
+        }];
+        [alertVc addAction:action];
+    }
+    
+    for (int i=0; i < otherButtonTitles.count; i++) {
+        NSString *otherTitle = otherButtonTitles[i];
+        UIAlertAction *action = [UIAlertAction actionWithTitle:otherTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            if (cancelButtonTitle) {
                 if (alert.block) {
-                    alert.block(0);
+                    alert.block(i+1);
                 }
-                
-            }];
-            [alertVc addAction:action];
-        }
-    
-        for (int i=0; i < otherButtonTitles.count; i++) {
-            NSString *otherTitle = otherButtonTitles[i];
-            UIAlertAction *action = [UIAlertAction actionWithTitle:otherTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                if (cancelButtonTitle) {
-                    if (alert.block) {
-                        alert.block(i+1);
-                    }
-                } else {
-                    if (alert.block) {
-                        alert.block(i);
-                    }
+            } else {
+                if (alert.block) {
+                    alert.block(i);
                 }
-            }];
-            [alertVc addAction:action];
-        }
-        
-        if (view == nil) {
-            UIWindow *window = [UIApplication sharedApplication].keyWindow;
-            [window.rootViewController presentViewController:alertVc animated:YES completion:nil];
-        } else {
-            [[view viewController] presentViewController:alertVc animated:YES completion:nil];
-        }
-    } else { // IOS 9以下
-        if (view == nil) view = [[UIApplication sharedApplication].windows lastObject];
-        
-        TAlertView *alert = [[TAlertView alloc] init];
-        [alert showWithTitle:title andMessage:message andCancelButtonTitle:cancelButtonTitle andOtherButtonTitles:otherButtonTitles];
-        alert.block = block;
-        [view addSubview:alert];
-    }
-
-}
-
-#pragma mark - UIAlertViewDelegate -
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    // 回调
-    if (self.block) {
-        self.block(buttonIndex);
+            }
+        }];
+        [alertVc addAction:action];
     }
     
-    // 点击事件完成需要将视图移除
-    [self removeFromSuperview];
+    if (view == nil) {
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        [window.rootViewController presentViewController:alertVc animated:YES completion:nil];
+    } else {
+        [[view viewController] presentViewController:alertVc animated:YES completion:nil];
+    }
 }
-
-
-
 
 
 @end

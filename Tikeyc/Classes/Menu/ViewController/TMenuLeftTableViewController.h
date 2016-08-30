@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+#import "TMainMenuViewController.h"
 @class TMainMenuViewController;
 
 @interface TMenuLeftTableViewController : UITableViewController

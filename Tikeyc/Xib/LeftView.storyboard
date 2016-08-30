@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11173.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7Kg-Ed-ut4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7Kg-Ed-ut4">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11143.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,10 +16,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TMenuLeftCell" id="UWn-uk-ILU" customClass="TMenuLeftCell">
-                                <frame key="frameInset" minY="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UWn-uk-ILU" id="twk-4T-x2K">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -34,6 +34,111 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jcp-ui-thq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="663" y="170"/>
+        </scene>
+        <!--SelectQR Code Type View Controller-->
+        <scene sceneID="EVp-nf-AbR">
+            <objects>
+                <viewController storyboardIdentifier="TSelectQRCodeTypeViewController" id="xDe-UK-CHh" customClass="TSelectQRCodeTypeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pPH-nW-u1A"/>
+                        <viewControllerLayoutGuide type="bottom" id="C06-NT-nzR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Nkz-mb-VNt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5K9-ga-o94">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="C1z-Pc-PVb"/>
+                                    <constraint firstAttribute="height" constant="30" id="anU-Ca-RsG"/>
+                                </constraints>
+                                <state key="normal" title="扫描二维码"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpz-l5-Wj6">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="PsT-pU-2g3"/>
+                                    <constraint firstAttribute="width" constant="150" id="Z1z-K1-IJ5"/>
+                                </constraints>
+                                <state key="normal" title="生成二维码"/>
+                                <connections>
+                                    <segue destination="aX4-k6-e1n" kind="push" identifier="TCreatingRQCodeViewController" id="J4d-dQ-kTa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.57254910469999998" green="0.80392163989999998" blue="0.43921571970000001" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="5K9-ga-o94" firstAttribute="centerX" secondItem="Nkz-mb-VNt" secondAttribute="centerX" id="E6T-gN-sol"/>
+                            <constraint firstItem="tpz-l5-Wj6" firstAttribute="top" secondItem="5K9-ga-o94" secondAttribute="bottom" constant="50" id="NOk-Ox-4yc"/>
+                            <constraint firstItem="tpz-l5-Wj6" firstAttribute="centerX" secondItem="Nkz-mb-VNt" secondAttribute="centerX" id="Y58-xh-TM4"/>
+                            <constraint firstItem="5K9-ga-o94" firstAttribute="top" secondItem="pPH-nW-u1A" secondAttribute="bottom" constant="50" id="Zzr-vv-Zzq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="creatButton" destination="tpz-l5-Wj6" id="yQ8-Jv-dZn"/>
+                        <outlet property="scaningButton" destination="5K9-ga-o94" id="NgN-Qq-dKq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b0C-FB-Ndb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="661.60000000000002" y="-488.00599700149928"/>
+        </scene>
+        <!--CreatingRQ Code View Controller-->
+        <scene sceneID="ff9-65-l81">
+            <objects>
+                <viewController storyboardIdentifier="TCreatingRQCodeViewController" id="aX4-k6-e1n" customClass="TCreatingRQCodeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Pi7-f2-hxd"/>
+                        <viewControllerLayoutGuide type="bottom" id="dSR-Re-gZH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lCZ-Oe-wfr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="请输入..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="obY-US-a8f">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="eE0-AX-ybu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cx1-nG-k7j">
+                                <frame key="frameInset" minX="115" minY="160" width="150" height="30"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Dm7-j1-CJd"/>
+                                    <constraint firstAttribute="width" constant="150" id="UaA-fc-3TM"/>
+                                </constraints>
+                                <state key="normal" title="开始生成"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KOJ-uc-XZa">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="258" id="66v-1f-u7K"/>
+                                    <constraint firstAttribute="width" constant="255" id="94b-1d-9RX"/>
+                                </constraints>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="obY-US-a8f" firstAttribute="top" secondItem="Pi7-f2-hxd" secondAttribute="bottom" constant="40" id="4TD-UB-CH4"/>
+                            <constraint firstItem="cx1-nG-k7j" firstAttribute="top" secondItem="obY-US-a8f" secondAttribute="bottom" constant="70" id="6XZ-NL-EPy"/>
+                            <constraint firstItem="cx1-nG-k7j" firstAttribute="centerX" secondItem="lCZ-Oe-wfr" secondAttribute="centerX" id="CTb-CC-C2a"/>
+                            <constraint firstItem="obY-US-a8f" firstAttribute="leading" secondItem="lCZ-Oe-wfr" secondAttribute="leading" constant="37" id="I3n-Dh-X6N"/>
+                            <constraint firstItem="KOJ-uc-XZa" firstAttribute="top" secondItem="cx1-nG-k7j" secondAttribute="bottom" constant="80" id="ISi-Fh-6ni"/>
+                            <constraint firstAttribute="trailing" secondItem="obY-US-a8f" secondAttribute="trailing" constant="38" id="NLV-Ns-Wyb"/>
+                            <constraint firstItem="KOJ-uc-XZa" firstAttribute="centerX" secondItem="lCZ-Oe-wfr" secondAttribute="centerX" id="fFT-O4-RtX"/>
+                            <constraint firstItem="obY-US-a8f" firstAttribute="centerX" secondItem="lCZ-Oe-wfr" secondAttribute="centerX" id="rCy-az-OuQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="gH7-YX-5Ot"/>
+                    <connections>
+                        <outlet property="QRImgView" destination="KOJ-uc-XZa" id="xrs-tI-D4v"/>
+                        <outlet property="creatingButton" destination="cx1-nG-k7j" id="hTc-aL-OKP"/>
+                        <outlet property="inputTextField" destination="obY-US-a8f" id="cdA-j0-9m8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F6i-77-F12" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1447.2" y="-488.00599700149928"/>
         </scene>
     </scenes>
 </document>

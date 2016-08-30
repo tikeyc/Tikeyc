@@ -16,6 +16,14 @@ typedef void(^TAlertViewBlock)(NSInteger buttonIndex);
 /**
  *  总方法
  */
-+ (void)showWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSArray *)otherButtonTitles andAction:(TAlertViewBlock) block andParentView:(UIView *)view;
+//+ (void)showWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSArray *)otherButtonTitles andAction:(TAlertViewBlock) block andParentView:(UIView *)view;
+
++ (void)showWithTitle:(NSString *)title
+              message:(NSString *)message
+    cancelButtonTitle:(NSString *)cancelButtonTitle
+    otherButtonTitles:(NSArray *)otherButtonTitles
+                 type:(UIAlertControllerStyle)alertControllerStyle
+            andAction:(TAlertViewBlock) block
+        andParentView:(UIView *)view;
 
 @end
