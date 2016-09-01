@@ -519,10 +519,10 @@
         if (((UINavigationController*)self.centerViewController).viewControllers.count %2 == 0) {
             nextViewController.view.backgroundColor = [UIColor redColor];
         }
-        [(UINavigationController*)self.centerViewController pushViewController:nextViewController animated:YES];
+        [(UINavigationController*)self.centerViewController pushViewController:nextViewController animated:NO];
     }else{
         
-        [self.centerViewController presentViewController:nextViewController animated:YES completion:^{
+        [self.centerViewController presentViewController:nextViewController animated:NO completion:^{
             
         }];
     }

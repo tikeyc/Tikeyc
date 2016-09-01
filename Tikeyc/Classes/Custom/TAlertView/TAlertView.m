@@ -90,8 +90,8 @@ static inline BOOL versionBigger9()
     cancelButtonTitle:(NSString *)cancelButtonTitle
     otherButtonTitles:(NSArray *)otherButtonTitles
                  type:(UIAlertControllerStyle)alertControllerStyle//UIAlertControllerStyleAlert UIAlertControllerStyleActionSheet
-            andAction:(TAlertViewBlock) block
         andParentView:(UIView *)view
+            andAction:(TAlertViewBlock) block
 {
     UIAlertController *alertVc = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:alertControllerStyle];
     __block TAlertView *alert = [[TAlertView alloc] init];

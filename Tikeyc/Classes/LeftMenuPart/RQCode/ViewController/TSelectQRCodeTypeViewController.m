@@ -11,11 +11,16 @@
 #import "TCreatingRQCodeViewController.h"
 #import "HCHeader.h"
 
+#import "TQRCodeWebViewController.h"
+
 @interface TSelectQRCodeTypeViewController ()
 
 @property (strong, nonatomic) IBOutlet UIButton *scaningButton;
 
 @property (strong, nonatomic) IBOutlet UIButton *creatButton;
+
+
+@property (strong, nonatomic) IBOutlet UIButton *gotoQRCodeArticleButton;
 
 
 @end
@@ -58,9 +63,12 @@
     }];
     
     
-    [[self.creatButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        
+    [[self.gotoQRCodeArticleButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        TQRCodeWebViewController *codeWebVC = [[TQRCodeWebViewController alloc] initWithURL:[NSURL URLWithString:QRCode_ZXing_CocoaChina_url]];
+        [weakself.navigationController pushViewController:codeWebVC animated:YES];
     }];
+    
+    
     
 }
 

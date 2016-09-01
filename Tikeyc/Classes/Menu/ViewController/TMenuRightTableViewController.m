@@ -75,6 +75,9 @@
     
     self.tableView.dataSource = (id)self.menuViewModel;
     self.tableView.delegate = (id)self.menuViewModel;
+    
+    self.menuViewModel.currentTableView = self.tableView;
+    [self.menuViewModel excuseToGetMenuData];
 }
 
 @end

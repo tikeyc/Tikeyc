@@ -13,7 +13,7 @@
 #import "TMenuLeftCell.h"
 #import "TMenuRightCell.h"
 
-
+#import "TQRCodeWebViewController.h"
 
 @interface TMenuViewModel ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -57,17 +57,54 @@
     
 }
 
+- (void)excuseToGetMenuData{
+    TWeakSelf(self)
+    //
+    if (_currentShowTableViewIsLeft) {
+        
+        NSArray *leftMenuTitles = @[@"个人技术博客",@"个人GitHub",@"title_test",@"title_test",@"title_test",@"title_test",@"登出"];
+        __block NSMutableArray *leftMenuModels = [NSMutableArray array];
+        self.leftMenuModels = leftMenuModels;
+        [leftMenuTitles enumerateObjectsUsingBlock:^(NSString   * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            TLeftMenuModel *model = [[TLeftMenuModel alloc] init];
+            model.title = obj;
+            [leftMenuModels addObject:model];
+            
+            
+        }];
+    }else{
+        
+        //
+        NSArray *rightMenuTitles = @[@"title_test",@"title_test",@"title_test",@"title_test",@"title_test"];
+        __block NSMutableArray *rightMenuModels = [NSMutableArray array];
+        self.rightMenuModels = rightMenuModels;
+        [rightMenuTitles enumerateObjectsUsingBlock:^(NSString   * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            TRightMenuModel *model = [[TRightMenuModel alloc] init];
+            model.title = obj;
+            [rightMenuModels addObject:model];
+            
+            
+        }];
+    }
+
+    [_currentTableView reloadData];
+}
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
+    
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 10;
+    if (_currentShowTableViewIsLeft) {
+        return self.leftMenuModels.count;
+    }
+    return self.rightMenuModels.count;
 }
 /*如果是固定高度，为了优化速度，不必在此代理方法设置
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -105,7 +142,9 @@
              cell = [[TMenuLeftCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:leftMenuTableViewCellIdentifier];
          }
          
-         cell.textLabel.text = [NSString stringWithFormat:@"left cell %ld",(long)indexPath.row];
+         TLeftMenuModel *model = self.leftMenuModels[indexPath.row];
+         
+         cell.textLabel.text = model.title;//[NSString stringWithFormat:@"left cell %ld",(long)indexPath.row];
          
          return cell;
          
@@ -117,7 +156,9 @@
              NSLog(@"!cell");
              cell = [[TMenuRightCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:rightMenuTableViewCellIdentifier];
          }
-         cell.customTitleLabel.text = [NSString stringWithFormat:@"right cell %ld",(long)indexPath.row];
+         
+         TRightMenuModel *model = self.rightMenuModels[indexPath.row];
+         cell.customTitleLabel.text = model.title;//[NSString stringWithFormat:@"right cell %ld",(long)indexPath.row];
          
          return cell;
      }
@@ -131,14 +172,47 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if (indexPath.row == 9) {
-        [TAppDelegateManager gotoLoginController];
-        return;
-    }
+    
     if ([tableView.viewController isKindOfClass:[TMenuLeftTableViewController class]] || [tableView.viewController isKindOfClass:[TMenuRightTableViewController class]]) {
-//        [((TMenuLeftTableViewController *)tableView.viewController).mainMenuViewController showCenterControllerWithAnimation:NO];
-        [((TMenuLeftTableViewController *)tableView.viewController).mainMenuViewController showCenterControllerWithAnimation:NO toShowNextController:[[TBaseViewController alloc] init]];
+        
+        TMainMenuViewController *mainMenuVC = ((TMenuLeftTableViewController *)tableView.viewController).mainMenuViewController;
+        if ([mainMenuVC isKindOfClass:[TMainMenuViewController class]]) {
+            //        [((TMenuLeftTableViewController *)tableView.viewController).mainMenuViewController showCenterControllerWithAnimation:NO];
+            //        [((TMenuLeftTableViewController *)tableView.viewController).mainMenuViewController showCenterControllerWithAnimation:YES toShowNextController:[[TBaseViewController alloc] init]];
+            
+            
+            
+            if (_currentShowTableViewIsLeft) {//leftMenu的特殊处理
+                if (indexPath.row == self.leftMenuModels.count - 1) {//最后一个row
+                    [TAlertView showWithTitle:@"提示" message:@"确定登出?" cancelButtonTitle:@"取消" otherButtonTitles:@[@"立即登出"] type:UIAlertControllerStyleAlert andParentView:nil andAction:^(NSInteger buttonIndex) {
+                        if (buttonIndex == 1) {
+                            [TAppDelegateManager gotoLoginController];
+                        }
+                    } ];
+                    
+                    return;
+                }else if (indexPath.row == 0){
+                    TQRCodeWebViewController *codeWebVC = [[TQRCodeWebViewController alloc] initWithURL:[NSURL URLWithString:Tikeyc_Blog_CSDN_url]];
+                    [mainMenuVC showCenterControllerWithAnimation:YES toShowNextController:codeWebVC];
+                }else if (indexPath.row == 1){
+                    TQRCodeWebViewController *codeWebVC = [[TQRCodeWebViewController alloc] initWithURL:[NSURL URLWithString:Tikeyc_GitHub_url]];
+                    [mainMenuVC showCenterControllerWithAnimation:YES toShowNextController:codeWebVC];
+                }else{
+                    
+                }
+                
+            }else{//rightMenu的特殊处理
+                
+            }
+            
+        }
+    
+        
     }
+    
+    
+    
+   
     
     
 }

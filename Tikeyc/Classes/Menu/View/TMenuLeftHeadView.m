@@ -23,7 +23,7 @@
         TSelectQRCodeTypeViewController *codeVC = [storyboard instantiateViewControllerWithIdentifier:@"TSelectQRCodeTypeViewController"];
         
         if ([self.viewController isKindOfClass:[TMenuLeftTableViewController class]]) {
-            [((TMenuLeftTableViewController*)self.viewController).mainMenuViewController showCenterControllerWithAnimation:NO toShowNextController:codeVC];
+            [((TMenuLeftTableViewController*)self.viewController).mainMenuViewController showCenterControllerWithAnimation:YES toShowNextController:codeVC];
         }
     }];
     

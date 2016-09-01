@@ -21,6 +21,7 @@
 
 - (void)dealloc
 {
+    [SVProgressHUD dismiss];
     [TNotificationCenter removeObserver:self];
     [self removeObserverBlocks];
     NSLog(@"%@ 成功销毁了，无内存泄漏",self);
@@ -30,7 +31,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
 }
 

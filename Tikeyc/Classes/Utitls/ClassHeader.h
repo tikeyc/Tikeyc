@@ -19,6 +19,7 @@
 #import "TNotificationDefine.h"
 #import "TServiceTool.h"
 #import "UIView+ViewController.h"
+#import "TResourceDefine.h"
 
 #import "TAlertView.h"
 

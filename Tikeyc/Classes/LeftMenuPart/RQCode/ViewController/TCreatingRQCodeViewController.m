@@ -66,11 +66,11 @@
         return @(NO);
     }];
     [[self.QRImgView rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        [TAlertView showWithTitle:nil message:nil cancelButtonTitle:@"取消" otherButtonTitles:@[@"扫描图中二维码"] type:UIAlertControllerStyleActionSheet andAction:^(NSInteger buttonIndex) {
+        [TAlertView showWithTitle:nil message:nil cancelButtonTitle:@"取消" otherButtonTitles:@[@"扫描图中二维码"] type:UIAlertControllerStyleActionSheet andParentView:nil andAction:^(NSInteger buttonIndex) {
             if (buttonIndex == 1) {
                 [TScaningLocalCode scanLocaImage:weakself.QRImgView.currentBackgroundImage];
             }
-        } andParentView:nil];
+        } ];
     }];
 }
 

@@ -34,17 +34,17 @@
             
         } Failure:^(NSError *error) {
             
-            [TAlertView showWithTitle:@"该信息无法跳转，详细信息为：" message:urlStr cancelButtonTitle:@"确定" otherButtonTitles:nil type:UIAlertControllerStyleAlert  andAction:^(NSInteger buttonIndex) {
+            [TAlertView showWithTitle:@"该信息无法跳转，详细信息为：" message:urlStr cancelButtonTitle:@"确定" otherButtonTitles:nil type:UIAlertControllerStyleAlert andParentView:nil  andAction:^(NSInteger buttonIndex) {
                 
-            } andParentView:nil];
+            } ];
             
         }];
     }
     
     if (feature.count == 0) {
-        [TAlertView showWithTitle:@"扫描结果" message:@"没有扫描到有效二维码" cancelButtonTitle:@"确定" otherButtonTitles:nil type:UIAlertControllerStyleAlert andAction:^(NSInteger buttonIndex) {
+        [TAlertView showWithTitle:@"扫描结果" message:@"没有扫描到有效二维码" cancelButtonTitle:@"确定" otherButtonTitles:nil type:UIAlertControllerStyleAlert andParentView:nil andAction:^(NSInteger buttonIndex) {
             
-        } andParentView:nil];
+        } ];
     }
     
     return codeInfos;

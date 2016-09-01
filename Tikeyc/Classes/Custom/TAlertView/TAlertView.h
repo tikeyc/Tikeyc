@@ -23,7 +23,7 @@ typedef void(^TAlertViewBlock)(NSInteger buttonIndex);
     cancelButtonTitle:(NSString *)cancelButtonTitle
     otherButtonTitles:(NSArray *)otherButtonTitles
                  type:(UIAlertControllerStyle)alertControllerStyle
-            andAction:(TAlertViewBlock) block
-        andParentView:(UIView *)view;
+        andParentView:(UIView *)view
+            andAction:(TAlertViewBlock) block;
 
 @end

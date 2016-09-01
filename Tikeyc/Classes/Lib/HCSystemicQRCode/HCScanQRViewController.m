@@ -7,10 +7,12 @@
 //
 
 #import "HCScanQRViewController.h"
-#import <AVFoundation/AVFoundation.h>
+
 #import "HCHeader.h"
 
 #import <SafariServices/SafariServices.h>
+
+#import "TQRCodeWebViewController.h"
 
 @interface HCScanQRViewController ()<AVCaptureMetadataOutputObjectsDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
@@ -281,6 +283,15 @@
     // 1.取出选中的图片
     UIImage *pickImage = info[UIImagePickerControllerOriginalImage];
     
+    NSMutableArray *codeInfos = [TScaningLocalCode scanLocaImage:pickImage];
+
+    //二维码信息回传 add by tikeyc
+    if (_showQRCodeInfo && codeInfos.count > 0) {
+        NSString *codeInfo = [codeInfos componentsJoinedByString:@","];
+        self.block(codeInfo);
+    }
+    
+    /*
     NSData *imageData = UIImagePNGRepresentation(pickImage);
     
     CIImage *ciImage = [CIImage imageWithData:imageData];
@@ -306,12 +317,15 @@
             [self showAlertWithTitle:@"该信息无法跳转，详细信息为：" Message:urlStr OptionalAction:@[@"确定"]];
         }];
     }
-
-    [picker dismissViewControllerAnimated:YES completion:nil];
     
     if (feature.count == 0) {
         [self showAlertWithTitle:@"扫描结果" Message:@"没有扫描到有效二维码" OptionalAction:@[@"确认"]];
-    }
+    }*/
+
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    
 }
 
 
@@ -319,7 +333,7 @@
 // 扫描到数据时会调用
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection{
     if (metadataObjects.count > 0) {
-        [SystemFunctions openShake:YES Sound:YES];
+        
         // 1.停止扫描
         //        [self.session stopRunning];
         // 2.停止冲击波
@@ -327,26 +341,37 @@
         
         // 3.取出扫描到得数据
         AVMetadataMachineReadableCodeObject *obj = [metadataObjects lastObject];
-        if (obj) {
+        NSString *stringValue = [obj stringValue];
+        if (obj && ![self.lastReadableCodeObjectStringValue isEqualToString:stringValue]) {
+            [SystemFunctions openShake:YES Sound:NO];
+            self.lastReadableCodeObjectStringValue = stringValue;
             //二维码信息回传
             if (_showQRCodeInfo) {
-                self.block([obj stringValue]);
+                self.block(stringValue);
             }
             
-//            [SystemFunctions showInSafariWithURLMessage:[obj stringValue] Success:^(NSString *token) {
-//                
-//            } Failure:^(NSError *error) {
-//                [self showAlertWithTitle:@"该信息无法跳转，详细信息为：" Message:[obj stringValue] OptionalAction:@[@"确定"]];
-//            }];
-            NSURL *url = [NSURL URLWithString:[obj stringValue]];
-            if ([[UIApplication sharedApplication] canOpenURL:url]) {
-                
-                SFSafariViewController *safari = [[SFSafariViewController alloc] initWithURL:url];
-                [self showViewController:safari sender:nil];
+            if ([stringValue containsString:@"weixin"]) {
+                [SystemFunctions showInSafariWithURLMessage:stringValue Success:^(NSString *token) {
+                    
+                } Failure:^(NSError *error) {
+                    [self showAlertWithTitle:@"该信息无法跳转，详细信息为：" Message:stringValue OptionalAction:@[@"确定"]];
+                }];
                 
             }else{
-                [self showAlertWithTitle:@"该信息无法跳转，详细信息为：" Message:[obj stringValue] OptionalAction:@[@"确定"]];
+                NSURL *url = [NSURL URLWithString:stringValue];
+                if ([[UIApplication sharedApplication] canOpenURL:url]) {
+                    
+                    //                SFSafariViewController *safari = [[SFSafariViewController alloc] initWithURL:url];
+                    //                [self showViewController:safari sender:nil];
+                    TQRCodeWebViewController *codeWebVC = [[TQRCodeWebViewController alloc] initWithURL:url];
+                    [self.navigationController pushViewController:codeWebVC animated:YES];
+                    
+                }else{
+                    [self showAlertWithTitle:@"该信息无法跳转，详细信息为：" Message:stringValue OptionalAction:@[@"确定"]];
+                }
             }
+            
+           
         }
     }
 }

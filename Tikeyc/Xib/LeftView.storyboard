@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UWn-uk-ILU" id="twk-4T-x2K">
-                                    <frame key="frameInset" width="375" height="44"/>
+                                    <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -64,17 +64,32 @@
                                     <segue destination="aX4-k6-e1n" kind="push" identifier="TCreatingRQCodeViewController" id="J4d-dQ-kTa"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="此二维码功能使用iOS原生条形码扫描方法实现，具体可查看控制器HCScanQRViewController" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxy-Hx-rwS">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9E-uv-fDq">
+                                <state key="normal" title="可以查看这篇文字与ZXing的比较"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.57254910469999998" green="0.80392163989999998" blue="0.43921571970000001" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
+                            <constraint firstItem="vxy-Hx-rwS" firstAttribute="leading" secondItem="Nkz-mb-VNt" secondAttribute="leading" constant="16" id="AQE-fW-f9q"/>
+                            <constraint firstAttribute="trailing" secondItem="x9E-uv-fDq" secondAttribute="trailing" constant="67" id="BNc-hh-kUP"/>
                             <constraint firstItem="5K9-ga-o94" firstAttribute="centerX" secondItem="Nkz-mb-VNt" secondAttribute="centerX" id="E6T-gN-sol"/>
                             <constraint firstItem="tpz-l5-Wj6" firstAttribute="top" secondItem="5K9-ga-o94" secondAttribute="bottom" constant="50" id="NOk-Ox-4yc"/>
+                            <constraint firstItem="x9E-uv-fDq" firstAttribute="leading" secondItem="Nkz-mb-VNt" secondAttribute="leading" constant="67" id="Ops-Ou-nYE"/>
                             <constraint firstItem="tpz-l5-Wj6" firstAttribute="centerX" secondItem="Nkz-mb-VNt" secondAttribute="centerX" id="Y58-xh-TM4"/>
                             <constraint firstItem="5K9-ga-o94" firstAttribute="top" secondItem="pPH-nW-u1A" secondAttribute="bottom" constant="50" id="Zzr-vv-Zzq"/>
+                            <constraint firstAttribute="trailing" secondItem="vxy-Hx-rwS" secondAttribute="trailing" constant="16" id="dbX-Dl-bkc"/>
+                            <constraint firstItem="x9E-uv-fDq" firstAttribute="top" secondItem="vxy-Hx-rwS" secondAttribute="bottom" constant="20" id="e4x-Jb-Ipv"/>
+                            <constraint firstItem="vxy-Hx-rwS" firstAttribute="top" secondItem="tpz-l5-Wj6" secondAttribute="bottom" constant="90" id="jBZ-lX-QIo"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="creatButton" destination="tpz-l5-Wj6" id="yQ8-Jv-dZn"/>
+                        <outlet property="gotoQRCodeArticleButton" destination="x9E-uv-fDq" id="CLs-SF-nGl"/>
                         <outlet property="scaningButton" destination="5K9-ga-o94" id="NgN-Qq-dKq"/>
                     </connections>
                 </viewController>

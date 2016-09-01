@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+#import <AVFoundation/AVFoundation.h>
 
 typedef void(^successBlock)(NSString *scanQRCodeInfo);
 @interface HCScanQRViewController : UIViewController
 
 @property (strong, nonatomic) successBlock block;
+
+
+@property (nonatomic,copy)NSString *lastReadableCodeObjectStringValue;
 
 /**
  *是否需要将扫码得到的信息进行回传并展示
