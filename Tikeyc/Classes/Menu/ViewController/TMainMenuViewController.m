@@ -109,7 +109,14 @@
 #pragma mark - set
 
 - (void)setCenterViewController:(UIViewController * _Nullable)centerViewController{
-    _centerViewController = centerViewController;
+    if (_centerViewController != centerViewController) {
+        _centerViewController = nil;
+        _centerViewController = centerViewController;
+    }
+    if (!_centerViewController) {
+        return;
+    }
+    [self addChildViewController:_centerViewController];
     
     if ([_centerViewController isKindOfClass:[UINavigationController class]]) {
         UIViewController *VC = ((UINavigationController *)_centerViewController).topViewController;
@@ -128,7 +135,15 @@
 }
 
 - (void)setLeftViewController:(UIViewController *)leftViewController{
-    _leftViewController = leftViewController;
+    if (_leftViewController != leftViewController) {
+        _leftViewController = nil;
+        _leftViewController = leftViewController;
+    }
+    
+    if (!_leftViewController) {
+        return;
+    }
+    [self addChildViewController:_leftViewController];
     
     if ([_leftViewController isKindOfClass:[TMenuLeftTableViewController class]]) {
         ((TMenuLeftTableViewController *)_leftViewController).mainMenuViewController = self;
@@ -143,7 +158,14 @@
 }
 
 - (void)setRightViewController:(UIViewController *)rightViewController{
-    _rightViewController = rightViewController;
+    if (_rightViewController != rightViewController) {
+        _rightViewController = nil;
+        _rightViewController = rightViewController;
+    }
+    if (!_rightViewController) {
+        return;
+    }
+    [self addChildViewController:_rightViewController];
     
     if ([_rightViewController isKindOfClass:[TMenuRightTableViewController class]]) {
         ((TMenuRightTableViewController *)_rightViewController).mainMenuViewController = self;
@@ -159,7 +181,7 @@
 - (void)setShowLeftBarButtonItem:(BOOL)showLeftBarButtonItem{
     _showLeftBarButtonItem = showLeftBarButtonItem;
     
-    if (![_centerViewController isKindOfClass:[UINavigationController class]]) {
+    if ( !_leftViewController || ![_centerViewController isKindOfClass:[UINavigationController class]]) {
         return;
     }
     if (_showLeftBarButtonItem && !_leftPopButton) {
@@ -185,7 +207,7 @@
 - (void)setShowRighBarButtonItem:(BOOL)showRighBarButtonItem{
     _showRighBarButtonItem = showRighBarButtonItem;
     
-    if (![_centerViewController isKindOfClass:[UINavigationController class]]) {
+    if ( !_rightViewController || ![_centerViewController isKindOfClass:[UINavigationController class]]) {
         return;
     }
     if (_showRighBarButtonItem && !_rightPopButton) {
@@ -489,6 +511,8 @@
 - (void)tapAction:(UITapGestureRecognizer *)backCenterTap{
     [self showCenterControllerWithAnimation:YES];
 }
+
+#pragma mark - public method
 
 - (void)showCenterControllerWithAnimation:(BOOL)animation{
     [_backCenterTap removeTarget:self action:@selector(tapAction:)];

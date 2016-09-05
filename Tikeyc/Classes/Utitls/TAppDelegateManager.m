@@ -44,16 +44,16 @@
     
     //animation
     TApplication.delegate.window.transform = CGAffineTransformScale(TApplication.delegate.window.transform, 0.3, 0.3);
-    [UIView animateWithDuration:0.8 animations:^{
+    [UIView animateWithDuration:0.5 animations:^{
         TApplication.delegate.window.transform = CGAffineTransformIdentity;
     }];
-    [UIView transitionWithView:TApplication.delegate.window duration:0.1 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
+    [UIView transitionWithView:TApplication.delegate.window duration:0.05 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
         
     } completion:^(BOOL finished) {
-        [UIView transitionWithView:TApplication.delegate.window duration:0.2 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
+        [UIView transitionWithView:TApplication.delegate.window duration:0.15 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
             
         } completion:^(BOOL finished) {
-            [UIView transitionWithView:TApplication.delegate.window duration:0.4 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
+            [UIView transitionWithView:TApplication.delegate.window duration:0.2 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
                 
             } completion:^(BOOL finished) {
                 
