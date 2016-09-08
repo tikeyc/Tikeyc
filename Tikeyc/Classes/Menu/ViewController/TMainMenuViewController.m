@@ -544,10 +544,16 @@
     
     if ([self.centerViewController isKindOfClass:[UINavigationController class]]) {
         TMenuCenterViewController *menuCenterVC = (TMenuCenterViewController*)((UINavigationController*)self.centerViewController).topViewController;
-        if (menuCenterVC.selectedIndex == 1) {
-            [menuCenterVC.selectedViewController.navigationController pushViewController:nextViewController animated:NO];
-        }else{
+        
+        if ([menuCenterVC.selectedViewController isKindOfClass:[UINavigationController class]]) {
+            
             [(UINavigationController *)menuCenterVC.selectedViewController pushViewController:nextViewController animated:NO];
+        }else if (menuCenterVC.selectedViewController.navigationController && [menuCenterVC.selectedViewController isKindOfClass:[UIViewController class]]){
+            
+            [menuCenterVC.selectedViewController.navigationController pushViewController:nextViewController animated:NO];
+        }else{//menuCenterVC.selectedViewController为空的情况
+            
+            [menuCenterVC.navigationController pushViewController:nextViewController animated:NO];
         }
 //        [(UINavigationController*)self.centerViewController setNavigationBarHidden:NO animated:NO];
 //        [(UINavigationController*)self.centerViewController pushViewController:nextViewController animated:NO];
