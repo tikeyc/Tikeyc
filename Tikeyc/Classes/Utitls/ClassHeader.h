@@ -33,5 +33,6 @@
 #import "NSObject+RACKVOWrapper.h"
 #import "RACReturnSignal.h"
 #import "SVProgressHUD.h"
+#import "MJRefresh.h"
 
 #endif /* ClassHeader_h */

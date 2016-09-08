@@ -6,13 +6,13 @@
 //  Copyright © 2016年 tikeyc. All rights reserved.
 //
 
-#import "TNormalRefresh.h"
+#import "TNormalRefreshHead.h"
 
-@interface TNormalRefresh ()
+@interface TNormalRefreshHead ()
 
 @property (nonatomic, weak) UIImageView *logoImageView;
 
-@property (nonatomic, weak) UILabel *titleLabel;
+//@property (nonatomic, weak) UILabel *titleLabel;
 
 @property (nonatomic, weak) UIImageView *arrowImageView;
 
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation TNormalRefresh
+@implementation TNormalRefreshHead
 
 - (NSMutableArray *)animateImages
 {

@@ -18,6 +18,7 @@
 
 - (void)dealloc
 {
+    [TNotificationCenter removeObserver:self];
     NSLog(@"%@ 成功销毁了，无内存泄漏",self);
 }
 
@@ -26,7 +27,7 @@
     // Do any additional setup after loading the view.
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning {

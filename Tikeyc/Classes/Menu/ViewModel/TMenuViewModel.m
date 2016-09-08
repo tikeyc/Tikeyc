@@ -143,7 +143,6 @@
          }
          
          TLeftMenuModel *model = self.leftMenuModels[indexPath.row];
-         
          cell.textLabel.text = model.title;//[NSString stringWithFormat:@"left cell %ld",(long)indexPath.row];
          
          return cell;

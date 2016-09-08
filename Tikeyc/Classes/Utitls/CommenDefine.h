@@ -58,6 +58,8 @@
 #define TFileManager [NSFileManager defaultManager]
 #define TDevice [UIDevice currentDevice]
 
+#define TStoryboardWithName(storyboardName) [UIStoryboard storyboardWithName:storyboardName bundle:[NSBundle mainBundle]]
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //#define WEAKSELF __weak typeof(self) weakSelf = self;
 #define TWeakSelf(type)  __weak typeof(type) weak##type = type;//#的意思是紧跟着它的后面的标识符添加一个双引号""

@@ -22,6 +22,14 @@
     NSLog(@"%@ 成功销毁了，无内存泄漏",self);
 }
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        
+    }
+    return self;
+}
+
 + (void)initialize
 {
     // 当导航栏用在TBaseNavigationViewController中appearance才会生效

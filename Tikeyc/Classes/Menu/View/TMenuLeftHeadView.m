@@ -28,16 +28,20 @@
     }];
     
     //延迟调用是因为第一时间self.userPhotoImgView.bounds 都是0
-    [self performSelector:@selector(setSubViewProperty) withObject:nil afterDelay:1];
+    [self performSelector:@selector(setSubViewProperty) withObject:nil afterDelay:0];
 }
 
 #pragma mark - init
 
 - (void)setSubViewProperty{
-    self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"menu_background"]];;
+    self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"menu_background"]];
     //
-    [TKCAppTools setViewCornerCircleWithView:self.userPhotoImgView];
-    [TKCAppTools setViewCornerCircleWithView:self.userQRCodeButton];
+    UIImage *cornerImg = [self.userPhotoImgView.image imageByRoundCornerRadius:self.userPhotoImgView.image.size.width/2];
+    self.userPhotoImgView.image = cornerImg;
+//    [TKCAppTools setViewCornerCircleWithView:self.userPhotoImgView];
+//    [TKCAppTools setViewCornerCircleWithView:self.userQRCodeButton];
+    UIImage *cornerImg2 = [self.userQRCodeButton.currentImage imageByRoundCornerRadius:self.userQRCodeButton.currentImage.size.width/2];
+    [self.userQRCodeButton setImage:cornerImg2 forState:UIControlStateNormal];
     
 }
 

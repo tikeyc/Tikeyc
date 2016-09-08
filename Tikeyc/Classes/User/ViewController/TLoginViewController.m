@@ -34,7 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self performSelector:@selector(performSetCornerValue) withObject:nil afterDelay:0.1];//进入方法查看延迟原因，以后优化该问题
+    [self performSelector:@selector(performSetCornerValue) withObject:nil afterDelay:0];//进入方法查看延迟原因，以后优化该问题
 
 }
 
@@ -71,7 +71,9 @@
 #pragma mark - init
 
 - (void)performSetCornerValue{
-    [TKCAppTools setViewCornerCircleWithView:self.userPhotoImgView];
+    //    [TKCAppTools setViewCornerCircleWithView:self.userPhotoImgView];
+    UIImage *cornerImg = [self.userPhotoImgView.image imageByRoundCornerRadius:self.userPhotoImgView.image.size.width/2];
+    self.userPhotoImgView.image = cornerImg;
     [TKCAppTools setCornerWithView:self.loginButton byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(10, 10)];
 }
 

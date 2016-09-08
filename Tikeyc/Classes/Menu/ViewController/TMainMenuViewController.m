@@ -131,7 +131,7 @@
     self.centerView = _centerViewController.view;
     [self.view addSubview:self.centerView];
     self.centerView.frame = self.view.frame;
-    self.centerView.backgroundColor = [UIColor orangeColor];
+    
 }
 
 - (void)setLeftViewController:(UIViewController *)leftViewController{
@@ -154,7 +154,7 @@
     [self.view insertSubview:self.leftView belowSubview:self.centerView];//self.centerView已经创建
 //    [self.view addSubview:self.leftView];
     self.leftView.frame = CGRectMake(0, 0, Pan_left_MaxWith, self.view.frame.size.height);//self.view.frame;
-    self.leftView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"menu_background"]];
+    
 }
 
 - (void)setRightViewController:(UIViewController *)rightViewController{
@@ -175,7 +175,7 @@
     [self.view insertSubview:self.rightView belowSubview:self.centerView];//self.centerView已经创建
 //    [self.view addSubview:self.rightView];
     self.rightView.frame = CGRectMake(self.view.frame.size.width - Pan_right_MaxWith, 0, Pan_right_MaxWith, self.view.frame.size.height);//self.view.frame;
-    self.rightView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"menu_background"]];
+    
 }
 
 - (void)setShowLeftBarButtonItem:(BOOL)showLeftBarButtonItem{
@@ -264,10 +264,13 @@
     if (remove) {
         _panGestureRecognizer.enabled = NO;
 //        [_panGestureRecognizer removeTarget:self action:@selector(panAction:)];此方法屏蔽手势影响系统自带左滑动返回手势
+        NSLog(@"_panGestureRecognizer.enabled = NO");
     }else{
         _panGestureRecognizer.enabled = YES;
 //        [_panGestureRecognizer addTarget:self action:@selector(panAction:)];此方法屏蔽手势影响系统自带左滑动返回手势
+        NSLog(@"_panGestureRecognizer.enabled = YES");
     }
+    
 }
 
 #pragma mark - Method Actions
@@ -540,10 +543,14 @@
     [self removePanGestureRecognizerTarget:YES];
     
     if ([self.centerViewController isKindOfClass:[UINavigationController class]]) {
-        if (((UINavigationController*)self.centerViewController).viewControllers.count %2 == 0) {
-            nextViewController.view.backgroundColor = [UIColor redColor];
+        TMenuCenterViewController *menuCenterVC = (TMenuCenterViewController*)((UINavigationController*)self.centerViewController).topViewController;
+        if (menuCenterVC.selectedIndex == 1) {
+            [menuCenterVC.selectedViewController.navigationController pushViewController:nextViewController animated:NO];
+        }else{
+            [(UINavigationController *)menuCenterVC.selectedViewController pushViewController:nextViewController animated:NO];
         }
-        [(UINavigationController*)self.centerViewController pushViewController:nextViewController animated:NO];
+//        [(UINavigationController*)self.centerViewController setNavigationBarHidden:NO animated:NO];
+//        [(UINavigationController*)self.centerViewController pushViewController:nextViewController animated:NO];
     }else{
         
         [self.centerViewController presentViewController:nextViewController animated:NO completion:^{
