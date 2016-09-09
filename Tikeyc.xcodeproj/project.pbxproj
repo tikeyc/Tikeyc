@@ -38,6 +38,7 @@
 		4E910E631D6C470600305238 /* TAppDelegateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E910E621D6C470600305238 /* TAppDelegateManager.m */; };
 		4E92F8341D61C55F0028EE25 /* TBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E92F8331D61C55F0028EE25 /* TBaseViewController.m */; };
 		4E92F8371D61C5790028EE25 /* TBaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E92F8361D61C5790028EE25 /* TBaseNavigationViewController.m */; };
+		4E95319E1D829AEA0032AEAC /* TPopMenuPathIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E95319D1D829AEA0032AEAC /* TPopMenuPathIconView.m */; };
 		4E98D0AB1D6A9B7500E810D1 /* TipsFile.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4E98D0AA1D6A9B7500E810D1 /* TipsFile.rtf */; };
 		4EA093BE1D6BFBFE0037E98E /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EA093BD1D6BFBFE0037E98E /* city.plist */; };
 		4EA376E91D7D6AE100EF006F /* TNormalRefreshFoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA376E81D7D6AE100EF006F /* TNormalRefreshFoot.m */; };
@@ -160,6 +161,8 @@
 		4E92F8351D61C5790028EE25 /* TBaseNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBaseNavigationViewController.h; sourceTree = "<group>"; };
 		4E92F8361D61C5790028EE25 /* TBaseNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBaseNavigationViewController.m; sourceTree = "<group>"; };
 		4E92F83B1D61C87B0028EE25 /* Tikeyc.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tikeyc.pch; sourceTree = "<group>"; };
+		4E95319C1D829AEA0032AEAC /* TPopMenuPathIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPopMenuPathIconView.h; sourceTree = "<group>"; };
+		4E95319D1D829AEA0032AEAC /* TPopMenuPathIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPopMenuPathIconView.m; sourceTree = "<group>"; };
 		4E98D0AA1D6A9B7500E810D1 /* TipsFile.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = TipsFile.rtf; sourceTree = "<group>"; };
 		4EA093BD1D6BFBFE0037E98E /* city.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = city.plist; sourceTree = "<group>"; };
 		4EA376E71D7D6AE100EF006F /* TNormalRefreshFoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNormalRefreshFoot.h; sourceTree = "<group>"; };
@@ -375,6 +378,8 @@
 				4E2A436E1D6DA80400A9CC28 /* TPopButton.m */,
 				4E2A436F1D6DA80400A9CC28 /* TLoginButton.h */,
 				4E2A43701D6DA80400A9CC28 /* TLoginButton.m */,
+				4E95319C1D829AEA0032AEAC /* TPopMenuPathIconView.h */,
+				4E95319D1D829AEA0032AEAC /* TPopMenuPathIconView.m */,
 			);
 			path = Pop;
 			sourceTree = "<group>";
@@ -1176,6 +1181,7 @@
 				4E731CCE1D643BCE0026997A /* UIAlertController+TAlertView.m in Sources */,
 				4EF621071D6FD9C100291A5C /* TLoginViewModel.m in Sources */,
 				4EDAAB651D77CD1C00917593 /* TRightMenuModel.m in Sources */,
+				4E95319E1D829AEA0032AEAC /* TPopMenuPathIconView.m in Sources */,
 				4EE4D99E1D630DC5008F9F48 /* TMenuLeftTableViewController.m in Sources */,
 				4EF649621D7539ED0086E2F1 /* HCScanQRViewController.m in Sources */,
 				4ED834321D6B019800325985 /* TMenuLeftHeadView.m in Sources */,

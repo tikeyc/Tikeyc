@@ -11,7 +11,11 @@
 #import "TNormalRefreshHead.h"
 #import "TNormalRefreshFoot.h"
 
+#import "TPopMenuPathIconView.h"
+
 @interface TMainCenterViewController ()
+
+@property (nonatomic,strong)TPopMenuPathIconView *popMenuPathIconView;
 
 @end
 
@@ -21,8 +25,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self setProperty];
+    
+    
+    [self setSubViewProperty];
+    
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -52,7 +60,7 @@
 
 #pragma mark - init
 
-- (void)setProperty{
+- (void)setSubViewProperty{
     UIScrollView *scrollView = (UIScrollView*)self.view;//in storyboard set self.view = scrollView
 //    scrollView.contentSize = CGSizeMake(0, scrollView.height + 100);
 //    scrollView.delegate = self;
@@ -80,6 +88,20 @@
     //             NSLog(@"footerWithRefreshingBlock");
     //        }];
     //        scrollView.mj_footer = refreshFooter;
+    
+    [self.view addSubview:self.popMenuPathIconView];
+}
+
+- (TPopMenuPathIconView *)popMenuPathIconView{
+    if (!_popMenuPathIconView) {
+        //
+        _popMenuPathIconView = [[TPopMenuPathIconView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 200)
+                                                                 direction:TPopMenuPathIconAnimationDirectionTop icons:@[@"main_center_menu_animation_icon1",@"main_center_menu_animation_icon2",@"main_center_menu_animation_icon3",@"main_center_menu_animation_icon4",@"main_center_menu_animation_icon5"]
+                                                                 clickIcon:^(NSInteger index) {
+                                                                     NSLog(@"click index:%ld",(long)index);
+                                                                 }];
+    }
+    return _popMenuPathIconView;
 }
 
 #pragma mark - bind RACSignal
@@ -89,3 +111,14 @@
 }
 
 @end
+
+
+
+
+
+
+
+
+
+
+

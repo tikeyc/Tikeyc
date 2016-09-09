@@ -22,6 +22,7 @@
  *selectedIndex表示当前显示的索引
  */
 @property (nonatomic,assign)NSInteger selectedIndex;
-@property (nonatomic,strong)UIViewController *selectedViewController;
+//weak避免循环引用,导致无法释放的问题，因为在TMenuCenterViewController.view调用了addSubview:selectedViewController.view
+@property (nonatomic,weak)UIViewController *selectedViewController;
 
 @end

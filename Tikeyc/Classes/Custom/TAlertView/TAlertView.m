@@ -8,17 +8,6 @@
 
 #import "TAlertView.h"
 
-static inline BOOL versionBigger9()
-{
-    float sysVersion = [[UIDevice currentDevice].systemVersion floatValue];
-    
-    if (sysVersion >= 9.0) {
-        return YES;
-    } else {
-        return NO;
-    }
-}
-
 @interface UIView (TSearchVcExtend)
 
 - (UIViewController *)viewController;

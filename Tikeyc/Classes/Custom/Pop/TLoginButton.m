@@ -193,7 +193,7 @@
                         [NSValue valueWithCGPoint:point]];
     keyFrame.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     keyFrame.duration = 0.5f;
-    keyFrame.delegate = self;
+    keyFrame.delegate = (id)self;
     self.layer.position = point;
     
 //    [self.layer addAnimation:backgroundColor forKey:backgroundColor.keyPath];
@@ -212,7 +212,7 @@
     expandAnim.toValue = @(33.0);
     expandAnim.timingFunction = _expandCurve;
     expandAnim.duration = 0.3;
-    expandAnim.delegate = self;
+    expandAnim.delegate = (id)self;
     expandAnim.fillMode = kCAFillModeForwards;
     expandAnim.removedOnCompletion = false;
     [self.layer addAnimation:expandAnim forKey:expandAnim.keyPath];

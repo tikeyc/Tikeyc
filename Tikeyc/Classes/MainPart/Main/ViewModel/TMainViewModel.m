@@ -12,7 +12,8 @@
 
 @interface TMainViewModel ()
 
-@property (nonatomic,strong)TMainViewController *mainViewController;
+//weak避免循环引用,导致无法释放的问题，因为在TMainMenuViewController.view调用了addSubview:TMainViewController.view
+@property (nonatomic,weak)TMainViewController *mainViewController;
 
 @end
 

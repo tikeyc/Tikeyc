@@ -13,7 +13,7 @@
 
 - (UIViewController *)viewController{
     
-    for (UIView* next = self; next; next = next.superview) {
+    for (id next = self; next; next = [next nextResponder]) {
         UIResponder* nextResponder = [next nextResponder];
         
         if ([nextResponder isKindOfClass:[UIViewController class]]) {

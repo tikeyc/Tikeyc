@@ -8,6 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+static inline BOOL versionBigger9()
+{
+    float sysVersion = [[UIDevice currentDevice].systemVersion floatValue];
+    
+    if (sysVersion >= 9.0) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
 /** 按钮点击触发的回调 */
 typedef void(^TAlertViewBlock)(NSInteger buttonIndex);
 
@@ -16,8 +27,6 @@ typedef void(^TAlertViewBlock)(NSInteger buttonIndex);
 /**
  *  总方法
  */
-//+ (void)showWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle otherButtonTitles:(NSArray *)otherButtonTitles andAction:(TAlertViewBlock) block andParentView:(UIView *)view;
-
 + (void)showWithTitle:(NSString *)title
               message:(NSString *)message
     cancelButtonTitle:(NSString *)cancelButtonTitle
