@@ -20,6 +20,8 @@
     
     TPopButton *_leftPopButton;
     TPopButton *_rightPopButton;
+    
+    UIControl *_maskControlView;//在动画push下一个控制时，防止在动画还没结束就开始左右滑动或进行其它点击操作。其实已经做了手势禁用
 }
 
 @property (strong, nonatomic)  UIView *centerView;
@@ -524,9 +526,16 @@
     [_rightPopButton animateToMenu];
     TWeakSelf(self)
     if (animation) {
+        if (!_maskControlView) {
+            _maskControlView = [[UIControl alloc] initWithFrame:self.view.window.bounds];
+            _maskControlView.backgroundColor = [UIColor clearColor];
+            [self.view addSubview:_maskControlView];
+        }
+        _maskControlView.hidden = NO;
         [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             weakself.centerView.left = 0;
         } completion:^(BOOL finished) {
+            _maskControlView.hidden = YES;
             _leftPopButton.selected = NO;
             _rightPopButton.selected = NO;
         }];
@@ -543,7 +552,7 @@
     [self removePanGestureRecognizerTarget:YES];
     
     if ([self.centerViewController isKindOfClass:[UINavigationController class]]) {
-        TMenuCenterViewController *menuCenterVC = (TMenuCenterViewController*)((UINavigationController*)self.centerViewController).topViewController;
+        TMenuCenterViewController *menuCenterVC = (TMenuCenterViewController*)[((UINavigationController*)self.centerViewController).viewControllers firstObject];
         
         if ([menuCenterVC.selectedViewController isKindOfClass:[UINavigationController class]]) {
             

@@ -74,7 +74,7 @@
     //    [TKCAppTools setViewCornerCircleWithView:self.userPhotoImgView];
     UIImage *cornerImg = [self.userPhotoImgView.image imageByRoundCornerRadius:self.userPhotoImgView.image.size.width/2];
     self.userPhotoImgView.image = cornerImg;
-    [TKCAppTools setCornerWithView:self.loginButton byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(10, 10)];
+//    [TKCAppTools setCornerWithView:self.loginButton byRoundingCorners:UIRectCornerAllCorners cornerRadii:CGSizeMake(10, 10)];
 }
 
 - (void)initBindProperty{
@@ -99,19 +99,22 @@
     }];
     //
     [[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        
+        [weakself.view endEditing:YES];
+        weakself.view.userInteractionEnabled = NO;
         if (!weakself.loginViewModel.loginButtonEnable) {
             
             [weakself.loginButton errorRevertAnimationCompletion:^{
-                
+                weakself.view.userInteractionEnabled = YES;
             }];
         }else{
             
-            
+            weakself.view.userInteractionEnabled = NO;
+            [weakself.loginButton startAnimation];
             [[weakself.loginViewModel.requestCommand execute:nil] subscribeNext:^(id x) {
                 [weakself.loginButton exitAnimationCompletion:^{
                     [TAppDelegateManager gotoMainController];
                 }];
+                weakself.view.userInteractionEnabled = YES;
             }];
             
         }

@@ -42,6 +42,7 @@
 		4E98D0AB1D6A9B7500E810D1 /* TipsFile.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 4E98D0AA1D6A9B7500E810D1 /* TipsFile.rtf */; };
 		4EA093BE1D6BFBFE0037E98E /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4EA093BD1D6BFBFE0037E98E /* city.plist */; };
 		4EA376E91D7D6AE100EF006F /* TNormalRefreshFoot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA376E81D7D6AE100EF006F /* TNormalRefreshFoot.m */; };
+		4EA891D31D87E3FC00EDA6A2 /* TMainTopViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA891D21D87E3FC00EDA6A2 /* TMainTopViewModel.m */; };
 		4EA92D8D1D7564AD00E76950 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EA92D8C1D7564AD00E76950 /* SafariServices.framework */; };
 		4EA92D901D75682F00E76950 /* TCreatingRQCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA92D8F1D75682F00E76950 /* TCreatingRQCodeViewController.m */; };
 		4EA92D931D75747200E76950 /* TScaningLocalCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA92D921D75747200E76950 /* TScaningLocalCode.m */; };
@@ -167,6 +168,8 @@
 		4EA093BD1D6BFBFE0037E98E /* city.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = city.plist; sourceTree = "<group>"; };
 		4EA376E71D7D6AE100EF006F /* TNormalRefreshFoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNormalRefreshFoot.h; sourceTree = "<group>"; };
 		4EA376E81D7D6AE100EF006F /* TNormalRefreshFoot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNormalRefreshFoot.m; sourceTree = "<group>"; };
+		4EA891D11D87E3FC00EDA6A2 /* TMainTopViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMainTopViewModel.h; sourceTree = "<group>"; };
+		4EA891D21D87E3FC00EDA6A2 /* TMainTopViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMainTopViewModel.m; sourceTree = "<group>"; };
 		4EA92D8C1D7564AD00E76950 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		4EA92D8E1D75682F00E76950 /* TCreatingRQCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCreatingRQCodeViewController.h; sourceTree = "<group>"; };
 		4EA92D8F1D75682F00E76950 /* TCreatingRQCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCreatingRQCodeViewController.m; sourceTree = "<group>"; };
@@ -852,6 +855,8 @@
 		4EFE16491D7E5A8F0090397C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4EA891D11D87E3FC00EDA6A2 /* TMainTopViewModel.h */,
+				4EA891D21D87E3FC00EDA6A2 /* TMainTopViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1175,6 +1180,7 @@
 				4EE4D9A11D630DE5008F9F48 /* TMenuRightTableViewController.m in Sources */,
 				4EBB7EBF1D6C4CB600E39DC9 /* UIView+ViewController.m in Sources */,
 				4EA376E91D7D6AE100EF006F /* TNormalRefreshFoot.m in Sources */,
+				4EA891D31D87E3FC00EDA6A2 /* TMainTopViewModel.m in Sources */,
 				4E731CD81D643E6B0026997A /* YZDisplayTitleLabel.m in Sources */,
 				4EA92D931D75747200E76950 /* TScaningLocalCode.m in Sources */,
 				4E48E4CF1D66ED1800C7A477 /* TReactiveCocoaLearningViewController.m in Sources */,

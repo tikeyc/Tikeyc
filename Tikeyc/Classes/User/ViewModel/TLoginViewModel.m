@@ -43,7 +43,7 @@
         RACSignal *signal = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
             
             // 模仿网络延迟
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 
                 [subscriber sendNext:@"登录成功"];
                 
@@ -86,14 +86,14 @@
             
             // 正在登录ing...
             // 用蒙版提示
-            [SVProgressHUD showWithStatus:@"正在登录..."];
+//            [SVProgressHUD showWithStatus:@"正在登录..."];
             
             
         }else
         {
             // 登录成功
             // 隐藏蒙版
-            [SVProgressHUD dismiss];
+//            [SVProgressHUD dismiss];
             
             
         }

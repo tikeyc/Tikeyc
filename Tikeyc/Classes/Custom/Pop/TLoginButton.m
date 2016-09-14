@@ -50,14 +50,14 @@
 
 - (void)stopAnimation
 {
-    self.hidden = true;
     [self removeAllAnimations];
+    self.hidden = true;
 }
 
 @end
 
 
-@interface TLoginButton ()
+@interface TLoginButton ()<CAAnimationDelegate>
 
 @property (nonatomic,assign) CFTimeInterval shrinkDuration;
 
@@ -77,33 +77,51 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        _spiner = [[TSpinerLayer alloc] initWithFrame:self.frame];
-        _shrinkCurve = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
-        _expandCurve = [CAMediaTimingFunction functionWithControlPoints:0.95 :0.02 :1 :0.05];
-        self.shrinkDuration = 0.1;
-        [self.layer addSublayer:_spiner];
-        [self setup];
+        [self initSubViewAndProperty];
     }
     return self;
 }
+
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    
+    [self performSelector:@selector(initSubViewAndProperty) withObject:nil afterDelay:0.1];
+}
+
+#pragma mark - init
+
+- (void)initSubViewAndProperty{
+    _spiner = [[TSpinerLayer alloc] initWithFrame:self.frame];
+    _shrinkCurve = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    _expandCurve = [CAMediaTimingFunction functionWithControlPoints:0.95 :0.02 :1 :0.05];
+    //
+    self.layer.cornerRadius = CGRectGetHeight(self.bounds) / 2;
+    self.clipsToBounds = true;
+    self.shrinkDuration = 0.1;
+    [self.layer addSublayer:_spiner];
+    //
+    [self addTarget];
+}
+
+#pragma mark - set
 
 -(void)setCompletion:(Completion)completion
 {
     _block = completion;
 }
 
--(void)setup{
-    
-    self.layer.cornerRadius = CGRectGetHeight(self.bounds) / 2;
-    self.clipsToBounds = true;
+-(void)addTarget{
+
     [self addTarget:self action:@selector(scaleToSmall)
    forControlEvents:UIControlEventTouchDown | UIControlEventTouchDragEnter];
+    
     [self addTarget:self action:@selector(scaleAnimation)
-   forControlEvents:UIControlEventTouchUpInside];
-    [self addTarget:self action:@selector(scaleToDefault)
-   forControlEvents:UIControlEventTouchDragExit];
+   forControlEvents:UIControlEventTouchUpInside | UIControlEventTouchDragExit];
     
 }
+
+
+#pragma mark - Actions Method
 
 - (void)scaleToSmall
 {
@@ -124,23 +142,33 @@
         weak.transform = CGAffineTransformMakeScale(1, 1);
     } completion:^(BOOL finished) {
     }];
-    [self startAnimation];
+//    [self startAnimation];//该动画在外部催动启动，不然存在BUG，因为外部和内部都addTarget了UIControlEventTouchUpInside事件，执行先后顺序不定(在RAC下)
 }
 
-- (void)scaleToDefault
-{
-    typeof(self) __weak weak = self;
-    [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.5f initialSpringVelocity:0.4f options:UIViewAnimationOptionLayoutSubviews animations:^{
-        weak.transform = CGAffineTransformMakeScale(1, 1);
-    } completion:^(BOOL finished) {
-        
-    }];
+
+#pragma mark - Animation Method
+
+-(void)didStopAnimation{
+    
+    [self.layer removeAllAnimations];
+}
+
+-(void)revert{
+    
+    CABasicAnimation *backgroundColor = [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
+    backgroundColor.toValue  = (__bridge id)self.backgroundColor.CGColor;
+    backgroundColor.duration = 0.1f;
+    backgroundColor.timingFunction = _shrinkCurve;
+    backgroundColor.fillMode = kCAFillModeForwards;
+    backgroundColor.removedOnCompletion = false;
+    [self.layer addAnimation:backgroundColor forKey:@"backgroundColors"];
+    
 }
 
 -(void)startAnimation{
     
     [self performSelector:@selector(revert) withObject:nil afterDelay:0.f];
-    [self.layer addSublayer:_spiner];
+    //
     CABasicAnimation *shrinkAnim = [CABasicAnimation animationWithKeyPath:@"bounds.size.width"];
     shrinkAnim.fromValue = [NSValue valueWithCGSize:CGSizeMake(CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds))];
     shrinkAnim.toValue = [NSValue valueWithCGSize:CGSizeMake(CGRectGetHeight(self.bounds), CGRectGetHeight(self.bounds))];
@@ -149,6 +177,7 @@
     shrinkAnim.fillMode = kCAFillModeForwards;
     shrinkAnim.removedOnCompletion = false;
     [self.layer addAnimation:shrinkAnim forKey:shrinkAnim.keyPath];
+    //
     [_spiner animation];
     [self setUserInteractionEnabled:false];
     
@@ -158,6 +187,7 @@
 -(void)errorRevertAnimationCompletion:(Completion)completion
 {
     _block = completion;
+    //
     CABasicAnimation *shrinkAnim = [CABasicAnimation animationWithKeyPath:@"bounds.size.width"];
     shrinkAnim.fromValue = @(CGRectGetHeight(self.bounds));
     shrinkAnim.toValue = @(CGRectGetWidth(self.bounds));
@@ -167,6 +197,7 @@
     shrinkAnim.removedOnCompletion = false;
     _color = self.backgroundColor;
     
+    //
 //    CABasicAnimation *backgroundColor = [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
 //    backgroundColor.toValue  = (__bridge id)[UIColor redColor].CGColor;
 //    backgroundColor.duration = 0.1f;
@@ -199,14 +230,16 @@
 //    [self.layer addAnimation:backgroundColor forKey:backgroundColor.keyPath];
     [self.layer addAnimation:keyFrame forKey:keyFrame.keyPath];
     [self.layer addAnimation:shrinkAnim forKey:shrinkAnim.keyPath];
+    //
     [_spiner stopAnimation];
-    [self setUserInteractionEnabled:true];
+    [self setUserInteractionEnabled:false];
 }
 
 -(void)exitAnimationCompletion:(Completion)completion{
     
-    [self setTitle:nil forState:UIControlStateNormal];
     _block = completion;
+    [self setTitle:nil forState:UIControlStateNormal];
+    //
     CABasicAnimation *expandAnim = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
     expandAnim.fromValue = @(1.0);
     expandAnim.toValue = @(33.0);
@@ -216,13 +249,19 @@
     expandAnim.fillMode = kCAFillModeForwards;
     expandAnim.removedOnCompletion = false;
     [self.layer addAnimation:expandAnim forKey:expandAnim.keyPath];
+    //
     [_spiner stopAnimation];
+    [self setUserInteractionEnabled:false];
 }
+
+
+
+#pragma mark - CAAnimationDelegate
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
     
     CABasicAnimation *cab = (CABasicAnimation *)anim;
-    if ([cab.keyPath isEqualToString:@"transform.scale"]) {
+    if ([cab.keyPath isEqualToString:@"transform.scale"] || [cab.keyPath isEqualToString:@"position"]) {
         [self setUserInteractionEnabled:true];
         if (_block) {
             _block();
@@ -231,21 +270,6 @@
     }
 }
 
--(void)revert{
-    
-    CABasicAnimation *backgroundColor = [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
-    backgroundColor.toValue  = (__bridge id)self.backgroundColor.CGColor;
-    backgroundColor.duration = 0.1f;
-    backgroundColor.timingFunction = _shrinkCurve;
-    backgroundColor.fillMode = kCAFillModeForwards;
-    backgroundColor.removedOnCompletion = false;
-    [self.layer addAnimation:backgroundColor forKey:@"backgroundColors"];
-    
-}
 
--(void)didStopAnimation{
-    
-    [self.layer removeAllAnimations];
-}
 
 @end

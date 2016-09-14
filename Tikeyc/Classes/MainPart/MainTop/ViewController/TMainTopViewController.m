@@ -11,17 +11,32 @@
 #import "TNormalRefreshHead.h"
 #import "TNormalRefreshFoot.h"
 
-@interface TMainTopViewController ()<UIScrollViewDelegate>
+#import "TMainTopViewModel.h"
 
+@interface TMainTopViewController ()
+
+@property (nonatomic,strong)TMainTopViewModel *mainTopViewModel;
 
 @end
 
 @implementation TMainTopViewController
 
+- (void)setNavigationProperty{
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor purpleColor]] forBarMetrics:UIBarMetricsDefault];
+    
+    UIImage *image = [UIImage imageNamed:@"main_top_title"];
+    UIImageView *titleView = [[UIImageView alloc] initWithImage:image];
+    titleView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
+    self.navigationItem.titleView = titleView;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    //
+    [self setNavigationProperty];
+    //
     [self setProperty];
 }
 
@@ -30,8 +45,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     
     [TNotificationCenter postNotificationName:TNotificationName_Set_menuPanEnable object:@(true)];
 }
@@ -58,23 +73,28 @@
     self.title = @"top View";
     //
     UIScrollView *scrollView = (UIScrollView*)self.view;//in storyboard set self.view = scrollView
-//    scrollView.delegate = self;
+    scrollView.delegate = (id)self.mainTopViewModel;
+    scrollView.contentSize = CGSizeMake(0, scrollView.height+ 100);
     //
-    scrollView.mj_header = [TNormalRefreshHead headerWithRefreshingBlock:^{
-        NSLog(@"headerWithRefreshingBlock:%lf",scrollView.contentOffset.y);
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [scrollView.mj_header endRefreshingWithCompletionBlock:^{
-                NSLog(@"endRefreshingWithCompletionBlock");
-            }];
-        });
-        
-    }];
+//    scrollView.mj_header = [TNormalRefreshHead headerWithRefreshingBlock:^{
+//        NSLog(@"headerWithRefreshingBlock:%lf",scrollView.contentOffset.y);
+//        
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            [scrollView.mj_header endRefreshingWithCompletionBlock:^{
+//                NSLog(@"endRefreshingWithCompletionBlock");
+//            }];
+//        });
+//        
+//    }];
     //
-    //        TNormalRefreshFoot *refreshFooter = [TNormalRefreshFoot footerWithRefreshingBlock:^{
-    //             NSLog(@"footerWithRefreshingBlock");
-    //        }];
-    //        scrollView.mj_footer = refreshFooter;
+//            TNormalRefreshFoot *refreshFooter = [TNormalRefreshFoot footerWithRefreshingBlock:^{
+//                 NSLog(@"footerWithRefreshingBlock");
+//            }];
+//            scrollView.mj_footer = refreshFooter;
+    
+    
+    //
+//    [self getQuadCurveLayer];
 }
 
 #pragma mark - bind RACSignal
@@ -83,4 +103,20 @@
     
 }
 
+#pragma mark - set
+
+- (TMainTopViewModel *)mainTopViewModel{
+    if (!_mainTopViewModel) {
+        _mainTopViewModel = [[TMainTopViewModel alloc] init];
+    }
+    return _mainTopViewModel;
+}
+
+
+
 @end
+
+
+
+
+

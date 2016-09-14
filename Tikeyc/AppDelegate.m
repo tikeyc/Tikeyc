@@ -20,6 +20,12 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    /*当然只会在需求：self.window第一次 不想 加载Main storyboard file base name的情况
+     *不知道大家有没有范这么一个错误：在info.plist中Main storyboard file base name设置了storyboard，同时在AppDelegate self.window设置了rootViewController的情况
+     *该情况就多余了，不必要的创建了storyboard。会出现这种情况-->创建Main storyboard file base name指定的storyboard，然后创建代码制定的rootViewController,销毁storyboard；
+     *
+     *根据不同需求这里我已经取消了info.plist中的Main storyboard file base name
+     */
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     
     self.window.backgroundColor = [UIColor whiteColor];

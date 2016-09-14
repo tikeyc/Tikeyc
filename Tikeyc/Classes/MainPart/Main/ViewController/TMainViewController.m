@@ -8,7 +8,8 @@
 
 #import "TMainViewController.h"
 
-
+#import <Intents/Intents.h>
+#import <IntentsUI/IntentsUI.h>
 #import "TBaseNavigationViewController.h"
 #import "TMainViewController.h"
 
@@ -35,26 +36,21 @@
     titleView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
     self.navigationItem.titleView = titleView;
 
+    
     //
     [self initRACSignal];
 }
 
--(void)viewDidAppear:(BOOL)animated{
+- (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-}
-
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    /*直接使用[self.mainMenuViewController removePanGestureRecognizerTarget:NO];有bug
-     *因为是在viewWillAppear和viewWillDisappear中判断menu滑动显示menu手势，先滑动后使用的是系统滑动返回手势，显示一点点上一层级的控制器才判断和设置menu_pan的enable。需要毫秒级的时间差来过度，不然偶尔会出现始终可以滑动显示menu
-     */
-    [TNotificationCenter postNotificationName:TNotificationName_Set_menuPanEnable object:@(true)];
+    [self.mainMenuViewController removePanGestureRecognizerTarget:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    [TNotificationCenter postNotificationName:TNotificationName_Set_menuPanEnable object:@(false)];
+    
+    [self.mainMenuViewController removePanGestureRecognizerTarget:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,10 +80,6 @@
 
 - (void)initRACSignal{
     
-    /*直接使用[self.mainMenuViewController removePanGestureRecognizerTarget:NO];有bug
-     *因为是在viewWillAppear和viewWillDisappear中判断menu滑动显示menu手势，先滑动后使用的是系统滑动返回手势，显示一点点上一层级的控制器才判断和设置menu_pan的enable。需要毫秒级的时间差来过度，不然偶尔会出现始终可以滑动显示menu
-     *因此使用通知
-     */
     TWeakSelf(self)
     [[TNotificationCenter rac_addObserverForName:TNotificationName_Set_menuPanEnable object:nil] subscribeNext:^(NSNotification *notification) {
 //        notification

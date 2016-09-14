@@ -37,8 +37,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     
     [TNotificationCenter postNotificationName:TNotificationName_Set_menuPanEnable object:@(true)];
 }

@@ -77,7 +77,7 @@
     POPBasicAnimation *draw = [POPBasicAnimation animationWithPropertyNamed:kPOPShapeLayerStrokeEnd];
     draw.fromValue = @(0.0);
     draw.toValue = @(1.0);
-    draw.duration = 0.8;
+    draw.duration = 0.4;
     draw.beginTime = CACurrentMediaTime() + 0.5;
     draw.delegate = self;
     [draw setValue:@"draw" forKey:@"animName"];
