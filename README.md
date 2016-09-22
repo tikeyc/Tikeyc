@@ -1,5 +1,7 @@
 # Tikeyc
 
+因github半天上传不了大文件，[请移步至：https://git.oschina.net/tikeyc/Tikeyc](https://git.oschina.net/tikeyc/Tikeyc)<br />
+
                                                 个人项目开发：
 前言：我是一个比较懒得人，开发也有几年了，没怎么整理过项目技术，而且之前开发过的项目偶有下架或者重大改版的情况，为了以后能有个装逼的武器，特此在工作闲暇之余开发了一个功能和技术点较为杂的项目                
 
