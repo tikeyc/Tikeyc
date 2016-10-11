@@ -15,6 +15,47 @@
 
 @implementation TKCAppTools
 
+
+/**
+ 拨打电话
+
+ @param phoneNum        电话号码
+ @param telephoningType 拨打类型 见TKCTelephoningType
+ */
++ (void)userTelephoningNum:(NSString *)phoneNum type:(TKCTelephoningType)telephoningType{
+
+    switch (telephoningType) {
+        case TKCTelephoningTypeApplicationWebView:
+        {
+            phoneNum = [@"tel:" stringByAppendingString:phoneNum];
+            //
+            UIWebView *webView = [[UIWebView alloc] init];
+            [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:phoneNum]]];
+            [[UIApplication sharedApplication].keyWindow addSubview:webView];
+        }
+            break;
+        case TKCTelephoningTypeApplication:
+        {
+            phoneNum = [@"tel:" stringByAppendingString:phoneNum];
+            //
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNum]];
+        }
+            break;
+        case TKCTelephoningTypeApplicationTelprompt:
+        {
+            phoneNum = [@"telprompt://" stringByAppendingString:phoneNum];
+            //
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNum]];
+        }
+            break;
+            
+        default:
+            break;
+    }
+
+}
+
+
 /**
  *  获取磁盘总空间大小
  *
@@ -781,7 +822,20 @@
 }
 
 
-
+/**
+ 强制旋转设配的屏幕方向
+ 
+ *如果是第一次设置需要先设置一次正向
+ *再设置希望的方向
+ *不然存在BUG：当横着屏幕push进当前控制器时，第一次进来视图不会旋转至横屏状态。但当pop后再push进来视图却又可以旋转至横屏状态了
+ 
+ @param deviceOrientation 旋转方向
+ */
++ (void)constraintRotationDeviceWithUIDeviceOrientation:(UIDeviceOrientation)deviceOrientation{
+    
+    NSNumber *orientation = [NSNumber numberWithInt:deviceOrientation];
+    [[UIDevice currentDevice] setValue:orientation forKey:@"orientation"];
+}
 
 @end
 

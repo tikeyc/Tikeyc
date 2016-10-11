@@ -33,6 +33,10 @@
 #define TRandomColor_RGB TColor_RGB(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
 #define TRandomColor_RGBA TColor_RGBA_256(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
 
+/** 字体 */
+
+#define TSystemFontSize(size) [UIFont systemFontOfSize:size]
+
 /** 弧度制转为角度制 */
 #define TAngle2Radian(angle) ((angle) / 180.0 * M_PI)
 
@@ -55,6 +59,7 @@
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #define TApplication [UIApplication sharedApplication]
+#define TApplicationDelegate ((AppDelegate*)[UIApplication sharedApplication].delegate)
 #define TFileManager [NSFileManager defaultManager]
 #define TDevice [UIDevice currentDevice]
 
@@ -63,7 +68,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 //#define WEAKSELF __weak typeof(self) weakSelf = self;
 #define TWeakSelf(type)  __weak typeof(type) weak##type = type;//#的意思是紧跟着它的后面的标识符添加一个双引号""
-
 
 #endif /* CommenDefine_h */
 

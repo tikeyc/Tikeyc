@@ -14,4 +14,6 @@
 
 + (void)gotoMainController;
 
++ (void)registerNotification;
+
 @end

@@ -19,6 +19,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>GPUImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>LFLiveKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MJExtension.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -84,6 +94,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>iOS-Echarts-iOS-Echarts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>iOS-Echarts.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>pop.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -107,27 +127,37 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3305D9965AB28B6A1CBF24AA2E8866F3</key>
+		<key>47DC59B416A14B343504101200C3B665</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3F2A18BBF4C259DF328B7C989520807A</key>
+		<key>52D7F20D4E0D3B0DAB7C7ABE765AD7AF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>54B27AF9EBE92A28395FF3FEAE451BC7</key>
+		<key>5525E22F72EDAE405CE7EC6A8D613DBC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5848B3766E5B7421F944DA7D912751AE</key>
+		<key>56C7B03D06F869D87528524D692079AC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5B0467FCAC17ED8BDD265098D394B7C6</key>
+		<key>5A59D82A7BA6B1CEA4369A8FFF89D920</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5D4F45417BDFC8CC57AB78A81FA75836</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>600B935FF681CFD2F8776597B1A0BEE4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -137,12 +167,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7F83D854C8557201DD5A746B23576502</key>
+		<key>97CD25A7AC5A78AC3451A23F549C5661</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>A9A83F63385AA43314397B8DD375464B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AA8CBDF011CF6DD1D3B12D267C2E4F34</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -157,17 +192,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>CDD375A53442AB753CA6D9C8234E432D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D2046C2C4BED17361A7769355650FC72</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>D58D76EC529B4A92F3E5EDADE0A96661</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D984965F2E8377DE97FEAF8C07ED4ED4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>E6A5D7805B3CC150AE9C08AEA76C6BD3</key>
+		<key>EA0DD8ED489933744D70DD4A9719ED01</key>
 		<dict>
 			<key>primary</key>
 			<true/>

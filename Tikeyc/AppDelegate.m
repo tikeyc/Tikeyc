@@ -8,18 +8,26 @@
 
 #import "AppDelegate.h"
 
+#import <UserNotifications/UserNotifications.h>
 
-
-@interface AppDelegate ()
+@interface AppDelegate ()<UNUserNotificationCenterDelegate>
 
 @end
 
 @implementation AppDelegate
 
 
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(nullable UIWindow *)window{
+    if (self.deviceInterfaceOrientationMask != UIInterfaceOrientationMaskLandscape) {
+        self.deviceInterfaceOrientationMask = UIInterfaceOrientationMaskPortrait;
+    }
+    return self.deviceInterfaceOrientationMask;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
+    self.deviceInterfaceOrientationMask = UIInterfaceOrientationMaskPortrait;
+
     /*当然只会在需求：self.window第一次 不想 加载Main storyboard file base name的情况
      *不知道大家有没有范这么一个错误：在info.plist中Main storyboard file base name设置了storyboard，同时在AppDelegate self.window设置了rootViewController的情况
      *该情况就多余了，不必要的创建了storyboard。会出现这种情况-->创建Main storyboard file base name指定的storyboard，然后创建代码制定的rootViewController,销毁storyboard；
@@ -27,14 +35,29 @@
      *根据不同需求这里我已经取消了info.plist中的Main storyboard file base name
      */
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    
     self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     
     [TAppDelegateManager gotoLoginController];
     
+    [TAppDelegateManager registerNotification];
     
-    [self.window makeKeyAndVisible];
-    
+    /* APP未启动，点击推送消息的情况下 iOS10遗弃UIApplicationLaunchOptionsLocalNotificationKey，使用代理UNUserNotificationCenterDelegate方法didReceiveNotificationResponse:withCompletionHandler:获取本地推送
+     */
+    //    NSDictionary *localUserInfo = launchOptions[UIApplicationLaunchOptionsLocalNotificationKey];
+    //    if (localUserInfo) {
+    //        NSLog(@"localUserInfo:%@",localUserInfo);
+    //        //APP未启动，点击推送消息
+    //    }
+    NSDictionary *remoteUserInfo = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (remoteUserInfo) {
+        NSLog(@"remoteUserInfo:%@",remoteUserInfo);
+        //APP未启动，点击推送消息，iOS10下还是跟以前一样在此获取
+        [self application:application didReceiveRemoteNotification:remoteUserInfo fetchCompletionHandler:^(UIBackgroundFetchResult result) {
+            
+        }];
+    }
+
     return YES;
 }
 
@@ -124,6 +147,64 @@
         abort();
     }
 }
+
+
+
+#pragma mark - UIApplicationDelegate
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
+    
+    NSLog(@"Regist fail%@",error);
+}
+
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    NSString *deviceTokenStr = [[[[deviceToken description]
+                                  stringByReplacingOccurrencesOfString: @"<" withString: @""]
+                                 stringByReplacingOccurrencesOfString: @">" withString: @""]
+                                stringByReplacingOccurrencesOfString: @" " withString: @""];
+    NSLog(@"Device Token: %@", deviceTokenStr);
+    //c9ff73c9fbbc2317db42f1cabe7322328cf36320adaf8072aaf72460a437ab78
+    
+    [TUserDefaults setObject:deviceTokenStr forKey:T_Device_Token];
+}
+
+//远程推送APP在前台
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
+    NSLog(@"didReceiveRemoteNotification:%@",userInfo);
+    
+    //    NSString *message = [[userInfo objectForKey:@"aps"]objectForKey:@"name"];
+    NSString *messageStr = [NSString stringWithFormat:@"%@", userInfo];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:messageStr delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alert show];
+    
+    //
+    NSInteger badge = [UIApplication sharedApplication].applicationIconBadgeNumber;
+    badge -= [userInfo[@"aps"][@"badge"] integerValue];
+    badge = badge >= 0 ? badge : 0;
+    [UIApplication sharedApplication].applicationIconBadgeNumber = badge;
+}
+
+#pragma mark - UNUserNotificationCenterDelegate
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler{
+    NSLog(@"willPresentNotification:%@",notification.request.content.title);
+    
+    // 获取通知所带的数据
+    //    NSString *notMess = [notification.request.content.userInfo objectForKey:@"aps"];
+    
+}
+
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler{
+    //在没有启动本App时，收到服务器推送消息，下拉消息会有快捷回复的按钮，点击按钮后调用的方法，根据identifier来判断点击的哪个按钮
+    //    NSString *notMess = [response.notification.request.content.userInfo objectForKey:@"aps"];
+    NSLog(@"didReceiveNotificationResponse:%@",response.notification.request.content.title);
+    //    response.notification.request.identifier
+}
+
+
+
 
 @end
 

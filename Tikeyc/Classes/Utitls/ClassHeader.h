@@ -14,7 +14,10 @@
 #import "TAppDelegateManager.h"
 
 //creat
+#import "AppDelegate.h"
+#import "TMethodDefine.h"
 #import "CommenDefine.h"
+#import "TUserDefaultDefine.h"
 #import "TKCAppTools.h"
 #import "TNotificationDefine.h"
 #import "TServiceTool.h"
@@ -25,11 +28,14 @@
 
 //pod
 
+#import "Masonry.h"
 #import "YYKit.h"
 #import "AFNetworking.h"
 #import "SVProgressHUD.h"
 #import "MJRefresh.h"
+#import "MJExtension.h"
 #import "POP.h"
+#import "MagicalRecord.h"
 // RAC
 #import "ReactiveCocoa.h"
 #import "EXTScope.h"

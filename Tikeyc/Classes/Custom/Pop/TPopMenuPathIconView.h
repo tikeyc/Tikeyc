@@ -24,6 +24,7 @@ typedef void(^MenuIconClick)(NSInteger index);
 - (instancetype)initWithFrame:(CGRect)frame
                     direction:(TPopMenuPathIconAnimationDirection)direction
                         icons:(NSArray *)iconImgNames
+                        titles:(NSArray *)iconTitles
                     clickIcon:(MenuIconClick)menuIconClick;
 
 

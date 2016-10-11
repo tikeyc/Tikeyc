@@ -114,6 +114,52 @@ THE SOFTWARE.</string>
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>Copyright (c) 2012, Brad Larson, Ben Cochran, Hugues Lismonde, Keitaroh Kobayashi, Alaric Cole, Matthew Clark, Jacob Gundersen, Chris Williams.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+Neither the name of the GPUImage framework nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+</string>
+			<key>Title</key>
+			<string>GPUImage</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>The MIT License (MIT)
+
+Copyright (c) 2016 LaiFengiOS
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+</string>
+			<key>Title</key>
+			<string>LFLiveKit</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>Copyright (c) 2013-2015 MJExtension (https://github.com/CoderMJLee/MJExtension)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -630,6 +676,25 @@ SOFTWARE.
 </string>
 			<key>Title</key>
 			<string>YYKit</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>This is a custom component for the echarts.
+
+# iOS- Echarts - &#23558;ECharts&#23553;&#35013;&#25104;iOS&#25511;&#20214;
+&#26412;&#39033;&#30446;&#26159;&#23558;&#30334;&#24230;&#30340;ECharts&#24037;&#20855;&#23553;&#35013;&#25104;&#23545;&#24212;&#30340;iOS&#30340;&#25511;&#20214;&#65292;&#24182;&#19988;&#23558;&#20854;&#20013;javascript&#30340;&#23646;&#24615;&#23553;&#35013;&#25104;&#23545;&#24212;&#30340;&#23545;&#35937;&#12290;&#26041;&#20415;&#31243;&#24207;&#21592;&#22312;&#32534;&#20889;&#31243;&#24207;&#30340;&#36807;&#31243;&#20013;&#26356;&#21152;&#20851;&#27880;OC&#30340;&#20195;&#30721;&#65292;&#36991;&#20813;&#22312;&#20351;&#29992;&#30334;&#24230;&#30340;ECharts&#24037;&#20855;&#30340;&#36807;&#31243;&#20013;&#36807;&#22810;&#30340;&#20851;&#27880;javascript&#35821;&#27861;&#21644;&#19982;javascript&#20043;&#38388;&#30340;&#20132;&#20114;&#12290;
+
+#Echarts&#20449;&#24687;
+[Echarts Github&#22320;&#22336;](https://github.com/ecomfe/echarts)
+
+[Echarts &#23448;&#32593;(&#20013;&#25991;)](http://echarts.baidu.com/index.html)
+
+[Echarts WebSite(English)](http://echarts.baidu.com/index-en.html)
+</string>
+			<key>Title</key>
+			<string>iOS-Echarts</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

@@ -13,6 +13,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (nonatomic,assign) UIInterfaceOrientationMask deviceInterfaceOrientationMask;
+
 @property (readonly, strong) NSPersistentContainer *persistentContainer;
 
 - (void)saveContext;

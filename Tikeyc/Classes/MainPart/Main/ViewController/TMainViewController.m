@@ -31,12 +31,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIImage *image = [UIImage imageNamed:@"main_title"];
-    UIImageView *titleView = [[UIImageView alloc] initWithImage:image];
-    titleView.frame = CGRectMake(0, 0, image.size.width, image.size.height);
-    self.navigationItem.titleView = titleView;
-
-    
+    TsetNavigationItem_titleView_withImgName(@"main_title")
     //
     [self initRACSignal];
 }

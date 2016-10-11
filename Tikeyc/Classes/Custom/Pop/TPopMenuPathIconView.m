@@ -8,6 +8,8 @@
 
 #import "TPopMenuPathIconView.h"
 
+#import "TTopImgBottomTextControl.h"
+
 @interface TPopMenuPathIconView ()<POPAnimationDelegate> {
     BOOL _isDrawingCircle;
     BOOL _isMenuPresented;
@@ -16,6 +18,7 @@
 }
 @property (nonatomic, strong) CAShapeLayer *circle;
 @property (nonatomic, strong) NSArray *iconImgNames;
+@property (nonatomic, strong) NSArray *iconTitles;
 
 @end
 
@@ -24,10 +27,12 @@
 - (instancetype)initWithFrame:(CGRect)frame
                     direction:(TPopMenuPathIconAnimationDirection)direction
                         icons:(NSArray *)iconImgNames
+                        titles:(NSArray *)iconTitles
                     clickIcon:(MenuIconClick)menuIconClick{
     self = [super initWithFrame:frame];
     if (self) {
         self.iconImgNames = [NSArray arrayWithArray:iconImgNames];
+        self.iconTitles = [NSArray arrayWithArray:iconTitles];
         self.menuIconClick = menuIconClick;
         
         switch (direction) {
@@ -95,16 +100,28 @@
     NSInteger i = 0;
     for (NSString *iconImgName in self.iconImgNames) {
         
-        UIButton *iconView = [UIButton buttonWithType:UIButtonTypeCustom];
-        iconView.showsTouchWhenHighlighted = YES;
-        UIImage *image = [UIImage imageNamed:iconImgName];
-        if (image) {
-            [iconView setImage:image forState:UIControlStateNormal];
-        }else{
-            iconView.backgroundColor = [UIColor greenColor];
-        }
+        TTopImgBottomTextControl *iconView = [[TTopImgBottomTextControl alloc] initWithImageName:iconImgName withLabelTitle:self.iconTitles[i]];
+        
+//        UIImage *image = [UIImage imageNamed:iconImgName];
+//        if (image) {
+//            [iconView setImage:image forState:UIControlStateNormal];
+//        }else{
+//            iconView.backgroundColor = [UIColor greenColor];
+//        }
         iconView.tag = i;
-        [iconView addTarget:self action:@selector(iconViewButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        TWeakSelf(self)
+        iconView.clickBlock = ^(TTopImgBottomTextControl *control){
+            control.transform = CGAffineTransformMakeScale(0.8, 0.8);
+            [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+                control.transform = CGAffineTransformIdentity;
+            } completion:^(BOOL finished) {
+                
+            }];
+            
+            if (weakself.menuIconClick) {
+                weakself.menuIconClick(control.tag);
+            }
+        };
         
         iconView.frame = CGRectMake(_gesturePosition.x - size/2,
                                     _gesturePosition.y - size/2,
@@ -169,20 +186,5 @@
     }
 }
 
-
-#pragma mark - Actions method
-
-- (void)iconViewButtonAction:(UIButton *)button{
-    button.transform = CGAffineTransformMakeScale(0.8, 0.8);
-    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        button.transform = CGAffineTransformIdentity;
-    } completion:^(BOOL finished) {
-        
-    }];
-    
-    if (self.menuIconClick) {
-        self.menuIconClick(button.tag);
-    }
-}
 
 @end

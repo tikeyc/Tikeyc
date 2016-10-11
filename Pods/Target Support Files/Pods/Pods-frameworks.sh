@@ -87,6 +87,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/AFNetworking.framework"
   install_framework "Pods/AsyncDisplayKit.framework"
   install_framework "Pods/FMDB.framework"
+  install_framework "Pods/GPUImage.framework"
+  install_framework "Pods/LFLiveKit.framework"
   install_framework "Pods/MJExtension.framework"
   install_framework "Pods/MJRefresh.framework"
   install_framework "Pods/MagicalRecord.framework"
@@ -99,12 +101,15 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/SVProgressHUD.framework"
   install_framework "Pods/WebViewJavascriptBridge.framework"
   install_framework "Pods/YYKit.framework"
+  install_framework "Pods/iOS_Echarts.framework"
   install_framework "Pods/pop.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/AFNetworking.framework"
   install_framework "Pods/AsyncDisplayKit.framework"
   install_framework "Pods/FMDB.framework"
+  install_framework "Pods/GPUImage.framework"
+  install_framework "Pods/LFLiveKit.framework"
   install_framework "Pods/MJExtension.framework"
   install_framework "Pods/MJRefresh.framework"
   install_framework "Pods/MagicalRecord.framework"
@@ -117,5 +122,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/SVProgressHUD.framework"
   install_framework "Pods/WebViewJavascriptBridge.framework"
   install_framework "Pods/YYKit.framework"
+  install_framework "Pods/iOS_Echarts.framework"
   install_framework "Pods/pop.framework"
 fi

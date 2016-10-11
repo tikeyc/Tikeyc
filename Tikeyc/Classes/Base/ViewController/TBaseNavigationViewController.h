@@ -10,4 +10,7 @@
 
 @interface TBaseNavigationViewController : UINavigationController
 
+// 创建全屏滑动手势
+@property (nonatomic,strong)UIPanGestureRecognizer *panBackGestureRecognizer;
+
 @end

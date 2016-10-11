@@ -62,7 +62,7 @@
     //
     if (_currentShowTableViewIsLeft) {
         
-        NSArray *leftMenuTitles = @[@"个人技术博客",@"个人GitHub",@"title_test",@"title_test",@"title_test",@"title_test",@"登出"];
+        NSArray *leftMenuTitles = @[@"个人技术博客",@"个人GitHub",@"个人Oschina",@"title_test",@"title_test",@"title_test",@"登出"];
         __block NSMutableArray *leftMenuModels = [NSMutableArray array];
         self.leftMenuModels = leftMenuModels;
         [leftMenuTitles enumerateObjectsUsingBlock:^(NSString   * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -195,6 +195,9 @@
                     [mainMenuVC showCenterControllerWithAnimation:YES toShowNextController:codeWebVC];
                 }else if (indexPath.row == 1){
                     TQRCodeWebViewController *codeWebVC = [[TQRCodeWebViewController alloc] initWithURL:[NSURL URLWithString:Tikeyc_GitHub_url]];
+                    [mainMenuVC showCenterControllerWithAnimation:YES toShowNextController:codeWebVC];
+                }else if (indexPath.row == 2){
+                    TQRCodeWebViewController *codeWebVC = [[TQRCodeWebViewController alloc] initWithURL:[NSURL URLWithString:Tikeyc_Oschina_url]];
                     [mainMenuVC showCenterControllerWithAnimation:YES toShowNextController:codeWebVC];
                 }else{
                     

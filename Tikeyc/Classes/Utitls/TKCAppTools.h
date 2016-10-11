@@ -10,9 +10,24 @@
 
 #import <UIKit/UIKit.h>
 
-
+//TKCTelephoningTypeApplicationTelprompt与TKCTelephoningTypeApplicationTelprompt几乎效果一样，只多了一层黑色非常透明的丝袜
+typedef enum : NSUInteger {
+    TKCTelephoningTypeApplicationWebView = 0,//在手机电话APP拨打，先在本APP内弹窗提示，需确认拨打。
+    TKCTelephoningTypeApplication,//在手机电话APP直接拨打，无提示。结束通话后返回当前APP界面
+    TKCTelephoningTypeApplicationTelprompt,//在手机电话APP拨打，先在本APP内弹窗提示，需确认拨打。
+} TKCTelephoningType;
 
 @interface TKCAppTools : NSObject
+
+
+#pragma mark - 拨打电话
+/**
+ 拨打电话
+ 
+ @param phoneNum        电话号码
+ @param telephoningType 拨打类型 见TKCTelephoningType
+ */
++ (void)userTelephoningNum:(NSString *)phoneNum type:(TKCTelephoningType)telephoningType;
 
 #pragma mark - 获取磁盘总空间大小
 /**
@@ -349,6 +364,18 @@
  *  @return 字符串是否全部为数字
  */
 + (BOOL)isAllNum:(NSString *)string;
+
+
+/**
+ 强制旋转设配的屏幕方向
+
+ *如果是第一次设置需要先设置一次正向
+ *再设置希望的方向
+ *不然存在BUG：当横着屏幕push进当前控制器时，第一次进来视图不会旋转至横屏状态。但当pop后再push进来视图却又可以旋转至横屏状态了
+ 
+ @param deviceOrientation 旋转方向
+ */
++ (void)constraintRotationDeviceWithUIDeviceOrientation:(UIDeviceOrientation)deviceOrientation;
 
 
 @end

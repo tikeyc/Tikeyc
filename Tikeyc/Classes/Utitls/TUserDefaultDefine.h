@@ -12,4 +12,6 @@
 
 #define TUserDefaults [NSUserDefaults standardUserDefaults]
 
+#define T_Device_Token @"T_Device_Token"
+
 #endif /* TUserDefaultDefine_h */
