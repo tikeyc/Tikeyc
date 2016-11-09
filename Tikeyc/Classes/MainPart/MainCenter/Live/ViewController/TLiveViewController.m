@@ -10,6 +10,8 @@
 
 #import <AVFoundation/AVFoundation.h>
 
+#import "LFLivePreview.h"
+
 @interface TLiveViewController ()
 
 
@@ -32,8 +34,17 @@
     // Do any additional setup after loading the view from its nib.
     
     self.title = @"直播采集，暂未实现转码";
-    //
-    [self setupCaputureVideo];
+    /*自定义方法 暂未实现编码及推流功能*/
+//    [self setupCaputureVideo];
+    /*使用三方SDK LFLiveKit实现编码、推流、美颜等功能*/
+    LFLivePreview *livePreview = [[LFLivePreview alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:livePreview];
+    [livePreview mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@0);
+        make.left.equalTo(@0);
+        make.bottom.equalTo(@0);
+        make.right.equalTo(@0);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

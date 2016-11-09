@@ -10,4 +10,7 @@
 
 @interface TEchartsBarViewController : TBaseViewController
 
+
+extern NSString *const lineAndStackedBarOption;
+
 @end

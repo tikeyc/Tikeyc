@@ -16,6 +16,8 @@
 
 #import "TPopMenuPathIconView.h"
 
+#import "TPickerView.h"
+
 @interface TMainCenterViewController ()
 
 @property (nonatomic,strong)TPopMenuPathIconView *popMenuPathIconView;
@@ -31,19 +33,12 @@
     
     
     [self setSubViewProperty];
-    
 }
 
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    
-    [TNotificationCenter postNotificationName:TNotificationName_Set_menuPanEnable object:@(true)];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{

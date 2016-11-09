@@ -103,7 +103,7 @@
     _manager.refreshInterval = 1.0;
     
     //开始滚动 manager主动获取弹幕，另外一种方式，`[_manager showBarrageWithDataSource:m]` 退出弹幕即可
-    [_manager startScroll];
+//    [_manager startScroll];
     
     
     //_manager被动接收弹幕，如果一次性传入较多的数据，岂不是一下子创建很多弹幕？！

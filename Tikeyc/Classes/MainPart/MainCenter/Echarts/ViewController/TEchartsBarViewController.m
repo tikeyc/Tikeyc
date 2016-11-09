@@ -12,8 +12,13 @@
 
 #import "iOS-Echarts.h"
 
+#import "TEchartsViewModel.h"
+
+NSString *const lineAndStackedBarOption = @"叠加柱状图";
+
 @interface TEchartsBarViewController ()
 
+@property (nonatomic,strong)TEchartsViewModel *echartsViewModel;
 
 @property (strong, nonatomic) IBOutlet PYEchartsView *echartsView;
 
@@ -25,7 +30,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.title = @"Bar";
+    self.title = lineAndStackedBarOption;
     
     
     [self initSubViewProperty];
@@ -72,11 +77,20 @@
     // Pass the selected object to the new view controller.
 }
 */
+#pragma mark - get
 
+- (TEchartsViewModel *)echartsViewModel{
+    if (!_echartsViewModel) {
+        _echartsViewModel = [[TEchartsViewModel alloc] init];
+    }
+    return _echartsViewModel;
+}
+
+#pragma mrk - init
 
 - (void)initSubViewProperty{
     NSArray *results = [self loadData];
-    PYOption *option = [self standardLineOption:results];
+    PYOption *option = [self.echartsViewModel lineAndStackedBarOption:results];
     [self.echartsView setOption:option];
     [self.echartsView loadEcharts];
     
@@ -95,145 +109,6 @@
     
     return results;
 }
-
-- (PYOption *)standardLineOption:(NSArray *)result {
-    
-    return [PYOption initPYOptionWithBlock:^(PYOption *option) {
-        option.tooltipEqual([PYTooltip initPYTooltipWithBlock:^(PYTooltip *tooltip) {
-            tooltip.triggerEqual(PYTooltipTriggerAxis)
-            .axisPointerEqual([PYAxisPointer initPYAxisPointerWithBlock:^(PYAxisPointer *axisPoint) {
-                axisPoint.typeEqual(PYAxisPointerTypeShadow);
-            }]);
-        }])
-        .legendEqual([PYLegend initPYLegendWithBlock:^(PYLegend *legend) {
-            legend.dataEqual(@[@"0-30天",@"30-60天",@">60天",@"长期在库率"]);
-        }])
-        .gridEqual([PYGrid initPYGridWithBlock:^(PYGrid *grid) {
-            grid.xEqual(@40).x2Equal(@80);
-        }])
-//        .calculableEqual(YES)拖拽重计算
-        .addXAxis([PYAxis initPYAxisWithBlock:^(PYAxis *axis) {
-            axis.typeEqual(PYAxisTypeCategory)
-            .addDataArr(@[@1,@2,@3,@4,@5,@6,@7,@8,@9,@10,@11,@12]);
-            axis.axisTickEqual([PYAxisTick initPYAxisTickWithBlock:^(PYAxisTick *axisTick) {
-                axisTick.showEqual(NO);
-            }]);
-        }])
-        .addYAxis([PYAxis initPYAxisWithBlock:^(PYAxis *axis) {
-            axis.typeEqual(PYAxisTypeValue);
-        }])
-        .addYAxis([PYAxis initPYAxisWithBlock:^(PYAxis *axis) {
-            axis.typeEqual(PYAxisTypeValue);
-            axis.splitLineEqual([PYAxisSplitLine initPYAxisSplitLineWithBlock:^(PYAxisSplitLine *axisSpliteLine) {
-                axisSpliteLine.showEqual(NO);
-            }]);
-            axis.axisLabelEqual([PYAxisLabel initPYAxisLabelWithBlock:^(PYAxisLabel *axisLabel) {
-                axisLabel.formatterEqual(@"{value} %");
-            }]);
-        }])
-        
-        .addSeries([PYCartesianSeries initPYCartesianSeriesWithBlock:^(PYCartesianSeries *series) {
-            series.barWidthEqual(@15);
-            series.stackEqual(@"广告")
-            .nameEqual(@"0-30天")
-            .typeEqual(PYSeriesTypeBar)
-            .dataEqual(@[@120, @132, @101, @134, @90, @230, @210, @101, @134, @90, @230, @210])
-            .itemStyleEqual([PYItemStyle initPYItemStyleWithBlock:^(PYItemStyle *itemStyle) {
-                itemStyle.normalEqual([PYItemStyleProp initPYItemStylePropWithBlock:^(PYItemStyleProp *itemStyleProp) {
-                    itemStyleProp.labelEqual([PYLabel initPYLabelWithBlock:^(PYLabel *label) {
-                        label.showEqual(YES);
-                        label.positionEqual(@"inside");
-                        label.textStyleEqual([PYTextStyle initPYTextStyleWithBlock:^(PYTextStyle *textStyle) {
-                            textStyle.colorEqual(PYRGBA(0, 0, 0, 1));
-                            textStyle.fontSizeEqual(@9);
-                        }]);
-                    }]);
-                    itemStyleProp.colorEqual(PYRGBA(195, 212, 233, 1));
-                }]);
-            }]);
-        }])
-        .addSeries([PYCartesianSeries initPYCartesianSeriesWithBlock:^(PYCartesianSeries *series) {
-            series.barWidthEqual(@15);
-            series.stackEqual(@"广告")
-            .nameEqual(@"30-60天")
-            .typeEqual(PYSeriesTypeBar)
-            .dataEqual(@[@220, @182, @191, @234, @290, @330, @310, @191, @234, @290, @330, @310])
-            .itemStyleEqual([PYItemStyle initPYItemStyleWithBlock:^(PYItemStyle *itemStyle) {
-                itemStyle.normalEqual([PYItemStyleProp initPYItemStylePropWithBlock:^(PYItemStyleProp *itemStyleProp) {
-                    itemStyleProp.labelEqual([PYLabel initPYLabelWithBlock:^(PYLabel *label) {
-                        label.showEqual(YES);
-                        label.positionEqual(@"inside");
-                        label.textStyleEqual([PYTextStyle initPYTextStyleWithBlock:^(PYTextStyle *textStyle) {
-                            textStyle.colorEqual(PYRGBA(0, 0, 0, 1));
-                            textStyle.fontSizeEqual(@9);
-                        }]);
-                    }]);
-                    itemStyleProp.colorEqual(PYRGBA(187, 235, 183, 1));
-                }]);
-            }]);
-        }])
-        .addSeries([PYCartesianSeries initPYCartesianSeriesWithBlock:^(PYCartesianSeries *series) {
-            series.barWidthEqual(@15);
-            series.stackEqual(@"广告")
-            .nameEqual(@">60天")
-            .typeEqual(PYSeriesTypeBar)
-            .dataEqual(@[@150, @232, @201, @154, @190, @330, @410, @201, @154, @190, @330, @410])
-            .itemStyleEqual([PYItemStyle initPYItemStyleWithBlock:^(PYItemStyle *itemStyle) {
-                itemStyle.normalEqual([PYItemStyleProp initPYItemStylePropWithBlock:^(PYItemStyleProp *itemStyleProp) {
-                    itemStyleProp.labelEqual([PYLabel initPYLabelWithBlock:^(PYLabel *label) {
-                        label.showEqual(YES);
-                        label.positionEqual(@"inside");
-                        label.textStyleEqual([PYTextStyle initPYTextStyleWithBlock:^(PYTextStyle *textStyle) {
-                            textStyle.colorEqual(PYRGBA(0, 0, 0, 1));
-                            textStyle.fontSizeEqual(@9);
-                        }]);
-                    }]);
-                    itemStyleProp.colorEqual(PYRGBA(192, 139, 240, 1));
-                }]);
-            }]);
-            series.markLineEqual([PYMarkLine initPYMarkLineWithBlock:^(PYMarkLine *markLine) {
-//                markLine.itemStyleEqual([PYItemStyle initPYItemStyleWithBlock:^(PYItemStyle *itemStyle) {
-//                    
-//                }]);
-                markLine.addDataArr(@[@{@"type" : @"average", @"name": @"平均值"}]);
-            }]);
-        }])
-        .addSeries([PYCartesianSeries initPYCartesianSeriesWithBlock:^(PYCartesianSeries *series) {
-            series.yAxisIndexEqual(@1);
-            series.nameEqual(@"长期在库率")
-            .typeEqual(PYSeriesTypeLine)
-            .dataEqual(@[@320, @332, @301, @334, @390, @330, @320, @301, @334, @390, @330, @320])
-            .itemStyleEqual([PYItemStyle initPYItemStyleWithBlock:^(PYItemStyle *itemStyle) {
-                itemStyle.normalEqual([PYItemStyleProp initPYItemStylePropWithBlock:^(PYItemStyleProp *itemStyleProp) {
-                    itemStyleProp.labelEqual([PYLabel initPYLabelWithBlock:^(PYLabel *label) {
-                        label.showEqual(YES);
-                        label.positionEqual(PYPositionTop);
-                        label.formatterEqual(@"(function (params) {for (var i = 0, l = option.xAxis[0].data.length; i < l; i++) {if (option.xAxis[0].data[i] == params.name && params.value) {return params.value + '%';}}})");
-                    }]);
-                    itemStyleProp.colorEqual(PYRGBA(250, 13, 27, 1));
-                }]);
-            }]);
-        }]);
-        //下面添加多余series用以在点击legend隐藏所有系列后。任然留着横线网格grid
-        option.addSeries([PYCartesianSeries initPYCartesianSeriesWithBlock:^(PYCartesianSeries *series) {
-//            series.nameEqual(@"test");
-            series.typeEqual(PYSeriesTypeLine)
-            .dataEqual(@[@1000])//数据 取所有系列的最大值
-            .itemStyleEqual([PYItemStyle initPYItemStyleWithBlock:^(PYItemStyle *itemStyle) {
-                itemStyle.normalEqual([PYItemStyleProp initPYItemStylePropWithBlock:^(PYItemStyleProp *itemStyleProp) {
-                    itemStyleProp.labelEqual([PYLabel initPYLabelWithBlock:^(PYLabel *label) {
-                        label.showEqual(NO);
-                        label.positionEqual(PYPositionTop);
-                    }]);
-                    itemStyleProp.colorEqual(PYRGBA(255, 255, 255, 0));
-                }]);
-            }]);
-        }]);
-        
-    }];
-
-}
-
 @end
 
 

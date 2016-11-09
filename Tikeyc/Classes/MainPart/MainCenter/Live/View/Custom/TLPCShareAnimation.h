@@ -20,7 +20,7 @@
     BOOL _isAnimation;
 }
 
-- (void)startAnimation;
-- (void)stopAnimation;
+- (void)startShareAnimation;
+- (void)stopShareAnimation;
 
 @end

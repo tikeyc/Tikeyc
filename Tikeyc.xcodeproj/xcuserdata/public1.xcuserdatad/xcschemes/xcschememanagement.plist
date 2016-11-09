@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>MyNotificationExtension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>22</integer>
+		</dict>
+		<key>MyNotificationService.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>23</integer>
+		</dict>
 		<key>Tikeyc.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -23,6 +33,21 @@
 			<true/>
 		</dict>
 		<key>4E27812D1D61B210003CA490</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4E896F7B1DB74342005024B3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4E896F8C1DB74479005024B3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4E896F9C1DB74494005024B3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

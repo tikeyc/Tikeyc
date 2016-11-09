@@ -16,7 +16,7 @@
 
 - (void)dealloc
 {
-    [self stopAnimation];
+    [self stopShareAnimation];
     NSLog(@"shareAnimation dealloc");
 }
 
@@ -38,7 +38,7 @@
 #pragma mark - animation
 
 - (void)initSubView{
-    [self addTarget:self action:@selector(startAnimation) forControlEvents:UIControlEventTouchUpInside];
+    [self addTarget:self action:@selector(startShareAnimation) forControlEvents:UIControlEventTouchUpInside];
     
     //
     _startNum = 0;
@@ -67,7 +67,7 @@
     
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [weakself startAnimation];
+        [weakself startShareAnimation];
     });
     
 }
@@ -76,20 +76,21 @@
 
 #pragma mark - animation
 
-- (void)startAnimation{
+- (void)startShareAnimation{
     if (_isAnimation) {
-        return;
+        [self stopShareAnimation];
     }
     _isAnimation = YES;
+ 
     for (int i = 0; i < _shareImgViews.count; i++) {
         UIImageView *shareImgView = _shareImgViews[i];
         
         if (!_animation) {
-            _animation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
+            _animation = [CAKeyframeAnimation animationWithKeyPath:@"position"];//
             _animation.delegate = self;
             _animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
             _animation.duration = 5.0;
-            _animation.repeatCount = HUGE_VALF;
+            _animation.repeatCount = HUGE_VALF;//
             _animation.fillMode = kCAFillModeForwards;
         }
         CGPoint pointControl1;
@@ -112,12 +113,13 @@
 
 }
 
-- (void)stopAnimation{
+- (void)stopShareAnimation{
     for (int i = 0; i < _shareImgViews.count; i++) {
         UIImageView *shareImgView = _shareImgViews[i];
         shareImgView.hidden = YES;
         [shareImgView.layer removeAllAnimations];
     }
+    _isAnimation = NO;
 }
 
 

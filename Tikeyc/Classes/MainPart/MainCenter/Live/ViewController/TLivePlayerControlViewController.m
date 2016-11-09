@@ -69,7 +69,7 @@
 {
     dispatch_source_cancel(_timer);
     
-    [self.shareButton stopAnimation];
+    [self.shareButton stopShareAnimation];
     
     [BarrageManager attempDealloc];
 }
@@ -97,7 +97,7 @@
     
     [self.livePlayerControlViewModel.manager closeBarrage];
     
-    [self.shareButton stopAnimation];
+    [self.shareButton stopShareAnimation];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -159,6 +159,7 @@
     
     //////////////////////////////////////////按钮事件
     //
+    self.flakboxbarrageButton.on = NO;
     [[self.flakboxbarrageButton rac_signalForControlEvents:UIControlEventValueChanged] subscribeNext:^(UISwitch *switchButton) {
         @strongify(self)
         if (switchButton.on) {

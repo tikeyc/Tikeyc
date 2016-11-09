@@ -8,13 +8,15 @@
 
 #import "TEchartsTypeListController.h"
 
+#import "TEchartsAllTypeViewController.h"
+
 #import "TEchartsLineViewController.h"
 #import "TEchartsBarViewController.h"
 
 @interface TEchartsTypeListController ()
 
 {
-    NSArray *_titles;
+    NSArray *_titles2D;
 }
 
 @end
@@ -34,7 +36,10 @@
     
 //    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"EchartsTypeCell"];
     
-    _titles = @[@"Line",@"Bar"];
+    _titles2D = @[@{@"Line And Bar":@[lineAndBarOption,lineAndStackedBarOption,basicAreaOption,stackedAreaOption,irregularLine2Option]},
+                  @{@"特别的":@[timeLineOption,forceGuideOption]},
+                  @{@"饼图":@[standardPieOption,nestedPieOption]},
+                  @{@"地图":@[basicChinaMapOption,basicChinaMapCityOption,basicWorldMapOption,showMapMarkLine]}];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,12 +51,21 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return 1;
+    return _titles2D.count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    NSDictionary *sectionDic = _titles2D[section];
+    NSString *sectionTitle = [sectionDic.allKeys firstObject];
+    
+    return sectionTitle;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return _titles.count;
+    NSDictionary *sectionDic = _titles2D[section];
+    NSArray *rows = [sectionDic.allValues firstObject];
+    return rows.count;
 }
 
 
@@ -64,32 +78,60 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EchartsTypeCell"];
         //
+        cell.textLabel.numberOfLines = 0;
     }
-    cell.textLabel.text = _titles[indexPath.row];
-    
+    NSDictionary *sectionDic = _titles2D[indexPath.section];
+    NSArray *rows = [sectionDic.allValues firstObject];
+    cell.textLabel.text = rows[indexPath.row];
+    [cell.textLabel sizeToFit];
     
     return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    switch (indexPath.row) {
+    NSDictionary *sectionDic = _titles2D[indexPath.section];
+    NSArray *rows = [sectionDic.allValues firstObject];
+    NSString *rowTitle = rows[indexPath.row];
+    switch (indexPath.section) {
         case 0:
         {
-            TEchartsLineViewController *line = [[TEchartsLineViewController alloc] init];
-            [self.navigationController pushViewController:line animated:YES];
-        }
-            break;
-        case 1:
-        {
-            TEchartsBarViewController *bar = [[TEchartsBarViewController alloc] init];
-            [self.navigationController pushViewController:bar animated:YES];
+            switch (indexPath.row) {
+                case 0:
+                {
+                    TEchartsLineViewController *line = [[TEchartsLineViewController alloc] init];
+                    [self.navigationController pushViewController:line animated:YES];
+                }
+                    break;
+                case 1:
+                {
+                    TEchartsBarViewController *bar = [[TEchartsBarViewController alloc] init];
+                    [self.navigationController pushViewController:bar animated:YES];
+                }
+                    break;
+               
+                    
+                default:
+                {
+                    TEchartsAllTypeViewController *allTypeVC = [[TEchartsAllTypeViewController alloc] init];
+                    allTypeVC.title = rowTitle;
+                    [self.navigationController pushViewController:allTypeVC animated:YES];
+                }
+                    break;
+            }
         }
             break;
             
         default:
+        {
+            
+            TEchartsAllTypeViewController *allTypeVC = [[TEchartsAllTypeViewController alloc] init];
+            allTypeVC.title = rowTitle;
+            [self.navigationController pushViewController:allTypeVC animated:YES];
+        }
             break;
     }
+    
 }
 
 

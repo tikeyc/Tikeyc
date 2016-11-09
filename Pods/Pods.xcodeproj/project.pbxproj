@@ -288,7 +288,6 @@
 		2CA251BF7298760B6C2E17CE55142BCC /* RACSubscriber+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 00FE03AC6C97049350FBB3F6DA0FAC6C /* RACSubscriber+Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		2CDB8899FAD78884B8F67DE832F2A344 /* ASHighlightOverlayLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C09E3DB5B488C097C89260D8D329B8B /* ASHighlightOverlayLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CE8A78541D8D6C7384410E69CE9C943 /* MagicalRecord+Setup.m in Sources */ = {isa = PBXBuildFile; fileRef = 54D143E5A4735D39BC93447CF4B5ACA1 /* MagicalRecord+Setup.m */; };
-		2D31E15362D9341460CE09C81A284130 /* iOS-Echarts.bundle in Resources */ = {isa = PBXBuildFile; fileRef = DA5EDEE1B842E3BD6C6D16AF25B366C7 /* iOS-Echarts.bundle */; };
 		2D45794AADA60F33B5CDAA8D2C7BE391 /* ASMultidimensionalArrayUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = AE41798F136464A016DC8F63351B6E5A /* ASMultidimensionalArrayUtils.mm */; };
 		2D4D6AC8E0D3BACFBA4156CB4753BCC2 /* MagicalRecordInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E2E1255C84E186974F3B0B677769FF6 /* MagicalRecordInternal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D8558D310E98CB00D20A0AD41EFC92B /* GPUImageDirectionalSobelEdgeDetectionFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C9BDB5A5BA485425D276DA120D498A9B /* GPUImageDirectionalSobelEdgeDetectionFilter.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -389,7 +388,6 @@
 		3BFAB9A1A78A37275558371DB1854130 /* RACChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A2992EF5D3D95427CAFB6FB3A9B234F /* RACChannel.m */; };
 		3BFC732A40784F828D147B128CF5B0FB /* YYTextUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F44BB71EA95940562F0D0822F7017 /* YYTextUtilities.m */; };
 		3C859EEF6A910131F0F409AEC753F918 /* GPUImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = C4E52A872047585F443CF1693F74CD20 /* GPUImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3CB6B53D803D32C2A58829C1F5138B05 /* theme in Resources */ = {isa = PBXBuildFile; fileRef = 24E5C66EF331D180BB4A74687878E071 /* theme */; };
 		3D136FFD2FC80DFB51B65E259075471E /* ASDisplayNode+FrameworkPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 58E7AF780E13FEC2756DDC1EE26EB968 /* ASDisplayNode+FrameworkPrivate.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		3D2789FC760A97301909F0B1201626CD /* AFNetworking-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8874FB5E1329477ABBE7AD172F18F04E /* AFNetworking-dummy.m */; };
 		3D731A5377D026F09A1968E3567DA8D1 /* GPUImageHarrisCornerDetectionFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F88CD44088457AB3A645360332C82D3 /* GPUImageHarrisCornerDetectionFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -516,7 +514,6 @@
 		522A86F54582C2BA216069AA2B1C1058 /* PYAxisPointer.h in Headers */ = {isa = PBXBuildFile; fileRef = 73E28BEEF29E93EDB2E0B1D17827AA41 /* PYAxisPointer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		525C1EB1DF453A0E070E60844577C8DF /* MASConstraintMaker.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6E6CAE0189C7C669556F3FFA3E2558 /* MASConstraintMaker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		526DB72B7F8A8C0A195703BF8033B267 /* ASIndexPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C38BC88D7F976BB4CCB66054C2FF3A /* ASIndexPath.m */; };
-		52A924D5D6C34D48F9EBE4BE0FFA48A6 /* js in Resources */ = {isa = PBXBuildFile; fileRef = 4DD5B2ED9ECF107D4BC3F713FC0DA66E /* js */; };
 		52CEA598765B334C8DC8590ED6416111 /* POPCGUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7BDFBFC47D6C6B78960EC1A5E2822AA6 /* POPCGUtils.mm */; };
 		52DEACF6DBEA244C3322377D209D1636 /* SDWebImageManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FE852C6E284895816D6FF5B4CA57A45 /* SDWebImageManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		52FECAD3502053A2C1A050379C0F3389 /* GPUImageColorPackingFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E432224FC0C40BF5477F09E7316A50D /* GPUImageColorPackingFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1206,7 +1203,6 @@
 		C34DBD9EF9949B4A9F977BCEF3193DE9 /* ASBatchFetching.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AB0C82B3D5AD1904223E0ECB1615B8D /* ASBatchFetching.m */; };
 		C385DDC23C07C80F1D21837C10FEB2BF /* NSData+YYAdd.h in Headers */ = {isa = PBXBuildFile; fileRef = 94669B7656B2A412553905E8EE7FD634 /* NSData+YYAdd.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C38AB3AF2F2BC94DFE7059EBF76583C8 /* ASCollectionNode+Beta.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F4702787B4F9B8C9E8B315AC6726B78 /* ASCollectionNode+Beta.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C38CF732C883BF7326CE19C0523A2E31 /* echarts.html in Resources */ = {isa = PBXBuildFile; fileRef = 9B6F4C9855B0514EA2E3E25547C99D56 /* echarts.html */; };
 		C3CB6F9D0ECF797603805B2B890CC391 /* GPUImageGaussianSelectiveBlurFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = DBEDA5B5CD5E39B37DD8216AC0751897 /* GPUImageGaussianSelectiveBlurFilter.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		C40B3D7A032A39257141D245E066CF2B /* POP.h in Headers */ = {isa = PBXBuildFile; fileRef = EB305350E939657F0C49D3B38DFA3B2E /* POP.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C54D7C5160D6DEFFA6E9EB1262359E7E /* PYZoomEchartsView.h in Headers */ = {isa = PBXBuildFile; fileRef = A610E7341663B3B0FD473F20199D002C /* PYZoomEchartsView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1609,13 +1605,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = D58D76EC529B4A92F3E5EDADE0A96661;
 			remoteInfo = MagicalRecord;
-		};
-		114C12526F88DF70D7C75919DBBE0BCB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 52D7F20D4E0D3B0DAB7C7ABE765AD7AF;
-			remoteInfo = "iOS-Echarts-iOS-Echarts";
 		};
 		1DC3F57AAB1B0A3989B2C45173F9D3D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -3169,7 +3158,6 @@
 		DA312349A49333542E6F4B36B329960E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Pods.release.xcconfig; sourceTree = "<group>"; };
 		DA451FEFF74EF85286F38E6E57E2EC7F /* GPUImageMotionDetector.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GPUImageMotionDetector.m; path = framework/Source/GPUImageMotionDetector.m; sourceTree = "<group>"; };
 		DA4AE4DCC58D317D0C563821FE9F8847 /* GPUImageAmatorkaFilter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GPUImageAmatorkaFilter.m; path = framework/Source/GPUImageAmatorkaFilter.m; sourceTree = "<group>"; };
-		DA5EDEE1B842E3BD6C6D16AF25B366C7 /* iOS-Echarts.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-Echarts.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8514AB23B3017FF418D44CDC9075B1 /* GPUImageNormalBlendFilter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GPUImageNormalBlendFilter.m; path = framework/Source/GPUImageNormalBlendFilter.m; sourceTree = "<group>"; };
 		DAC2F12CA723B8079FC7B4559D72ADC6 /* iOS-Echarts-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "iOS-Echarts-prefix.pch"; sourceTree = "<group>"; };
 		DAC46465C0906A56F8833BF384071259 /* NSAttributeDescription+MagicalDataImport.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSAttributeDescription+MagicalDataImport.m"; path = "MagicalRecord/Categories/DataImport/NSAttributeDescription+MagicalDataImport.m"; sourceTree = "<group>"; };
@@ -3588,13 +3576,6 @@
 				C99B0B2EB03BE743F55F1C6E064EC5C0 /* AssetsLibrary.framework in Frameworks */,
 				FF5E6428CC3B60EB7D231D13862842AC /* Foundation.framework in Frameworks */,
 				C622777509E883DF9F24B913FE4741A9 /* PINRemoteImage.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FDDECA2355C7D26ABA59B77A3FAA7C71 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4507,7 +4488,6 @@
 				3D10F2F4BB89B0AC7A686A0D58730108 /* AsyncDisplayKit.framework */,
 				D6A9A1D46195584251C0BDEA274576FE /* FMDB.framework */,
 				F7F68B1CD1720A7D26E8C1AC70F34FFC /* GPUImage.framework */,
-				DA5EDEE1B842E3BD6C6D16AF25B366C7 /* iOS-Echarts.bundle */,
 				89F39A543EF8E6CF01CFD67FFBD87095 /* iOS_Echarts.framework */,
 				1A3598E9AF4D74609515CAC0C28066CF /* LFLiveKit.framework */,
 				7EA58EEFF1F9EF4EF337B2ED3B8FF886 /* MagicalRecord.framework */,
@@ -6791,29 +6771,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				94D59057AA390E2194AC706BBF62098F /* PBXTargetDependency */,
 			);
 			name = "iOS-Echarts";
 			productName = "iOS-Echarts";
 			productReference = 89F39A543EF8E6CF01CFD67FFBD87095 /* iOS_Echarts.framework */;
 			productType = "com.apple.product-type.framework";
-		};
-		52D7F20D4E0D3B0DAB7C7ABE765AD7AF /* iOS-Echarts-iOS-Echarts */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F97713C5F5EB86462272D96C6F56C7C4 /* Build configuration list for PBXNativeTarget "iOS-Echarts-iOS-Echarts" */;
-			buildPhases = (
-				586CA390E69F680ED24403F266724B67 /* Sources */,
-				FDDECA2355C7D26ABA59B77A3FAA7C71 /* Frameworks */,
-				6D78E8BDBECFE659792B6FD029C62C89 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "iOS-Echarts-iOS-Echarts";
-			productName = "iOS-Echarts-iOS-Echarts";
-			productReference = DA5EDEE1B842E3BD6C6D16AF25B366C7 /* iOS-Echarts.bundle */;
-			productType = "com.apple.product-type.bundle";
 		};
 		5525E22F72EDAE405CE7EC6A8D613DBC /* WebViewJavascriptBridge */ = {
 			isa = PBXNativeTarget;
@@ -7137,7 +7099,6 @@
 				23CF27B2BA6AC7125EFFEDA8C5AA819F /* FMDB */,
 				EA0DD8ED489933744D70DD4A9719ED01 /* GPUImage */,
 				47DC59B416A14B343504101200C3B665 /* iOS-Echarts */,
-				52D7F20D4E0D3B0DAB7C7ABE765AD7AF /* iOS-Echarts-iOS-Echarts */,
 				56C7B03D06F869D87528524D692079AC /* LFLiveKit */,
 				D58D76EC529B4A92F3E5EDADE0A96661 /* MagicalRecord */,
 				A9A83F63385AA43314397B8DD375464B /* Masonry */,
@@ -7178,16 +7139,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6D78E8BDBECFE659792B6FD029C62C89 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C38CF732C883BF7326CE19C0523A2E31 /* echarts.html in Resources */,
-				52A924D5D6C34D48F9EBE4BE0FFA48A6 /* js in Resources */,
-				3CB6B53D803D32C2A58829C1F5138B05 /* theme in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		76C9C96FD53DD12A9FC1EEA8924BE022 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -7200,7 +7151,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D31E15362D9341460CE09C81A284130 /* iOS-Echarts.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7398,13 +7348,6 @@
 				298C2637A4C97736C2624617B7BDBF75 /* POPSpringAnimation.mm in Sources */,
 				22F9C093E91CFCB68B49284B5E29D665 /* POPVector.mm in Sources */,
 				61669E48661FE6DB01402753F82DE475 /* TransformationMatrix.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		586CA390E69F680ED24403F266724B67 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -8137,12 +8080,6 @@
 			name = FMDB;
 			target = 23CF27B2BA6AC7125EFFEDA8C5AA819F /* FMDB */;
 			targetProxy = 53738042830312AD62FF2B27848BE053 /* PBXContainerItemProxy */;
-		};
-		94D59057AA390E2194AC706BBF62098F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "iOS-Echarts-iOS-Echarts";
-			target = 52D7F20D4E0D3B0DAB7C7ABE765AD7AF /* iOS-Echarts-iOS-Echarts */;
-			targetProxy = 114C12526F88DF70D7C75919DBBE0BCB /* PBXContainerItemProxy */;
 		};
 		9C1CE22470C4BEB1B9E1B0158A837B46 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -9229,18 +9166,6 @@
 			};
 			name = Debug;
 		};
-		CBECB4EFAE65F5E5205BD529FC4EDA61 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A65991CAC759857AACA5A00034FD4FB2 /* iOS-Echarts.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = "iOS-Echarts";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
 		CF9C5753CED38925AF41F30986B8D547 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DA312349A49333542E6F4B36B329960E /* Pods.release.xcconfig */;
@@ -9354,18 +9279,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		F9556465DCD06DE0EB1C4EC4B7E7EF17 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A65991CAC759857AACA5A00034FD4FB2 /* iOS-Echarts.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				PRODUCT_NAME = "iOS-Echarts";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
 		};
 		FB45FFD90572718D82AB9092B750F0CA /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -9580,15 +9493,6 @@
 			buildConfigurations = (
 				769F1F975AE676CE48ED685AE3CB7C9A /* Debug */,
 				979B02ED44BDED6925746AE90B1FB4D7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F97713C5F5EB86462272D96C6F56C7C4 /* Build configuration list for PBXNativeTarget "iOS-Echarts-iOS-Echarts" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CBECB4EFAE65F5E5205BD529FC4EDA61 /* Debug */,
-				F9556465DCD06DE0EB1C4EC4B7E7EF17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
