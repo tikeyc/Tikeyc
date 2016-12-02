@@ -16,7 +16,7 @@
 
 @implementation AppDelegate
 
-
+//HYCTT-5L9RQ-44T8L-C1RG5-K2GPC
 - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(nullable UIWindow *)window{
     if (self.deviceInterfaceOrientationMask != UIInterfaceOrientationMaskLandscape) {
         self.deviceInterfaceOrientationMask = UIInterfaceOrientationMaskPortrait;

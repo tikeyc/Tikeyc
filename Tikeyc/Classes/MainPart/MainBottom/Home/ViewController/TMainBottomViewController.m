@@ -8,11 +8,15 @@
 
 #import "TMainBottomViewController.h"
 
+#import "TMainBottomTabBarController.h"
+
 #import "TNormalRefreshHead.h"
 #import "TNormalRefreshFoot.h"
 
 @interface TMainBottomViewController ()
 
+
+@property (nonatomic,strong)TMainBottomTabBarController *tabBarController;
 
 @end
 
@@ -53,10 +57,19 @@
 
 #pragma mark - init
 
+- (TMainBottomTabBarController *)tabBarController{
+    if (!_tabBarController) {
+        _tabBarController = [[TMainBottomTabBarController alloc] init];
+        _tabBarController.view.frame = self.view.frame;
+    }
+    return _tabBarController;
+}
+
 - (void)setProperty{
     self.title = @"bottom View";
     //
     UIScrollView *scrollView = (UIScrollView*)self.view;//in storyboard set self.view = scrollView
+    [scrollView addSubview:self.tabBarController.view];
 //    scrollView.delegate = self;
     //
     scrollView.mj_header = [TNormalRefreshHead headerWithRefreshingBlock:^{

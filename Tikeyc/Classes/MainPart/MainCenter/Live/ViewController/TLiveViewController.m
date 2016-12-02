@@ -33,7 +33,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.title = @"直播采集，暂未实现转码";
+    self.title = @"直播采集，LFLiveKit实现转码";
     /*自定义方法 暂未实现编码及推流功能*/
 //    [self setupCaputureVideo];
     /*使用三方SDK LFLiveKit实现编码、推流、美颜等功能*/

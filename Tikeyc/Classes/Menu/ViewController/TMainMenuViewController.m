@@ -260,6 +260,7 @@
     }
     //先移除，避免手势冲突，在显示左或右测视图时在添加
     [_backCenterTap removeTarget:self action:@selector(tapAction:)];
+    _backCenterTap.enabled = NO;
 }
 
 - (void)removePanGestureRecognizerTarget:(BOOL)remove{
@@ -286,7 +287,7 @@
         {
             _startPoint = point;
             [_backCenterTap addTarget:self action:@selector(tapAction:)];
-//            _backCenterTap.enabled = YES;//当出现左右视图时打开手势
+            _backCenterTap.enabled = YES;//当出现左右视图时打开手势
         }
             break;
         case UIGestureRecognizerStateChanged:
@@ -413,7 +414,7 @@
             if (x_offSet <= 0 && self.centerView.left > 0) {
                 
                 [_backCenterTap removeTarget:self action:@selector(tapAction:)];
-                //_backCenterTap.enabled = NO;//当左右视图消失时关闭手势
+                _backCenterTap.enabled = NO;//当左右视图消失时关闭手势
                 
                 CGFloat left_X;
                 if (self.centerView.left <= Pan_left_MaxWith*2/3) {
@@ -434,7 +435,7 @@
             if (x_offSet >= 0 && self.centerView.left < 0) {
                 [_rightPopButton animateToMenu];
                 [_backCenterTap removeTarget:self action:@selector(tapAction:)];
-                //_backCenterTap.enabled = NO;//当左右视图消失时关闭手势
+                _backCenterTap.enabled = NO;//当左右视图消失时关闭手势
                 
                 CGFloat left_X;
                 if (self.centerView.left >= -Pan_right_MaxWith*2/3) {
@@ -509,6 +510,7 @@
         _panGestureRecognizer.enabled = YES;
         if (left_X != 0) {
             [_backCenterTap addTarget:weakself action:@selector(tapAction:)];
+            _backCenterTap.enabled = YES;
         }
     }];
 }
@@ -521,6 +523,7 @@
 
 - (void)showCenterControllerWithAnimation:(BOOL)animation{
     [_backCenterTap removeTarget:self action:@selector(tapAction:)];
+    _backCenterTap.enabled = NO;
     
     [_leftPopButton animateToMenu];
     [_rightPopButton animateToMenu];

@@ -15,7 +15,7 @@
 
 
 
-@interface TLoginViewController ()
+@interface TLoginViewController ()<UITextViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *userPhotoImgView;
 
@@ -99,6 +99,7 @@
     }];
     //
     [[self.loginButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        
         [weakself.view endEditing:YES];
         weakself.view.userInteractionEnabled = NO;
         if (!weakself.loginViewModel.loginButtonEnable) {
@@ -145,7 +146,6 @@
     
     
 }
-
 
 #pragma mark - Action
 

@@ -305,7 +305,7 @@
         
         /////////////////////////////////逐渐显示和隐藏topVC(即调节当前控制器的NavigationBar的alpha值)
         CGFloat goOffset = 110.0;
-        CGFloat alphaValue = 1;
+        CGFloat alphaValue = 1.0;
         if (y_offSet < -goOffset) {
             
             if (scrollView.tag == TMainVCChildVCIndexValueCenter || scrollView.tag == TMainVCChildVCIndexValueBottom) {
@@ -340,9 +340,11 @@
             if ([scrollView.viewController isKindOfClass:[UINavigationController class]]) {
                 
                 ((UINavigationController *)scrollView.viewController).navigationBar.alpha = alphaValue;
+                [((UINavigationController *)scrollView.viewController) setNavigationBarHidden:YES animated:YES];//因bottom下添加UITabBarController 所以隐藏
             }else{
                 
                 scrollView.viewController.navigationController.navigationBar.alpha = alphaValue;
+                [scrollView.viewController.navigationController setNavigationBarHidden:YES animated:YES];//因bottom下添加UITabBarController 所以隐藏
             }
         }
         ////////////////////////////////////动画滑动显示topVC 或 bottomVC
@@ -367,7 +369,7 @@
                     scrollView2.top = mainViewController.childViewControllers[TMainVCChildVCIndexValueTop].view.bottom;
                     mainViewController.childViewControllers[TMainVCChildVCIndexValueBottom].view.top = scrollView2.bottom;
                 } completion:^(BOOL finished) {
-                    
+                    [mainViewController.mainMenuViewController removePanGestureRecognizerTarget:YES];
                 }];
                 
             }else if (scrollView.tag == TMainVCChildVCIndexValueBottom){//show center
@@ -387,7 +389,7 @@
                     mainViewController.childViewControllers[TMainVCChildVCIndexValueTop].view.bottom = scrollView2.top;
                     mainViewController.childViewControllers[TMainVCChildVCIndexValueBottom].view.top = scrollView2.bottom;
                 } completion:^(BOOL finished) {
-                    
+                    [mainViewController.mainMenuViewController removePanGestureRecognizerTarget:NO];
                 }];
                 
             }
@@ -412,7 +414,7 @@
                     mainViewController.childViewControllers[TMainVCChildVCIndexValueTop].view.bottom = scrollView2.top;
                     mainViewController.childViewControllers[TMainVCChildVCIndexValueBottom].view.top = scrollView2.bottom;
                 } completion:^(BOOL finished) {
-                    
+                    [mainViewController.mainMenuViewController removePanGestureRecognizerTarget:NO];
                 }];
                 
             }else if (scrollView.tag == TMainVCChildVCIndexValueCenter){//show bottom
@@ -421,7 +423,7 @@
                 [mainViewController.navigationController setNavigationBarHidden:YES animated:NO];
                 
                 [mainViewController.childViewControllers[TMainVCChildVCIndexValueBottom] navigationBar].alpha = 1.0;
-                [mainViewController.childViewControllers[TMainVCChildVCIndexValueBottom] setNavigationBarHidden:NO animated:NO];
+                [mainViewController.childViewControllers[TMainVCChildVCIndexValueBottom] setNavigationBarHidden:YES animated:YES];//因bottom下添加UITabBarController 所以隐藏
                 
                 [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.5 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                     //                        scrollView3.top = 0;
@@ -432,7 +434,7 @@
                     scrollView2.bottom = scrollView3.top;//_mainBottomNAVC.view.top;
                     mainViewController.childViewControllers[TMainVCChildVCIndexValueTop].view.bottom = scrollView2.top;
                 } completion:^(BOOL finished) {
-                    
+                    [mainViewController.mainMenuViewController removePanGestureRecognizerTarget:YES];
                 }];
                 
             }else if (scrollView.tag == TMainVCChildVCIndexValueBottom){

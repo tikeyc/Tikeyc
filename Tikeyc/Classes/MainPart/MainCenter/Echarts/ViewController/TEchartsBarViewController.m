@@ -32,8 +32,6 @@ NSString *const lineAndStackedBarOption = @"叠加柱状图";
     
     self.title = lineAndStackedBarOption;
     
-    
-    [self initSubViewProperty];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,6 +64,12 @@ NSString *const lineAndStackedBarOption = @"叠加柱状图";
      */
     [TKCAppTools constraintRotationDeviceWithUIDeviceOrientation:UIDeviceOrientationLandscapeLeft];
     [TKCAppTools constraintRotationDeviceWithUIDeviceOrientation:UIDeviceOrientationPortrait];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    [self initSubViewProperty];
 }
 
 /*

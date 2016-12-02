@@ -33,8 +33,7 @@ NSString *const lineAndBarOption = @"线柱混合(可滑动)";
     // Do any additional setup after loading the view from its nib.
     
     self.title = lineAndBarOption;
-    
-    [self initSubViewProperty];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,6 +66,12 @@ NSString *const lineAndBarOption = @"线柱混合(可滑动)";
      */
     [TKCAppTools constraintRotationDeviceWithUIDeviceOrientation:UIDeviceOrientationLandscapeLeft];
     [TKCAppTools constraintRotationDeviceWithUIDeviceOrientation:UIDeviceOrientationPortrait];
+}
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    [self initSubViewProperty];
 }
 
 /*
@@ -119,6 +124,7 @@ NSString *const lineAndBarOption = @"线柱混合(可滑动)";
         NSLog(@"%@",params);
         
     }];
+    
 }
 
 - (NSArray *)loadData{
