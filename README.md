@@ -18,8 +18,8 @@
 
 只会在工作闲暇之余开发，周期较长
      
-![image](https://github.com/tikeyc/TNinePlaceGridView/raw/master/Tikeyc/ReadMe/screen1.gif)     
-![image](https://github.com/tikeyc/TNinePlaceGridView/raw/master/Tikeyc/ReadMe/screen2.gif)     
-![image](https://github.com/tikeyc/TNinePlaceGridView/raw/master/Tikeyc/ReadMe/screen3.gif)     
-![image](https://github.com/tikeyc/TNinePlaceGridView/raw/master/Tikeyc/ReadMe/screen4.gif)     
-![image](https://github.com/tikeyc/TNinePlaceGridView/raw/master/Tikeyc/ReadMe/screen5.gif)     
+![image](https://github.com/tikeyc/Tikeyc/raw/master/Tikeyc/ReadMe/screen1.gif)     
+![image](https://github.com/tikeyc/Tikeyc/raw/master/Tikeyc/ReadMe/screen2.gif)     
+![image](https://github.com/tikeyc/Tikeyc/raw/master/Tikeyc/ReadMe/screen3.gif)     
+![image](https://github.com/tikeyc/Tikeyc/raw/master/Tikeyc/ReadMe/screen4.gif)     
+![image](https://github.com/tikeyc/Tikeyc/raw/master/Tikeyc/ReadMe/screen5.gif)     
