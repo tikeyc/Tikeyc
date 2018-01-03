@@ -10,6 +10,11 @@
 
 只会在工作闲暇之余开发，周期较长
 
+因gitHub无法上传较大文件，因无法上传视频直播框架IJKMediaFramework（文件较大)
+如#import <IJKMediaFramework/IJKMediaFramework.h>此处报错请查看 https://github.com/Bilibili.ijkplayer
+目录下面的README.md文件Build iOS 制作IJKMediaFramework
+或直接到[https://git.oschina.net/tikeyc/Tikeyc](https://git.oschina.net/tikeyc/Tikeyc)下载完整部分
+
 
 ![image](https://git.oschina.net/tikeyc/Tikeyc/raw/master/Tikeyc/ReadMe/screen1.gif)![image](https://git.oschina.net/tikeyc/Tikeyc/raw/master/Tikeyc/ReadMe/screen2.gif)![image](https://git.oschina.net/tikeyc/Tikeyc/raw/master/Tikeyc/ReadMe/screen3.gif)      
 ![image](https://git.oschina.net/tikeyc/Tikeyc/raw/master/Tikeyc/ReadMe/screen4.gif)![image](https://git.oschina.net/tikeyc/Tikeyc/raw/master/Tikeyc/ReadMe/screen5.gif)![image](https://git.oschina.net/tikeyc/Tikeyc/raw/master/Tikeyc/ReadMe/screen6.gif)    
