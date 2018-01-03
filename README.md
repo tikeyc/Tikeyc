@@ -24,6 +24,7 @@
 - 推送 （gif图片、音频播放、推送拓展、Voip推送等）   
 - widget (配合3DTouch使用)   
 - 直播 (播放直播流等)   
+- 音频 (播放文字、播放音频)       
 - 百思不得姐 视频、图片、GIF、文字、音频等信息列表展示   
 - DragDrop ( @available(iOS 11, *) )   iOS11新增拖拽功能   
 - AR 虚拟现实  
@@ -36,6 +37,7 @@
 - 路径动画   
 - 3DView    
 - 其它特效
+- 使用各类开源框架  
 
 ![image](https://git.oschina.net/tikeyc/Tikeyc/raw/master/Tikeyc/ReadMe/screen1.gif)![image](https://git.oschina.net/tikeyc/Tikeyc/raw/master/Tikeyc/ReadMe/screen2.gif)![image](https://git.oschina.net/tikeyc/Tikeyc/raw/master/Tikeyc/ReadMe/screen3.gif)      
 ![image](https://git.oschina.net/tikeyc/Tikeyc/raw/master/Tikeyc/ReadMe/screen4.gif)![image](https://git.oschina.net/tikeyc/Tikeyc/raw/master/Tikeyc/ReadMe/screen5.gif)![image](https://git.oschina.net/tikeyc/Tikeyc/raw/master/Tikeyc/ReadMe/screen6.gif)    
