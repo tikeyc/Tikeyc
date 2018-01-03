@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  Tikeyc
+
+  Created by ways on 2017/2/5.
+  Copyright © 2017年 tikeyc. All rights reserved.
+*/
+// Localizable App Name是App在英语环境环境下显示的名称
+CFBundleDisplayName = "Tikeyc";

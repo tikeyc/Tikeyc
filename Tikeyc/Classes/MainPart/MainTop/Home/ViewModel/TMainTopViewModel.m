@@ -44,7 +44,9 @@
         }
         UIBezierPath *scrollBezierPath = [UIBezierPath bezierPath];
         [scrollBezierPath moveToPoint:CGPointMake(0, kAppNavigationBarHeight)];
-        [scrollBezierPath addQuadCurveToPoint:CGPointMake(TScreenWidth, kAppNavigationBarHeight) controlPoint:CGPointMake(TScreenWidth/2, ABS(y_Offset)*2 + kAppNavigationBarHeight)];
+//        [scrollBezierPath addQuadCurveToPoint:CGPointMake(TScreenWidth, kAppNavigationBarHeight) controlPoint:CGPointMake(TScreenWidth/2, ABS(y_Offset)*2 + kAppNavigationBarHeight)];
+        CGPoint point = [scrollView.panGestureRecognizer locationInView:scrollView];
+        [scrollBezierPath addQuadCurveToPoint:CGPointMake(TScreenWidth, kAppNavigationBarHeight) controlPoint:CGPointMake(point.x, ABS(y_Offset)*2 + kAppNavigationBarHeight)];
         _scrollShapeLayer.path = scrollBezierPath.CGPath;
         
     }else{

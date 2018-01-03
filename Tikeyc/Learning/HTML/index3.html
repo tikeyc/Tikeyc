@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>tikeyc3</title>
+        
+        <style type='text/css'>
+            /*开始添加你的CSS代码*/
+    
+            #intro {
+                font-weight: bold;
+                color: #000000;
+            }
+            
+            div p {
+                color: #7AC5CD;
+            }
+            
+            li p {
+                font-family: Verdana, sans-serif;
+                color: #000000;
+            }
+            
+            /* 
+             . 表示 对象
+             */
+            .list_item {
+                font-family: Vivaldi, cursive;
+                font-weight:bold;
+            }
+            
+            /*
+             # 表示 id
+             */
+            #summary {
+                font-size: 20px;
+                color: red;
+            }
+            
+            /*
+             伪类
+             例如链接被点击后的样式是什么，用户用鼠标悬浮在链接上的样式又是哪个
+             */
+            
+            /*
+             一个未点击的链接
+             */
+            a:link {
+                color:yellow;
+            }
+            /*
+              一个点击过的链接
+             */
+            a:visited {
+                
+            }
+            
+            /*
+             当你的鼠标停留在链接上
+             户鼠标悬浮在链接上时，让这个链接的颜色改变成#cc0000，并且取消链接的下划线，同时加粗链接的字体
+             */
+            a:hover {
+                color: red;
+                font-weight: bold;
+                text-decoration: none;
+            }
+            
+            a:active {}
+            
+            /*
+             会让那些该元素下的第一个子元素的所有段落标记成红色的。
+             */
+            li:first-child {
+                color:red;
+            }
+            
+            /*
+             排在第2位的子元素<p>，将其文字颜色变成红色！
+             注意，nth-child(2)前面的p是子元素，而nth-child(2)中的2是指这个子元素在包含它的父元素中的序号，也就是排第几。
+             
+             */
+            p:nth-child(2) {
+                color: red;
+            }
+            
+            
+            /*
+             包含在div中的div的样式
+             */
+            div div {
+                position: relative;
+                display: inline-block;
+                height: 100px;
+                width: 100px;
+                border-radius: 100%;
+                border: 2px solid black;
+                margin-left: 5px;
+                margin-top: 5px;
+                text-align: center;
+                float:right;
+                clear:left;
+                /*
+                 如果你将clear:left属性加入某个div中，这个div会被浮在它上面的浮动属性为left的div挤到下面。
+                 当然你也可以用clear:right，同理，这个div会被浮在它上面的浮动属性为right的div挤到下面。
+                 最后，你也可以用clear:both，依然同理，只不过浮动属性为left和right的div同时来挤这个div到下面去
+                 */
+            }
+        
+            /*
+             margin:top right bottom left;
+             margin-top:
+             margin-right:
+             ...
+             ///////
+             padding:top right bottom left;
+             padding-top:
+             padding-right:
+             ...
+             //////
+             position:absolute;//绝对定位
+             position:relative;//相对定位
+             position:fixed;//固定定位，如果你上下滚动， 即使其他元素滚动过去那么这个固定的元素也会保持不动。
+             */
+            #customP {
+                position: relative;
+                margin:40px 0px 0px 0px;
+                text-align:center;
+                font-size: 12px;
+            }
+            
+            .friend {
+                border: 2px dashed green;
+            }
+            
+            .family {
+                border: 2px dashed blue;
+            }
+            
+            .enemy {
+                border: 2px dashed red;
+            }
+            
+            #best_friend {
+                border: 4px solid #00C957;
+            }
+            
+            #archnemesis {
+                border: 4px solid #cc0000;
+            }
+        
+    
+        </style>
+        
+        
+        
+        
+    </head>
+    <body>
+
+        
+        <p>介绍:CSS的代码</p>
+        <div class="customDiv">
+            <p id="summary">剧情简介：当您设置像'P'有一定值的选择器的属性，该值适用于 <em>所有</em>p标签。
+            但是，如果你改变了相同的属性为p的更具体的不同的， 这种变化会 <em>重写</em>通用变量。
+            </p>
+            <ul class="list_item">
+                <li><p>如果你设置p为{ font-family: Garamond}所有的p字体都设置为Garamond</p></li>
+                <li><p>但是，如果你设置 li p {font-family: Verdana}，p的外部会是Garamond字体，内部为Verdana字体。
+                    </p></li>
+                <li><p>更具体的选择器,会应用级别更高的CSS样式！</p></li>
+            </ul>
+        </div>
+        <p>摘要：特定的样式修饰优先级最高</p>
+        
+        <div class="customDiv">
+            <ul>
+                <li><a href="http://www.baidu.com">鼠标悬浮变化</a></li>
+                <li><a href="http://www.baidu.com">课程</a></li>
+                <li><a href="http://www.baidu.com">博客</a></li>
+                <li><a href="http://www.baidu.com">问答</a></li>
+            </ul>
+        </div>
+        
+        
+        <div class="customDiv">
+            <p>排在第2位的子元素<p>，将其文字颜色变成红色！</p>
+            <p>排在第2位的子元素<p>，将其文字颜色变成红色！注意，nth-child(2)前面的p是子元素，而nth-child(2)中的2是指这个子元素在包含它的父元素中的序号，也就是排第几</p>
+            <p>排在第2位的子元素<p>，将其文字颜色变成红色！</p>
+        </div>
+        
+        
+        <div>
+            <div class="friend" id="best_friend"><p>小明</p></div>
+            <div class="friend"><p id="customP">小李</p></div>
+            <div class="friend"><p id="customP">小王</p></div>
+            <div class="friend"><p id="customP">小尚</p></div>
+            <div class="friend"><p id="customP">小马</p></div>
+            <div class="family"><p id="customP">母亲</p></div>
+            <div class="family"><p id="customP">父亲</p></div>
+            <div class="family"><p id="customP">弟弟</p></div>
+            <div class="family"><p id="customP">姐姐</p></div>
+            <div class="enemy"><p id="customP">军国主义</p></div>
+            <div class="enemy"><p id="customP">战争狂人</p></div>
+            <div class="enemy"><p id="customP">外星人</p></div>
+            <div class="enemy"><p id="customP">恐龙</p></div>
+            <div class="enemy" id="archnemesis"><p id="customP">时光</p></div>
+        </div>
+        
+        
+        
+    </body>
+</html>

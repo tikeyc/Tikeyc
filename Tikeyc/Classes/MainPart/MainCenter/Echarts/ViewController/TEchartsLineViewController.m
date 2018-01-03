@@ -33,7 +33,6 @@ NSString *const lineAndBarOption = @"线柱混合(可滑动)";
     // Do any additional setup after loading the view from its nib.
     
     self.title = lineAndBarOption;
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,33 +44,36 @@ NSString *const lineAndBarOption = @"线柱混合(可滑动)";
     [super viewWillAppear:animated];
     ((TBaseNavigationViewController *)self.navigationController).panBackGestureRecognizer.enabled = NO;
     
-    TApplicationDelegate.deviceInterfaceOrientationMask = UIInterfaceOrientationMaskLandscape;
-    /*需要先设置一次正向
-     *再设置希望的方向
-     *不然存在BUG：当横着屏幕push进当前控制器时，第一次进来视图不会旋转至横屏状态。但当pop后再push进来视图却又可以旋转至横屏状态了
-     */
-    [TKCAppTools constraintRotationDeviceWithUIDeviceOrientation:UIDeviceOrientationPortrait];
-    [TKCAppTools constraintRotationDeviceWithUIDeviceOrientation:UIDeviceOrientationLandscapeLeft];
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     ((TBaseNavigationViewController *)self.navigationController).panBackGestureRecognizer.enabled = YES;
     
-    TApplicationDelegate.deviceInterfaceOrientationMask = UIInterfaceOrientationMaskPortrait;
-    /*需要先设置一次横向
-     *再设置希望的方向
-     *不然存在BUG：当横着屏幕push进当前控制器时，已经横屏了，当用户竖着手机点击pop后视图不会旋转至竖屏状态
-     */
-    [TKCAppTools constraintRotationDeviceWithUIDeviceOrientation:UIDeviceOrientationLandscapeLeft];
-    [TKCAppTools constraintRotationDeviceWithUIDeviceOrientation:UIDeviceOrientationPortrait];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
     [self initSubViewProperty];
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return NO;
+}
+
+//是否旋转
+-(BOOL)shouldAutorotate{
+    return YES;
+}
+//支持的方向
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskLandscape;
+}
+//只对present VC有效
+-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
+    return UIInterfaceOrientationLandscapeRight;
 }
 
 /*
@@ -102,7 +104,7 @@ NSString *const lineAndBarOption = @"线柱混合(可滑动)";
 - (void)initSubViewProperty{
     
     [self performSelector:@selector(test) withObject:nil afterDelay:0.3];
-    self.echartsView.frame = CGRectMake(0, 0, 31*50, kScreenWidth);
+    self.echartsView.frame = CGRectMake(0, 0, 31*50, kScreenWidth - kAppNavigationBarHeight - kAppStatusBarHeight);
     [self.echartBaseScrollView addSubview:self.echartsView];
 //    [self.echartsView mas_makeConstraints:^(MASConstraintMaker *make) {
 //        make.top.equalTo(@(0));

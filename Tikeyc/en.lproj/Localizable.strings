@@ -1,0 +1,44 @@
+/* 
+  Localizable.strings
+  Tikeyc
+
+  Created by ways on 2017/2/5.
+  Copyright © 2017年 tikeyc. All rights reserved.
+*/
+
+/*
+ 查看/切换本地语言
+ 
+ 原理：应用启动时，首先会读取NSUserDefaults中的key为AppleLanguages对应的value，该value是一个String数组，也就是说，我们访问这个名为AppleLanguages的key可以返回一个string数组，该数组存储着APP支持的语言列表，数组的第一项为APP当前默认的语言。
+ 
+ NSArray *languages = [[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"];
+ NSString *currentLanguage = languages.firstObject;
+ NSLog(@"模拟器当前语言：%@",currentLanguage);
+ 
+ 
+ 同理，既然我们可以通过AppleLanguages这个key从NSUserDefaults中取出语言数组，那么我们也可以给AppleLanguages这个key赋值来达到切换本地语言的效果，从此以后，我们就无需频繁的去模拟器的设置->通用->语言与地区 中切换语言。
+ 
+ // 切换语言前
+ NSArray *langArr1 = [[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"];
+ NSString *language1 = langArr1.firstObject;
+ NSLog(@"模拟器语言切换之前：%@",language1);
+ 
+ // 切换语言
+ NSArray *lans = @[@"en"];
+ [[NSUserDefaults standardUserDefaults] setObject:lans forKey:@"AppleLanguages"];
+ 
+ // 切换语言后
+ NSArray *langArr2 = [[NSUserDefaults standardUserDefaults] valueForKey:@"AppleLanguages"];
+ NSString *language2 = langArr2.firstObject;
+ NSLog(@"模拟器语言切换之后：%@",language2);
+ */
+
+// NSLocalizedString(key, comment) 本质
+// NSlocalizeString 第一个参数是内容,根据第一个参数去对应语言的文件中取对应的字符串，第二个参数将会转化为字符串文件里的注释，可以传nil，也可以传空字符串@""。
+//#define NSLocalizedString(key, comment) [[NSBundle mainBundle] localizedStringForKey:(key) value:@"" table:nil]
+
+
+"languageVC_title" = "test--title";
+
+
+

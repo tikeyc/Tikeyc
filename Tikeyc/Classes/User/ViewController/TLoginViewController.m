@@ -85,7 +85,7 @@
         if (![[value lowercaseString] isEqualToString:@"tikeyc"]) {
             weakself.userNameTextField.textColor = [UIColor redColor];
         }else{
-            weakself.userNameTextField.textColor = [UIColor blackColor];
+            weakself.userNameTextField.textColor = [UIColor whiteColor];
         }
         return value;
     }];
@@ -93,7 +93,7 @@
         if (value.length < 6) {
             weakself.userPasswordTextField.textColor = [UIColor redColor];
         }else{
-            weakself.userPasswordTextField.textColor = [UIColor blackColor];
+            weakself.userPasswordTextField.textColor = [UIColor whiteColor];
         }
         return value;
     }];

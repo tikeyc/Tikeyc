@@ -36,8 +36,8 @@
 + (void)initialize
 {
     // 当导航栏用在TBaseNavigationViewController中appearance才会生效
-    UINavigationBar *bar = [UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[[self class]]];
-    //    UINavigationBar *bar = [UINavigationBar appearanceWhenContainedIn:[self class], nil];
+//    UINavigationBar *bar = [UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[[self class]]];
+    UINavigationBar *bar = [UINavigationBar appearanceWhenContainedIn:[self class], nil];
     [bar setTintColor:[UIColor whiteColor]];
     NSMutableDictionary *titleAttrs = [NSMutableDictionary dictionary];
     titleAttrs[NSForegroundColorAttributeName] = [UIColor blackColor];
@@ -73,23 +73,16 @@
 
 #pragma mark - 屏幕旋转控制方法
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return [self.topViewController shouldAutorotateToInterfaceOrientation:interfaceOrientation];
-}
-
-- (BOOL)shouldAutorotate
-{
+-(BOOL)shouldAutorotate{
     return self.topViewController.shouldAutorotate;
 }
 
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-{
-    return self.topViewController.supportedInterfaceOrientations;
+-(UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    return [self.topViewController supportedInterfaceOrientations];
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return self.topViewController.preferredStatusBarStyle;
+-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
+    return [self.topViewController preferredInterfaceOrientationForPresentation];
 }
 
 

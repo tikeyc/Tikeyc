@@ -15,6 +15,23 @@
 
 @implementation TKCAppTools
 
+#pragma mark 度转弧度
++ (float)huDuFromdu:(float)du
+{
+    return M_PI/(180/du);
+}
+
+#pragma mark 计算sin
++ (float)sin:(float)du
+{
+    return sinf([TKCAppTools huDuFromdu:du]);
+}
+
+#pragma mark 计算cos
++ (float)cos:(float)du
+{
+    return cosf([TKCAppTools huDuFromdu:du]);
+}
 
 /**
  拨打电话
@@ -296,6 +313,22 @@
 }
 
 
+/**
+  判断身份证格式是否真确
+
+ @param identityCard 身份证
+ @return 身份证格式是否真确
+ */
++ (BOOL)validateIdentityCard:(NSString *)identityCard {
+    BOOL flag;
+    if (identityCard.length <= 0) {
+        flag = NO;
+        return flag;
+    }
+    NSString *regex2 = @"^(\\d{14}|\\d{17})(\\d|[xX])$";
+    NSPredicate *identityCardPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex2];
+    return [identityCardPredicate evaluateWithObject:identityCard];
+}
 
 
 /**
@@ -431,21 +464,21 @@
 
 /**  通过图片Data数据第一个字节 来获取图片扩展名
  *
+ *   假设这是一个网络获取的URL
+ *   NSString *path = @"http://pic3.nipic.com/20090709/2893198_075124038_2.gif";
+ *   判断是否为gif  此方法存在BUG
+ *   NSString *extensionName = path.pathExtension;
+ *   if ([extensionName.lowercaseString isEqualToString:@"gif"]) {
+ *       是gif图片
+ *   } else {
+ *       不是gif图片
+ *   }
  *  @param data  name description
  *
  *  @return string
  */
 - (NSString *)contentTypeForImageData:(NSData *)data {
-    //////////////此方法存在BUG
-    //假设这是一个网络获取的URL
-    NSString *path = @"http://pic3.nipic.com/20090709/2893198_075124038_2.gif";
-    // 判断是否为gif
-    NSString *extensionName = path.pathExtension;
-    if ([extensionName.lowercaseString isEqualToString:@"gif"]) {
-        //是gif图片
-    } else {
-        //不是gif图片
-    }
+    
     //////////////下面方法无BUG
     uint8_t c;
     [data getBytes:&c length:1];
@@ -819,6 +852,15 @@
         }
     }
     return YES;
+    /*
+    NSCharacterSet *notDigits = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+    if ([str rangeOfCharacterFromSet:notDigits].location == NSNotFound)
+    {
+        // 是数字
+    } else
+    {
+        // 不是数字
+    }*/
 }
 
 
@@ -836,6 +878,117 @@
     NSNumber *orientation = [NSNumber numberWithInt:deviceOrientation];
     [[UIDevice currentDevice] setValue:orientation forKey:@"orientation"];
 }
+
+/**
+ 数组排序
+ 
+ @param dicArray 需要排序的数组
+ @param key 按数组中的对象的那个属性来排序
+ @param yesOrNo 升序还是降序
+ @return 返回排序后的数组
+ */
++ (NSMutableArray *) changeArray:(NSMutableArray *)dicArray orderWithKey:(NSString *)key ascending:(BOOL)yesOrNo{
+    NSSortDescriptor *distanceDescriptor = [[NSSortDescriptor alloc] initWithKey:key ascending:yesOrNo];
+    NSArray *descriptors = [NSArray arrayWithObjects:distanceDescriptor,nil];
+    [dicArray sortUsingDescriptors:descriptors];
+    return dicArray;
+}
+
+
+/**
+ 打开iPhone设置对应界面
+ */
++ (void)openiPhomeSettingUI {
+    // 打开设置->通用
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=General"]];
+    
+    // 以下是设置其他界面
+    /*
+    prefs:root=General&path=About
+    prefs:root=General&path=ACCESSIBILITY
+    prefs:root=AIRPLANE_MODE
+    prefs:root=General&path=AUTOLOCK
+    prefs:root=General&path=USAGE/CELLULAR_USAGE
+    prefs:root=Brightness
+    prefs:root=Bluetooth
+    prefs:root=General&path=DATE_AND_TIME
+    prefs:root=FACETIME
+    prefs:root=General
+    prefs:root=General&path=Keyboard
+    prefs:root=CASTLE
+    prefs:root=CASTLE&path=STORAGE_AND_BACKUP
+    prefs:root=General&path=INTERNATIONAL
+    prefs:root=LOCATION_SERVICES
+    prefs:root=ACCOUNT_SETTINGS
+    prefs:root=MUSIC
+    prefs:root=MUSIC&path=EQ
+    prefs:root=MUSIC&path=VolumeLimit
+    prefs:root=General&path=Network
+    prefs:root=NIKE_PLUS_IPOD
+    prefs:root=NOTES
+    prefs:root=NOTIFICATIONS_ID
+    prefs:root=Phone
+    prefs:root=Photos
+    prefs:root=General&path=ManagedConfigurationList
+    prefs:root=General&path=Reset
+    prefs:root=Sounds&path=Ringtone
+    prefs:root=Safari
+    prefs:root=General&path=Assistant
+    prefs:root=Sounds
+    prefs:root=General&path=SOFTWARE_UPDATE_LINK
+    prefs:root=STORE
+    prefs:root=TWITTER
+    prefs:root=FACEBOOK
+    prefs:root=General&path=USAGE prefs:root=VIDEO
+    prefs:root=General&path=Network/VPN
+    prefs:root=Wallpaper
+    prefs:root=WIFI
+    prefs:root=INTERNET_TETHERING
+    prefs:root=Phone&path=Blocked
+    prefs:root=DO_NOT_DISTURB
+     */
+}
+
+
+/**
+ textField需要设置的textField，index要设置的光标位置
+
+ @param textField textField
+ @param index 光标位置
+ */
++ (void)cursorLocation:(UITextField *)textField index:(NSInteger)index
+{
+    NSRange range = NSMakeRange(index, 0);
+    UITextPosition *start = [textField positionFromPosition:[textField beginningOfDocument] offset:range.location];
+    UITextPosition *end = [textField positionFromPosition:start offset:range.length];
+    [textField setSelectedTextRange:[textField textRangeFromPosition:start toPosition:end]];
+}
+
+
+/**
+ 去除webView底部黑色
+
+ @param webView webView
+ */
++ (void)clearBottomBlackImageViewWithWebView:(UIWebView *)webView {
+    [webView setBackgroundColor:[UIColor clearColor]];
+    [webView setOpaque:NO];
+    
+    for (UIView *v1 in [webView subviews])
+    {
+        if ([v1 isKindOfClass:[UIScrollView class]])
+        {
+            for (UIView *v2 in v1.subviews)
+            {
+                if ([v2 isKindOfClass:[UIImageView class]])
+                {
+                    v2.hidden = YES;
+                }
+            }
+        }
+    }
+}
+
 
 @end
 

@@ -74,6 +74,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.customSupportedInterfaceOrientations = UIInterfaceOrientationMaskPortrait;//默认只能竖屏
+    
     [self setSubViewsProperty];
     
     
@@ -96,6 +98,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+//是否旋转
+-(BOOL)shouldAutorotate{
+    return YES;
+}
+//支持的方向
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return self.customSupportedInterfaceOrientations;
 }
 
 /*
@@ -480,7 +491,7 @@
             button.selected = YES;
             [_leftPopButton animateToClose];
         }
-    }else if (button == _rightPopButton){
+    }else {
         NSAssert(_leftViewController, @"没有设置右侧控制器");
         
         if (button.selected) {

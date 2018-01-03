@@ -9,93 +9,79 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
-		<key>AsyncDisplayKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
-		<key>FMDB.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
-		<key>GPUImage.xcscheme</key>
+		<key>CocoaAsyncSocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>
-		<key>LFLiveKit.xcscheme</key>
+		<key>FLAnimatedImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>FMDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>FreeStreamer.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>7</integer>
 		</dict>
-		<key>MJExtension.xcscheme</key>
+		<key>LFLiveKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>10</integer>
 		</dict>
-		<key>MJRefresh.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>11</integer>
-		</dict>
-		<key>MagicalRecord.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>8</integer>
-		</dict>
-		<key>Masonry.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>9</integer>
-		</dict>
-		<key>PINCache.xcscheme</key>
+		<key>MJExtension.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>12</integer>
 		</dict>
-		<key>PINRemoteImage.xcscheme</key>
+		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>13</integer>
 		</dict>
-		<key>Pods.xcscheme</key>
+		<key>Masonry.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
+		<key>Pods-Tikeyc.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>14</integer>
 		</dict>
-		<key>ReactiveCocoa.xcscheme</key>
+		<key>Reachability.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>16</integer>
 		</dict>
-		<key>Result.xcscheme</key>
+		<key>ReactiveObjC.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -107,6 +93,13 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
+			<integer>19</integer>
+		</dict>
+		<key>SDiffuseMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
 			<integer>18</integer>
 		</dict>
 		<key>SVProgressHUD.xcscheme</key>
@@ -114,35 +107,42 @@
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>19</integer>
+			<integer>21</integer>
 		</dict>
-		<key>WebViewJavascriptBridge.xcscheme</key>
+		<key>SocketRocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>20</integer>
 		</dict>
+		<key>WebViewJavascriptBridge.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>22</integer>
+		</dict>
 		<key>YYKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>21</integer>
+			<integer>23</integer>
 		</dict>
 		<key>iOS-Echarts-iOS-Echarts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>9</integer>
 		</dict>
 		<key>iOS-Echarts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>8</integer>
 		</dict>
 		<key>pop.xcscheme</key>
 		<dict>
@@ -153,112 +153,6 @@
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>1C3436CEA5C3D39764C5F54374794ECB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>23CF27B2BA6AC7125EFFEDA8C5AA819F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>29DD99664D189A7CA206368F493B1E0B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>47DC59B416A14B343504101200C3B665</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>52D7F20D4E0D3B0DAB7C7ABE765AD7AF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5525E22F72EDAE405CE7EC6A8D613DBC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>56C7B03D06F869D87528524D692079AC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5A59D82A7BA6B1CEA4369A8FFF89D920</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5D4F45417BDFC8CC57AB78A81FA75836</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>600B935FF681CFD2F8776597B1A0BEE4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7C0126D717EB28DC6DB2EEA2E20B5172</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>97CD25A7AC5A78AC3451A23F549C5661</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A9A83F63385AA43314397B8DD375464B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AA8CBDF011CF6DD1D3B12D267C2E4F34</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B921BD50111648A14880AC066DA89BC0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C7F6FAAD727A801367AE31C1C65F1E3D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>CDD375A53442AB753CA6D9C8234E432D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D2046C2C4BED17361A7769355650FC72</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D58D76EC529B4A92F3E5EDADE0A96661</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EA0DD8ED489933744D70DD4A9719ED01</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EF5DC46358F706B07086A9AB022AB4B7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>

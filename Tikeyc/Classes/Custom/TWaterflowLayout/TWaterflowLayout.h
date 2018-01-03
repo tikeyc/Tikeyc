@@ -1,5 +1,5 @@
 //
-//  YPWaterflowLayout.h
+//  TWaterflowLayout.h
 //  Tikeyc
 //
 //  Created by ways on 16/8/17.
@@ -7,21 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
-@class YPWaterflowLayout;
 
-@protocol YPWaterflowLayoutDelegate <NSObject>
+typedef CGFloat(^HeightBlock)(NSIndexPath *indexPath,CGFloat itemWidth);
 
-@required
-- (CGFloat)waterflowLayout:(YPWaterflowLayout *)waterflowLayout heightForItemAtIndex:(NSUInteger)index itemWidth:(CGFloat)itemWidth;
 
-@optional
-- (NSUInteger)columnCountInWaterflowLayout:(YPWaterflowLayout *)waterflowLayout;
-- (CGFloat)columnMarginInWaterflowLayout:(YPWaterflowLayout *)waterflowLayout;
-- (CGFloat)rowMarginInWaterflowLayout:(YPWaterflowLayout *)waterflowLayout;
-- (UIEdgeInsets)edgeInsetsInWaterflowLayout:(YPWaterflowLayout *)waterflowLayout;
+@interface TWaterflowLayout : UICollectionViewFlowLayout
 
-@end
+/** 列数 */
+@property (nonatomic, assign) NSInteger columnNumber;
+/** 行间距 */
+@property (nonatomic, assign) CGFloat rowSpacing;
+/** 列间距 */
+@property (nonatomic, assign) CGFloat columnSpacing;
 
-@interface YPWaterflowLayout : UICollectionViewLayout
-@property (nonatomic, weak) id<YPWaterflowLayoutDelegate> delegate;
+/**
+ *  返回各个item高度方法 必须实现
+ *
+ *  @param block 设计计算item高度的block
+ */
+- (void)computeIndexCellHeightWithWidthBlock:(HeightBlock)block;
 @end

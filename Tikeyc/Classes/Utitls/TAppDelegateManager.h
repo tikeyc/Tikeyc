@@ -21,7 +21,23 @@
  */
 + (void)setStatusBarHidden:(BOOL)isHidden;
 
++ (void)interfaceOrientation:(UIInterfaceOrientation)orientation;
+
+/**
+ 开启后台任务
+ */
++ (void)openBackgroudTask;
+
+/**
+ 进入后台后定时关闭APP，一般用于安全或隐私较高的APP
+ */
 + (void)setNSTimerExitApp;
+
+
+/**
+ 解决iOS11上因安全区域导致的UITableView或UIScrollView偏移的问题
+ */
++ (void)dealWithiOS11SafeAreaIssue;
 
 /**
  *远程推送的格式:这里我们要注意一定要有"mutable-content": "1",以及一定要有Alert的字段，否则可能会拦截通知失败。（苹果文档说的）
@@ -42,9 +58,22 @@
 
 + (void)registeLocalNotification;
 
++ (void)cancelLocalNotificationWithKey:(NSString *)key;
+
++ (void)registeLocalNotificationWithGif;
+
++ (void)registerVoipNotifications;
+
 + (NSString *)logDic:(NSDictionary *)dic;
 
+/**
+ 添加应用图标的3DTouch功能
+ */
++ (void)add3DTouchShortcutItems;
+
 ////////////////////////////////////////Extension
+
++ (void)gotoLuanchController;
 
 + (void)gotoLoginController;
 

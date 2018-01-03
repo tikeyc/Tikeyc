@@ -8,6 +8,8 @@
 
 #import "TLiveListTableViewController.h"
 
+#import "TNormalRefreshHead.h"
+#import "TNormalRefreshFoot.h"
 #import "TLiveListViewModel.h"
 
 @interface TLiveListTableViewController ()
@@ -54,13 +56,29 @@
     self.tableView.delegate = (id)self.liveListViewModel;
     self.tableView.rowHeight = kScreenWidth + 50;
     //
-    [self.liveListViewModel.requestCommand execute:nil];
-    //
     @weakify(self)
     [[RACObserve(self.liveListViewModel, liveListModels) skip:1] subscribeNext:^(id x) {
         @strongify(self)
+        [self.tableView.mj_header endRefreshingWithCompletionBlock:^{
+            
+        }];
+        [self.tableView.mj_footer endRefreshingWithCompletionBlock:^{
+            
+        }];
         [self.tableView reloadData];
     }];
+    
+    
+    [self initRefresh];
+}
+
+- (void)initRefresh{
+    self.tableView.mj_header = [TNormalRefreshHead headerWithRefreshingBlock:^{
+        [self.liveListViewModel.requestCommand execute:nil];
+    }];
+    //
+    [self.tableView.mj_header beginRefreshing];
+    
 }
 
 /*

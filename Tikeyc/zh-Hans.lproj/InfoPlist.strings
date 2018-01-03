@@ -1,0 +1,12 @@
+/* 
+  InfoPlist.strings
+  Tikeyc
+
+  Created by ways on 2017/2/5.
+  Copyright © 2017年 tikeyc. All rights reserved.
+*/
+/*
+ 备注：过去本地化App名称，需要在Info.plist文件中增加一个名为“Application has localized display name”的BOOL类型的Key，并且需要将其值设置为YES（如下图）。目的是让App支持本地化App名称。但现在可以忽略这一步。
+ */
+// Localizable App Name是App在英语环境环境下显示的名称 CFBundleDisplayName可以加“”也可以不加
+"CFBundleDisplayName" = "Tikeyc";

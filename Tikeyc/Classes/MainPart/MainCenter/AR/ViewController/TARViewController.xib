@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TARViewController">
+            <connections>
+                <outlet property="closeButton" destination="kUW-ny-g7i" id="7aQ-og-iTp"/>
+                <outlet property="filterListButton" destination="ikn-ZW-8rN" id="jTq-fD-THt"/>
+                <outlet property="rotationButton" destination="IgH-vh-Zfj" id="7bT-ue-gao"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUW-ny-g7i">
+                    <rect key="frame" x="171" y="615" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="32" id="DY4-3b-7uL"/>
+                        <constraint firstAttribute="height" constant="32" id="m3C-rs-tMp"/>
+                    </constraints>
+                    <state key="normal" image="colse"/>
+                    <connections>
+                        <action selector="colseButtonAction:" destination="-1" eventType="touchUpInside" id="1jp-HQ-QVF"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ikn-ZW-8rN">
+                    <rect key="frame" x="16" y="615" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="8p6-84-RYo"/>
+                        <constraint firstAttribute="width" constant="32" id="h73-sj-TPH"/>
+                    </constraints>
+                    <state key="normal" image="filter_list"/>
+                    <connections>
+                        <action selector="filterListButtonAction:" destination="-1" eventType="touchUpInside" id="HSQ-GB-XS2"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IgH-vh-Zfj">
+                    <rect key="frame" x="327" y="615" width="32" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="32" id="5XN-8Q-rqg"/>
+                        <constraint firstAttribute="height" constant="32" id="bRt-Fx-M62"/>
+                    </constraints>
+                    <state key="normal" image="3d_rotation"/>
+                    <connections>
+                        <action selector="rotationButtonAction:" destination="-1" eventType="touchUpInside" id="Ml5-Cc-323"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="IgH-vh-Zfj" secondAttribute="bottom" constant="20" id="MHe-yS-A2A"/>
+                <constraint firstItem="ikn-ZW-8rN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="NGf-aX-1Q5"/>
+                <constraint firstAttribute="bottom" secondItem="ikn-ZW-8rN" secondAttribute="bottom" constant="20" id="cud-Zy-sWg"/>
+                <constraint firstAttribute="trailing" secondItem="IgH-vh-Zfj" secondAttribute="trailing" constant="16" id="dnw-uG-v4g"/>
+                <constraint firstItem="kUW-ny-g7i" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gAb-YW-1cH"/>
+                <constraint firstAttribute="bottom" secondItem="kUW-ny-g7i" secondAttribute="bottom" constant="20" id="qmJ-wq-IHe"/>
+            </constraints>
+            <point key="canvasLocation" x="35.5" y="53.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="3d_rotation" width="32" height="32"/>
+        <image name="colse" width="32" height="32"/>
+        <image name="filter_list" width="32" height="32"/>
+    </resources>
+</document>

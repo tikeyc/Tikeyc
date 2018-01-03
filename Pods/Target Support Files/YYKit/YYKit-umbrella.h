@@ -1,4 +1,14 @@
+#ifdef __OBJC__
 #import <UIKit/UIKit.h>
+#else
+#ifndef FOUNDATION_EXPORT
+#if defined(__cplusplus)
+#define FOUNDATION_EXPORT extern "C"
+#else
+#define FOUNDATION_EXPORT extern
+#endif
+#endif
+#endif
 
 #import "NSArray+YYAdd.h"
 #import "NSBundle+YYAdd.h"
@@ -33,11 +43,11 @@
 #import "YYDiskCache.h"
 #import "YYKVStorage.h"
 #import "YYMemoryCache.h"
-#import "_YYWebImageSetter.h"
 #import "CALayer+YYWebImage.h"
 #import "MKAnnotationView+YYWebImage.h"
 #import "UIButton+YYWebImage.h"
 #import "UIImageView+YYWebImage.h"
+#import "_YYWebImageSetter.h"
 #import "YYAnimatedImageView.h"
 #import "YYFrameImage.h"
 #import "YYImage.h"

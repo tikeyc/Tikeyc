@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pVi-Np-kpx">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pVi-Np-kpx">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,10 +21,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="底部2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLI-BT-NX0">
-                                <rect key="frame" x="0.0" y="646" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="底部2  尝试尽力上下滑动可查看更多模块" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLI-BT-NX0">
+                                <rect key="frame" x="0.0" y="586" width="200" height="81"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="FbF-jd-ifS"/>
+                                    <constraint firstAttribute="width" constant="200" id="84g-FZ-QhY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -30,14 +33,14 @@
                         </subviews>
                         <color key="backgroundColor" red="0.9457707405090332" green="0.92970638394749539" blue="0.65118695679724403" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="QLI-BT-NX0" firstAttribute="leading" secondItem="hZk-ud-gid" secondAttribute="leading" id="Cww-Vs-AaE"/>
-                            <constraint firstItem="s1v-D9-dnD" firstAttribute="top" secondItem="QLI-BT-NX0" secondAttribute="bottom" id="xBk-VP-w6W"/>
+                            <constraint firstItem="QLI-BT-NX0" firstAttribute="leading" secondItem="hZk-ud-gid" secondAttribute="leading" id="Hk5-1v-oUM"/>
+                            <constraint firstItem="s1v-D9-dnD" firstAttribute="top" secondItem="QLI-BT-NX0" secondAttribute="bottom" id="lXn-yu-STw"/>
                         </constraints>
                     </scrollView>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ymd-w4-jCH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-22" y="133"/>
+            <point key="canvasLocation" x="-23.199999999999999" y="132.68365817091455"/>
         </scene>
     </scenes>
 </document>

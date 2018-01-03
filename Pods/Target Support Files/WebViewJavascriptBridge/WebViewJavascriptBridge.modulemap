@@ -3,6 +3,4 @@ framework module WebViewJavascriptBridge {
 
   export *
   module * { export * }
-
-  private header "WebViewJavascriptBridge_JS.h"
 }

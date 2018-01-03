@@ -12,6 +12,9 @@ typedef void (^CliciIconBlock) (id result);
 
 @interface TTopImgBottomTextControl : UIControl
 
+@property (nonatomic,strong)UIButton *iconButton;
+@property (nonatomic,strong)UILabel *label;
+
 @property (nonatomic,copy)CliciIconBlock clickBlock;
 
 - (id)initWithImageName:(NSString *)imageName withLabelTitle:(NSString *)title;

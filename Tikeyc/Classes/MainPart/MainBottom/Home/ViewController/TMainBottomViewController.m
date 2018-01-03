@@ -60,7 +60,13 @@
 - (TMainBottomTabBarController *)tabBarController{
     if (!_tabBarController) {
         _tabBarController = [[TMainBottomTabBarController alloc] init];
-        _tabBarController.view.frame = self.view.frame;
+//        if ([UIDevice systemVersion] >= 11.0) {
+//            _tabBarController.view.frame = self.view.bounds;
+//            _tabBarController.view.top = -20;
+//        } else {
+//            
+//        }
+        _tabBarController.view.frame = self.view.bounds;
     }
     return _tabBarController;
 }
@@ -69,11 +75,13 @@
     self.title = @"bottom View";
     //
     UIScrollView *scrollView = (UIScrollView*)self.view;//in storyboard set self.view = scrollView
+    scrollView.backgroundColor = [UIColor whiteColor];
     [scrollView addSubview:self.tabBarController.view];
-//    scrollView.delegate = self;
+
     //
+    @weakify(self)
     scrollView.mj_header = [TNormalRefreshHead headerWithRefreshingBlock:^{
-        
+        @strongify(self)
         if (self.view.top == 0) {//在下滑到即将显示topVC时会动画快速显示topVC,此时不应该刷新数据
             NSLog(@"headerWithRefreshingBlock");
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

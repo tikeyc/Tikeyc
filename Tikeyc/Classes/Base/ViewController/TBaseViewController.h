@@ -10,4 +10,9 @@
 
 @interface TBaseViewController : UIViewController
 
+
+@property (nonatomic,assign)UIInterfaceOrientationMask customSupportedInterfaceOrientations;
+
 @end
+
+

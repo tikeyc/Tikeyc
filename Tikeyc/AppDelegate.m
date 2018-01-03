@@ -9,25 +9,26 @@
 #import "AppDelegate.h"
 
 #import <UserNotifications/UserNotifications.h>
+#import <PushKit/PushKit.h>
 
-@interface AppDelegate ()<UNUserNotificationCenterDelegate>
+@interface AppDelegate ()<UNUserNotificationCenterDelegate,PKPushRegistryDelegate>
 
 @end
 
 @implementation AppDelegate
 
 //HYCTT-5L9RQ-44T8L-C1RG5-K2GPC
-- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(nullable UIWindow *)window{
-    if (self.deviceInterfaceOrientationMask != UIInterfaceOrientationMaskLandscape) {
-        self.deviceInterfaceOrientationMask = UIInterfaceOrientationMaskPortrait;
-    }
-    return self.deviceInterfaceOrientationMask;
-}
+//- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(nullable UIWindow *)window{
+//    if (self.deviceInterfaceOrientationMask != UIInterfaceOrientationMaskLandscape) {
+//        self.deviceInterfaceOrientationMask = UIInterfaceOrientationMaskPortrait;
+//    }
+//    return self.deviceInterfaceOrientationMask;
+//}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    self.deviceInterfaceOrientationMask = UIInterfaceOrientationMaskPortrait;
-
+//    self.deviceInterfaceOrientationMask = UIInterfaceOrientationMaskPortrait;
+    
     /*当然只会在需求：self.window第一次 不想 加载Main storyboard file base name的情况
      *不知道大家有没有范这么一个错误：在info.plist中Main storyboard file base name设置了storyboard，同时在AppDelegate self.window设置了rootViewController的情况
      *该情况就多余了，不必要的创建了storyboard。会出现这种情况-->创建Main storyboard file base name指定的storyboard，然后创建代码制定的rootViewController,销毁storyboard；
@@ -36,31 +37,64 @@
      */
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
     
+
     [TAppDelegateManager setStatusBarHidden:NO];
+    [TAppDelegateManager dealWithiOS11SafeAreaIssue];
     
-    [TAppDelegateManager gotoLoginController];
+    [TAppDelegateManager gotoLuanchController];
+//    [TAppDelegateManager gotoLoginController];
+    
+    [TAppDelegateManager add3DTouchShortcutItems];
     
     [TAppDelegateManager registeRemoteNotification];
     [TAppDelegateManager registeLocalNotification];
+    [TAppDelegateManager registeLocalNotificationWithGif];
+//    [TAppDelegateManager registerVoipNotifications];
     
     /* APP未启动，点击推送消息的情况下 iOS10遗弃UIApplicationLaunchOptionsLocalNotificationKey，使用代理UNUserNotificationCenterDelegate方法didReceiveNotificationResponse:withCompletionHandler:获取本地推送
      */
-    //    NSDictionary *localUserInfo = launchOptions[UIApplicationLaunchOptionsLocalNotificationKey];
-    //    if (localUserInfo) {
-    //        NSLog(@"localUserInfo:%@",localUserInfo);
-    //        //APP未启动，点击推送消息
-    //    }
+    if ([UIDevice systemVersion] < 10.0) {
+        NSDictionary *localUserInfo = launchOptions[UIApplicationLaunchOptionsLocalNotificationKey];
+        if (localUserInfo) {
+            NSLog(@"localUserInfo:%@",localUserInfo);
+            //APP未启动，点击推送消息
+            
+        }
+    }
+    
     NSDictionary *remoteUserInfo = launchOptions[UIApplicationLaunchOptionsRemoteNotificationKey];
     if (remoteUserInfo) {
         NSLog(@"remoteUserInfo:%@",remoteUserInfo);
         //APP未启动，点击推送消息，iOS10下还是跟以前一样在此获取
-        [self application:application didReceiveRemoteNotification:remoteUserInfo fetchCompletionHandler:^(UIBackgroundFetchResult result) {
+        if (@available(iOS 10, *)) {
+            [self application:application didReceiveRemoteNotification:remoteUserInfo fetchCompletionHandler:^(UIBackgroundFetchResult result) {
+                
+            }];
             
-        }];
+        } else {
+            [self application:application didReceiveRemoteNotification:remoteUserInfo];
+        }
+        
     }
 
+    [self.window makeKeyAndVisible];
+    
+    //3DTouch
+    UIApplicationShortcutItem *shortcutItem = [launchOptions valueForKey:UIApplicationLaunchOptionsShortcutItemKey];
+    //如果是从快捷选项标签启动app，则根据不同标识执行不同操作，然后返回NO，防止调用- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler
+    if (shortcutItem) {
+        //判断设置的快捷选项标签唯一标识，根据不同标识执行不同操作
+        if ([shortcutItem.localizedTitle isEqualToString:@"动态代码添加"]) {
+            NSLog(@"UIApplicationShortcutItem click: %@",shortcutItem.localizedTitle);
+        } else if ([shortcutItem.type isEqualToString:@"infoPlist"]) {
+            NSLog(@"UIApplicationShortcutItem click: %@",shortcutItem.localizedTitle);
+        }
+        
+        return NO;//返回NO防止调用- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler
+    }
+
+    
     return YES;
 }
 
@@ -96,6 +130,24 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    NSString *urlString = [url absoluteString];
+    NSLog(@"%@", urlString);
+    
+    NSString *prefix = @"tikeycWidget://action=";
+    if ([urlString rangeOfString:prefix].location != NSNotFound) {
+        NSString *action = [urlString substringFromIndex:prefix.length];
+        if ([action isEqualToString:@"all"]) {
+            // 进入到all页面
+            
+        } else if ([action isEqualToString:@"web"]) {
+            // 进入到 web页
+            
+        }
+    }
+    return YES;
 }
 
 
@@ -156,6 +208,14 @@
 
 #pragma mark - UIApplicationDelegate
 
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
+    if ([shortcutItem.localizedTitle isEqualToString:@"动态代码添加"]) {
+        NSLog(@"UIApplicationShortcutItem click: %@",shortcutItem.localizedTitle);
+    } else if ([shortcutItem.type isEqualToString:@"infoPlist"]) {
+        NSLog(@"UIApplicationShortcutItem click: %@",shortcutItem.localizedTitle);
+    }
+}
+
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error{
     
     NSLog(@"Regist fail%@",error);
@@ -174,9 +234,41 @@
     [TUserDefaults setObject:deviceTokenStr forKey:T_Device_Token];
 }
 
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    NSLog(@"iOS10系统一下获取到远程推送消息:%@",userInfo);
+    // 更新显示的徽章个数
+    NSInteger badge = [UIApplication sharedApplication].applicationIconBadgeNumber;
+    badge--;
+    badge = badge >= 0 ? badge : 0;
+    [UIApplication sharedApplication].applicationIconBadgeNumber = badge;
+}
+
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    NSLog(@"iOS10系统一下获取到本地推送消息:%@",notification.userInfo);
+    // 获取通知所带的数据
+    NSString *notMess = [notification.userInfo objectForKey:@"key"];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"本地通知(前台)"
+                                                    message:notMess
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+    
+    // 更新显示的徽章个数
+    NSInteger badge = [UIApplication sharedApplication].applicationIconBadgeNumber;
+    badge--;
+    badge = badge >= 0 ? badge : 0;
+    [UIApplication sharedApplication].applicationIconBadgeNumber = badge;
+    
+    // 在不需要再推送时，可以取消推送
+    [TAppDelegateManager cancelLocalNotificationWithKey:@"key"];
+
+}
+
 //远程推送APP在前台
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
-    NSLog(@"didReceiveRemoteNotification:%@",userInfo);
+    NSLog(@"iOS10及以上系统didReceiveRemoteNotification:%@",userInfo);
     
     //    NSString *message = [[userInfo objectForKey:@"aps"]objectForKey:@"name"];
     NSString *messageStr = [NSString stringWithFormat:@"%@", userInfo];
@@ -193,7 +285,7 @@
 #pragma mark - UNUserNotificationCenterDelegate
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler{
-    NSLog(@"willPresentNotification:%@",notification.request.content.title);
+    NSLog(@"iOS10及以上系统willPresentNotification:%@",notification.request.content.title);
     
     // 获取通知所带的数据
     NSDictionary * userInfo = notification.request.content.userInfo;
@@ -222,7 +314,8 @@
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler{
     //在没有启动本App时，收到服务器推送消息，下拉消息会有快捷回复的按钮，点击按钮后调用的方法，根据identifier来判断点击的哪个按钮
-    //    NSString *notMess = [response.notification.request.content.userInfo objectForKey:@"aps"];
+    //    NSString *notMess = [response.notification.request.content.userInfo  objectForKey:@"aps"];
+    NSString *actionIdentifier = response.actionIdentifier;
     NSDictionary * userInfo = response.notification.request.content.userInfo;
     UNNotificationRequest *request = response.notification.request; // 收到推送的请求
     UNNotificationContent *content = request.content; // 收到推送的消息内容
@@ -233,7 +326,7 @@
     NSString *subtitle = content.subtitle;  // 推送消息的副标题
     NSString *title = content.title;  // 推送消息的标题
     
-    NSLog(@"didReceiveNotificationResponse:%@",body);
+    NSLog(@"iOS10及以上系统didReceiveNotificationResponse:%@",body);
     if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
         NSLog(@"iOS10 收到远程通知:%@", [TAppDelegateManager logDic:userInfo]);
         
@@ -250,6 +343,53 @@
 }
 
 
+
+
+////////////////////////PushKit
+#pragma mark - PKPushRegistryDelegate
+
+- (void)pushRegistry:(PKPushRegistry *)registry didInvalidatePushTokenForType:(PKPushType)type {
+    
+}
+
+- (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(PKPushType)type {
+    NSString *str = [NSString stringWithFormat:@"%@",credentials.token];
+    NSString *tokenStr = [[[str stringByReplacingOccurrencesOfString:@"<" withString:@""]
+                            stringByReplacingOccurrencesOfString:@">" withString:@""]
+                          stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSLog(@"voip push device_token is %@" , tokenStr);
+}
+
+- (void)pushRegistry:(PKPushRegistry *)registry didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(PKPushType)type {
+    UIUserNotificationType theType = [UIApplication sharedApplication].currentUserNotificationSettings.types;
+    
+    if (theType == UIUserNotificationTypeNone){
+        UIUserNotificationSettings *userNotifySetting = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:userNotifySetting];
+    }
+    
+    NSDictionary * dic = payload.dictionaryPayload;
+    
+    NSLog(@"voip push dic  %@",dic);
+    
+    if ([dic[@"cmd"] isEqualToString:@"call"]) {
+        UILocalNotification *backgroudMsg = [[UILocalNotification alloc] init];
+        backgroudMsg.alertBody= @"You receive a new call";
+        backgroudMsg.soundName = @"ring.caf";
+        backgroudMsg.applicationIconBadgeNumber = [[UIApplication sharedApplication]applicationIconBadgeNumber] + 1;
+        [[UIApplication sharedApplication] presentLocalNotificationNow:backgroudMsg];
+        
+    } else if ([dic[@"cmd"] isEqualToString:@"cancel"]) {
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+        
+        UILocalNotification * wei = [[UILocalNotification alloc] init];
+        wei.alertBody= [NSString stringWithFormat:@"%ld 个未接来电",[[UIApplication sharedApplication]applicationIconBadgeNumber]];
+        wei.applicationIconBadgeNumber = [[UIApplication sharedApplication]applicationIconBadgeNumber];
+        [[UIApplication sharedApplication] presentLocalNotificationNow:wei];
+    }
+    
+               
+}
 
 @end
 

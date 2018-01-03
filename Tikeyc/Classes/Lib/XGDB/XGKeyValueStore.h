@@ -118,8 +118,8 @@ static NSString *const  updateText3  = @"text3";
  *  根据 id 修改某个字段  传的参数不能为空
  *      核心代码
  *  @param objectId     id 必填
- *  @param Condition    需要修改的字段
- *  @param updateResult 修改的新数据
+ *  @param condition    需要修改的字段
+ * 
  */
 - (void)updateWithId:(NSString *)objectId
      updateCondition:(NSString *)condition

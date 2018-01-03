@@ -8,6 +8,7 @@
 
 #import "TEchartsTypeListController.h"
 
+#import "TBaseNavigationViewController.h"
 #import "TEchartsAllTypeViewController.h"
 
 #import "TEchartsLineViewController.h"
@@ -33,6 +34,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.title = @"iOS-Echarts";
+    self.customSupportedInterfaceOrientations = UIInterfaceOrientationMaskPortrait;
     
 //    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"EchartsTypeCell"];
     
@@ -100,13 +102,21 @@
                 case 0:
                 {
                     TEchartsLineViewController *line = [[TEchartsLineViewController alloc] init];
-                    [self.navigationController pushViewController:line animated:YES];
+//                    [self.navigationController pushViewController:line animated:YES];
+                    TBaseNavigationViewController *nav = [[TBaseNavigationViewController alloc] initWithRootViewController:line];
+                    [self presentViewController:nav animated:YES completion:^{
+                        
+                    }];
                 }
                     break;
                 case 1:
                 {
                     TEchartsBarViewController *bar = [[TEchartsBarViewController alloc] init];
-                    [self.navigationController pushViewController:bar animated:YES];
+//                    [self.navigationController pushViewController:bar animated:YES];
+                    TBaseNavigationViewController *nav = [[TBaseNavigationViewController alloc] initWithRootViewController:bar];
+                    [self presentViewController:nav animated:YES completion:^{
+                        
+                    }];
                 }
                     break;
                
@@ -115,7 +125,11 @@
                 {
                     TEchartsAllTypeViewController *allTypeVC = [[TEchartsAllTypeViewController alloc] init];
                     allTypeVC.title = rowTitle;
-                    [self.navigationController pushViewController:allTypeVC animated:YES];
+//                    [self.navigationController pushViewController:allTypeVC animated:YES];
+                    TBaseNavigationViewController *nav = [[TBaseNavigationViewController alloc] initWithRootViewController:allTypeVC];
+                    [self presentViewController:nav animated:YES completion:^{
+                        
+                    }];
                 }
                     break;
             }
@@ -127,7 +141,11 @@
             
             TEchartsAllTypeViewController *allTypeVC = [[TEchartsAllTypeViewController alloc] init];
             allTypeVC.title = rowTitle;
-            [self.navigationController pushViewController:allTypeVC animated:YES];
+//            [self.navigationController pushViewController:allTypeVC animated:YES];
+            TBaseNavigationViewController *nav = [[TBaseNavigationViewController alloc] initWithRootViewController:allTypeVC];
+            [self presentViewController:nav animated:YES completion:^{
+                
+            }];
         }
             break;
     }

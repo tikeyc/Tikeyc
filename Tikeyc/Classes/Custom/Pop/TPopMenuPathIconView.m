@@ -10,7 +10,7 @@
 
 #import "TTopImgBottomTextControl.h"
 
-@interface TPopMenuPathIconView ()<POPAnimationDelegate> {
+@interface TPopMenuPathIconView ()<POPAnimationDelegate,UIViewControllerPreviewingDelegate> {
     BOOL _isDrawingCircle;
     BOOL _isMenuPresented;
     CGFloat _direction;
@@ -19,6 +19,7 @@
 @property (nonatomic, strong) CAShapeLayer *circle;
 @property (nonatomic, strong) NSArray *iconImgNames;
 @property (nonatomic, strong) NSArray *iconTitles;
+@property (nonatomic, assign) TPopMenuPathIconAnimationDirection circleDirection;
 
 @end
 
@@ -34,6 +35,7 @@
         self.iconImgNames = [NSArray arrayWithArray:iconImgNames];
         self.iconTitles = [NSArray arrayWithArray:iconTitles];
         self.menuIconClick = menuIconClick;
+        self.circleDirection = direction;
         
         switch (direction) {
             case TPopMenuPathIconAnimationDirectionRight:
@@ -64,6 +66,9 @@
 - (void)startCircleAnimation{
     int radius = 45;
     CGPoint location = CGPointMake(self.width/2, self.height - radius);
+    if (self.circleDirection == TPopMenuPathIconAnimationDirectionBottom) {
+        location = CGPointMake(self.width/2, radius);
+    }
     self.circle = [CAShapeLayer layer];
     self.circle.path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(location.x - radius,
                                                                           location.y - radius,
@@ -97,6 +102,9 @@
     //    _isMenuPresented = YES;
     CGFloat size = 60;
     _gesturePosition = CGPointMake(self.width/2, self.height - size);
+    if (self.circleDirection == TPopMenuPathIconAnimationDirectionBottom) {
+        _gesturePosition = CGPointMake(self.width/2, size);
+    }
     NSInteger i = 0;
     for (NSString *iconImgName in self.iconImgNames) {
         
@@ -119,7 +127,7 @@
             }];
             
             if (weakself.menuIconClick) {
-                weakself.menuIconClick(control.tag);
+                weakself.menuIconClick(control.tag, NO);
             }
         };
         
@@ -131,6 +139,10 @@
         [self addSubview:iconView];
         [iconViews addObject:iconView];
         i++;
+        //
+        if ([self.viewController respondsToSelector:@selector(registerForPreviewingWithDelegate:sourceView:)]) {
+            [self.viewController registerForPreviewingWithDelegate:self sourceView:iconView];
+        }
     }
     
     NSInteger nIcons = [self.iconImgNames count];
@@ -146,7 +158,7 @@
         
         POPDecayAnimation *push = [POPDecayAnimation animationWithPropertyNamed:kPOPLayerPosition];
         CGFloat angle = [self angleForIcon:iconNumber numberOfIcons:nIcons];
-        CGFloat velocity = 1000;
+        CGFloat velocity = 1300;//调整离圆心的移动距离
         push.beginTime = CACurrentMediaTime() + iconNumber*0.1;
         push.deceleration = 0.991;
         push.velocity = [NSValue valueWithCGPoint:CGPointMake(velocity * cosf(angle), velocity * sinf(angle))];
@@ -186,5 +198,19 @@
     }
 }
 
+
+#pragma mark - UIViewControllerPreviewingDelegate
+
+- (nullable UIViewController *)previewingContext:(id <UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location NS_AVAILABLE_IOS(9_0) {
+    NSInteger index = previewingContext.sourceView.tag;
+    if (self.menuIconClick) {
+        return self.menuIconClick(index, YES);
+    }
+    return nil;
+}
+- (void)previewingContext:(id <UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit NS_AVAILABLE_IOS(9_0) {
+    NSInteger index = previewingContext.sourceView.tag;
+    self.menuIconClick(index, NO);
+}
 
 @end

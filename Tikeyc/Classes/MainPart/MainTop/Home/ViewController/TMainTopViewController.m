@@ -12,8 +12,11 @@
 #import "TNormalRefreshFoot.h"
 
 #import "TMainTopViewModel.h"
+#import "ZYQSphereView.h"
 
 @interface TMainTopViewController ()
+
+@property (nonatomic,strong)ZYQSphereView *sphereView;
 
 @property (nonatomic,strong)TMainTopViewModel *mainTopViewModel;
 
@@ -92,6 +95,9 @@
     
     //
 //    [self getQuadCurveLayer];
+    
+    
+    [self.sphereView timerStart];
 }
 
 #pragma mark - bind RACSignal
@@ -109,6 +115,50 @@
     return _mainTopViewModel;
 }
 
+- (ZYQSphereView *)sphereView {
+    if (_sphereView == nil) {
+        _sphereView = [[ZYQSphereView alloc] initWithFrame:CGRectMake(10, 60, 300, 300)];
+        _sphereView.center=CGPointMake(self.view.center.x, self.view.center.y-30);
+        NSMutableArray *views = [[NSMutableArray alloc] init];
+        for (int i = 0; i < 50; i++) {
+            UIButton *subV = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
+            subV.backgroundColor = [UIColor colorWithRed:arc4random_uniform(100)/100. green:arc4random_uniform(100)/100. blue:arc4random_uniform(100)/100. alpha:1];
+            [subV setTitle:[NSString stringWithFormat:@"%d",i] forState:UIControlStateNormal];
+            subV.layer.masksToBounds = YES;
+            subV.layer.cornerRadius = 3;
+            [subV addTarget:self action:@selector(subVClick:) forControlEvents:UIControlEventTouchUpInside];
+            [views addObject:subV];
+        }
+        
+        [_sphereView setItems:views];
+        _sphereView.speed = 3;
+        _sphereView.miniScallValue = 0.5;
+        _sphereView.isPanTimerStart = YES;
+        
+        
+        [self.view addSubview:_sphereView];
+    }
+    return _sphereView;
+}
+
+-(void)subVClick:(UIButton*)sender{
+    NSLog(@"%@",sender.titleLabel.text);
+    
+    BOOL isStart = [_sphereView isTimerStart];
+    
+    [_sphereView timerStop];
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        sender.transform = CGAffineTransformMakeScale(1.5, 1.5);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.2 animations:^{
+            sender.transform = CGAffineTransformMakeScale(1, 1);
+            if (isStart) {
+                [_sphereView timerStart];
+            }
+        }];
+    }];
+}
 
 
 @end

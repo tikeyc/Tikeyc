@@ -8,6 +8,8 @@
 
 #import "TReactiveCocoaLearningViewController.h"
 
+#import <ReactiveObjC/ReactiveObjC.h>
+
 @interface TReactiveCocoaLearningViewController ()
 
 @property (nonatomic,strong)UITextField *textField;
@@ -583,26 +585,29 @@
     
     // 注意:不同订阅者，保存不同的nextBlock，看源码的时候，一定要看清楚订阅者是哪个。
     // 这里需要手动导入#import <ReactiveCocoa/RACReturnSignal.h>，才能使用RACReturnSignal。
-    [[_textField.rac_textSignal bind:^RACStreamBindBlock{
-        
-        // 什么时候调用:
-        // block作用:表示绑定了一个信号.
-        
-        return ^RACStream *(id value, BOOL *stop){
-            
-            // 什么时候调用block:当信号有新的值发出，就会来到这个block。
-            
-            // block作用:做返回值的处理
-            
-            // 做好处理，通过信号返回出去.
-            return [RACReturnSignal return:[NSString stringWithFormat:@"输出:%@",value]];
-        };
-        
-    }] subscribeNext:^(id x) {
-        
-        NSLog(@"%@",x);
-        
-    }];
+    
+//    ReactiveObjC.RACReturnSignal.h
+
+//    [[_textField.rac_textSignal bind:^RACSignalBindBlock _Nonnull{
+//        
+//        // 什么时候调用:
+//        // block作用:表示绑定了一个信号.
+//        
+//        return ^RACStream *(id value, BOOL *stop){
+//            
+//            // 什么时候调用block:当信号有新的值发出，就会来到这个block。
+//            
+//            // block作用:做返回值的处理
+//            
+//            // 做好处理，通过信号返回出去.
+//            return [RACReturnSignal return:[NSString stringWithFormat:@"输出:%@",value]];
+//        };
+//        
+//    }] subscribeNext:^(id x) {
+//        
+//        NSLog(@"%@",x);
+//        
+//    }];
 }
 
 
@@ -636,22 +641,22 @@
     
     
     
-    [[_textField.rac_textSignal flattenMap:^RACStream *(id value) {
-        
-        // block什么时候 : 源信号发出的时候，就会调用这个block。
-        
-        // block作用 : 改变源信号的内容。
-        
-        // 返回值：绑定信号的内容.
-        return [RACReturnSignal return:[NSString stringWithFormat:@"输出:%@",value]];
-        
-    }] subscribeNext:^(id x) {
-        
-        // 订阅绑定信号，每当源信号发送内容，做完处理，就会调用这个block。
-        
-        NSLog(@"%@",x);
-        
-    }];
+//    [[_textField.rac_textSignal flattenMap:^RACStream *(id value) {
+//        
+//        // block什么时候 : 源信号发出的时候，就会调用这个block。
+//        
+//        // block作用 : 改变源信号的内容。
+//        
+//        // 返回值：绑定信号的内容.
+//        return [RACReturnSignal return:[NSString stringWithFormat:@"输出:%@",value]];
+//        
+//    }] subscribeNext:^(id x) {
+//        
+//        // 订阅绑定信号，每当源信号发送内容，做完处理，就会调用这个block。
+//        
+//        NSLog(@"%@",x);
+//        
+//    }];
     
     //Map 简单实用
     // 监听文本框的内容改变，把结构重新映射成一个新值.
@@ -687,19 +692,19 @@
     RACSubject *signalOfsignals = [RACSubject subject];
     RACSubject *signal = [RACSubject subject];
     
-    [[signalOfsignals flattenMap:^RACStream *(id value) {
-        
-        // 当signalOfsignals的signals发出信号才会调用
-        
-        return value;
-        
-    }] subscribeNext:^(id x) {
-        
-        // 只有signalOfsignals的signal发出信号才会调用，因为内部订阅了bindBlock中返回的信号，也就是flattenMap返回的信号。
-        // 也就是flattenMap返回的信号发出内容，才会调用。
-        
-        NSLog(@"%@aaa",x);
-    }];
+//    [[signalOfsignals flattenMap:^RACStream *(id value) {
+//        
+//        // 当signalOfsignals的signals发出信号才会调用
+//        
+//        return value;
+//        
+//    }] subscribeNext:^(id x) {
+//        
+//        // 只有signalOfsignals的signal发出信号才会调用，因为内部订阅了bindBlock中返回的信号，也就是flattenMap返回的信号。
+//        // 也就是flattenMap返回的信号发出内容，才会调用。
+//        
+//        NSLog(@"%@aaa",x);
+//    }];
     
     // 信号的信号发送信号
     [signalOfsignals sendNext:signal];

@@ -8,6 +8,9 @@
 
 #import "TMainBottomTabBar1ViewController.h"
 
+#import "TMainBottomJSOCViewController.h"
+#import "TWordsToVoiceViewController.h"
+
 @interface TMainBottomTabBar1ViewController ()
 
 @end
@@ -51,10 +54,21 @@
 
 - (void)setChildViewControllers{
     for (int i = 0; i < 16; i++) {
-        UIViewController *vc = [[UIViewController alloc] init];
-        vc.title = [@"title " stringByAppendingString:[@(i+1) stringValue]];
-        vc.view.backgroundColor = i%2 == 0 ? [UIColor orangeColor] : [UIColor redColor];
-        [self addChildViewController:vc];
+        if (i == 0) {
+            TMainBottomJSOCViewController *vc = [[TMainBottomJSOCViewController alloc] init];
+            vc.title = [@"JSOC " stringByAppendingString:[@(i+1) stringValue]];
+            [self addChildViewController:vc];
+        } else if (i == 1) {
+            TWordsToVoiceViewController *vc = [[TWordsToVoiceViewController alloc] init];
+            vc.title = [@"Words-Voice " stringByAppendingString:[@(i+1) stringValue]];
+            [self addChildViewController:vc];
+        } else {
+            UIViewController *vc = [[UIViewController alloc] init];
+            vc.title = [@"title " stringByAppendingString:[@(i+1) stringValue]];
+            vc.view.backgroundColor = i%2 == 0 ? [UIColor orangeColor] : [UIColor redColor];
+            [self addChildViewController:vc];
+        }
+        
     }
     
     TWeakSelf(self)

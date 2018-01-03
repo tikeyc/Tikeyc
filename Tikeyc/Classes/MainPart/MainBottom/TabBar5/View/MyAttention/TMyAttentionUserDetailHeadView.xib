@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8cT-2C-FA3" customClass="TMyAttentionUserDetailHeadView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="140"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6i-3f-wGm">
+                    <rect key="frame" x="8" y="72" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="EHe-Cw-gbo"/>
+                        <constraint firstAttribute="height" constant="60" id="aBd-5O-t5D"/>
+                    </constraints>
+                    <state key="normal" image="live_icon.jpg"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="昵称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xjb-aK-Y0l">
+                    <rect key="frame" x="76" y="72" width="41" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="xI5-lm-y5h"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0\n关注" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ypk-Wg-qqF">
+                    <rect key="frame" x="76" y="102" width="44" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="lcH-5u-chv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10万\n粉丝" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouT-uK-dhB">
+                    <rect key="frame" x="140" y="102" width="62" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="GJC-S4-e1W"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkW-wL-FJw">
+                    <rect key="frame" x="307" y="102" width="60" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="UdF-D0-GH4"/>
+                        <constraint firstAttribute="height" constant="30" id="lWH-U8-rnc"/>
+                    </constraints>
+                    <state key="normal" title="已关注">
+                        <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="userAttentionButtonClickAction:" destination="8cT-2C-FA3" eventType="touchUpInside" id="Cy4-iL-3yU"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvi-SL-0a8">
+                    <rect key="frame" x="8" y="20" width="40" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="67X-wb-1Y6"/>
+                        <constraint firstAttribute="height" constant="30" id="u3n-AG-4Aj"/>
+                    </constraints>
+                    <state key="normal" image="common_back_barItem_button"/>
+                    <connections>
+                        <action selector="backButtonClickAction:" destination="8cT-2C-FA3" eventType="touchUpInside" id="Rqo-9i-nWj"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.27058823529999998" green="0.41960784309999999" blue="0.70588235290000001" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Ypk-Wg-qqF" firstAttribute="leading" secondItem="F6i-3f-wGm" secondAttribute="trailing" constant="8" id="0gE-ti-o4P"/>
+                <constraint firstAttribute="bottom" secondItem="dkW-wL-FJw" secondAttribute="bottom" constant="8" id="2Wf-42-P5B"/>
+                <constraint firstAttribute="bottom" secondItem="ouT-uK-dhB" secondAttribute="bottom" constant="8" id="6FM-Jn-gzr"/>
+                <constraint firstItem="ouT-uK-dhB" firstAttribute="leading" secondItem="Ypk-Wg-qqF" secondAttribute="trailing" constant="20" id="Fv6-zH-Dd2"/>
+                <constraint firstItem="nvi-SL-0a8" firstAttribute="leading" secondItem="8cT-2C-FA3" secondAttribute="leading" constant="8" id="J22-1Z-TUf"/>
+                <constraint firstItem="Xjb-aK-Y0l" firstAttribute="leading" secondItem="F6i-3f-wGm" secondAttribute="trailing" constant="8" id="Sdl-G4-bOl"/>
+                <constraint firstAttribute="trailing" secondItem="dkW-wL-FJw" secondAttribute="trailing" constant="8" id="UmG-fb-h1x"/>
+                <constraint firstItem="F6i-3f-wGm" firstAttribute="leading" secondItem="8cT-2C-FA3" secondAttribute="leading" constant="8" id="fqE-m1-kDx"/>
+                <constraint firstAttribute="bottom" secondItem="Ypk-Wg-qqF" secondAttribute="bottom" constant="8" id="jvB-aN-UyL"/>
+                <constraint firstAttribute="bottom" secondItem="F6i-3f-wGm" secondAttribute="bottom" constant="8" id="oXh-q2-JH5"/>
+                <constraint firstItem="nvi-SL-0a8" firstAttribute="top" secondItem="8cT-2C-FA3" secondAttribute="top" constant="20" id="rlQ-pY-3tv"/>
+                <constraint firstItem="Xjb-aK-Y0l" firstAttribute="top" secondItem="F6i-3f-wGm" secondAttribute="top" id="vbl-oP-lzR"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="userAttentionButton" destination="dkW-wL-FJw" id="zW5-np-rJN"/>
+                <outlet property="userAttentionNumLabel" destination="Ypk-Wg-qqF" id="F7Q-cv-YTH"/>
+                <outlet property="userFanseNumLabel" destination="ouT-uK-dhB" id="2My-fx-Cki"/>
+                <outlet property="userIconImagView" destination="F6i-3f-wGm" id="h8I-D2-0bp"/>
+                <outlet property="userNickNameLabel" destination="Xjb-aK-Y0l" id="Nqu-r0-gUm"/>
+            </connections>
+            <point key="canvasLocation" x="0.5" y="-223"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="common_back_barItem_button" width="22" height="22"/>
+        <image name="live_icon.jpg" width="1536" height="1536"/>
+    </resources>
+</document>

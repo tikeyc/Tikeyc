@@ -14,90 +14,73 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - AsyncDisplayKit (1.9.90):
-    - AsyncDisplayKit/PINRemoteImage (= 1.9.90)
-  - AsyncDisplayKit/ASDealloc2MainObject (1.9.90)
-  - AsyncDisplayKit/Core (1.9.90):
-    - AsyncDisplayKit/ASDealloc2MainObject
-  - AsyncDisplayKit/PINRemoteImage (1.9.90):
-    - AsyncDisplayKit/Core
-    - PINRemoteImage/iOS (>= 3.0.0-beta.3)
-  - FMDB (2.6.2):
-    - FMDB/standard (= 2.6.2)
-  - FMDB/standard (2.6.2)
-  - GPUImage (0.1.7)
-  - iOS-Echarts (1.3.2)
-  - LFLiveKit (2.3)
-  - MagicalRecord (2.3.2):
-    - MagicalRecord/Core (= 2.3.2)
-  - MagicalRecord/Core (2.3.2)
-  - Masonry (1.0.2)
+  - CocoaAsyncSocket (7.6.1)
+  - FLAnimatedImage (1.0.12)
+  - FMDB (2.7.2):
+    - FMDB/standard (= 2.7.2)
+  - FMDB/standard (2.7.2)
+  - FreeStreamer (3.8.0):
+    - Reachability (~> 3.0)
+  - iOS-Echarts (1.4.4)
+  - LFLiveKit (2.6)
+  - Masonry (1.1.0)
   - MJExtension (3.0.13)
-  - MJRefresh (3.1.12)
-  - PINCache (3.0.1-beta)
-  - PINRemoteImage/Core (3.0.0-beta.3):
-    - PINCache (>= 3.0.0-beta)
-  - PINRemoteImage/iOS (3.0.0-beta.3):
-    - PINRemoteImage/Core
-  - pop (1.0.9)
-  - ReactiveCocoa (4.1.0):
-    - ReactiveCocoa/UI (= 4.1.0)
-    - Result (~> 2.0)
-  - ReactiveCocoa/Core (4.1.0):
-    - ReactiveCocoa/no-arc
-    - Result (~> 2.0)
-  - ReactiveCocoa/no-arc (4.1.0):
-    - Result (~> 2.0)
-  - ReactiveCocoa/UI (4.1.0):
-    - ReactiveCocoa/Core
-    - Result (~> 2.0)
-  - Result (2.1.3)
-  - SDWebImage (3.8.2):
-    - SDWebImage/Core (= 3.8.2)
-  - SDWebImage/Core (3.8.2)
-  - SVProgressHUD (2.0.3)
-  - WebViewJavascriptBridge (5.0.5)
+  - MJRefresh (3.1.15)
+  - pop (1.0.10)
+  - Reachability (3.2)
+  - ReactiveObjC (3.0.0)
+  - SDiffuseMenu (1.2.1)
+  - SDWebImage (4.2.2):
+    - SDWebImage/Core (= 4.2.2)
+  - SDWebImage/Core (4.2.2)
+  - SocketRocket (0.5.1)
+  - SVProgressHUD (2.2.2)
+  - WebViewJavascriptBridge (6.0.2)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
 
 DEPENDENCIES:
   - AFNetworking
-  - AsyncDisplayKit
+  - CocoaAsyncSocket
+  - FLAnimatedImage
   - FMDB
-  - GPUImage
+  - FreeStreamer
   - iOS-Echarts
   - LFLiveKit
-  - MagicalRecord
   - Masonry
   - MJExtension
   - MJRefresh
   - pop
-  - ReactiveCocoa (~> 4.1.0)
+  - ReactiveObjC
+  - SDiffuseMenu
   - SDWebImage
+  - SocketRocket
   - SVProgressHUD
   - WebViewJavascriptBridge
   - YYKit
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  AsyncDisplayKit: 926ded3ca3fb7026565e0e81f0e132fea4d3a6eb
-  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
-  GPUImage: 733a5f0fab92df9de1c37ba9df520a833ccb406d
-  iOS-Echarts: 117acfb579678cc8404bedab5361f83e2a8246f1
-  LFLiveKit: 76a5cb34509f8cbe25e3a95824cf80f36d36679b
-  MagicalRecord: 53bed74b4323b930992a725be713e53b37d19755
-  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
+  CocoaAsyncSocket: 7eadd3f59e1a6c84e2aefc93e9ff7b55156fe174
+  FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
+  FreeStreamer: e7e92f8dcb3f459f02fcd01dd8126f6996da17d5
+  iOS-Echarts: dbc7423d861e5eedee78906a39d205b5c4da9a13
+  LFLiveKit: 2219563721f8aa0f188effc3395a06e2d53b23f2
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
-  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  PINCache: 6911fe422a633e18b3d3ddf2bd4f0e55e36e2892
-  PINRemoteImage: 308731aa6534500e58fc211b9cc2bb7252df25ba
-  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
-  ReactiveCocoa: d70004d7a366a7b8e87e60ce2347182c77701949
-  Result: 18e1a7597fbcca5923c565b40a25a98afafdee02
-  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
-  WebViewJavascriptBridge: a4d502315f1b8d9a51cd6a9174147ed567ec3bc5
+  MJRefresh: 9af70f5f9327a2cf87f0fb5929f35fcc2fa638ea
+  pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  ReactiveObjC: ce79989e8684b9086b5f8d0c74bc7b81a8729c9e
+  SDiffuseMenu: 59c34f013abac8f020a26dbfdf9daecf39f383b1
+  SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
+  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
+  SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
+  WebViewJavascriptBridge: 791ee0e26d1bf15efe5fb7fb9666a71a19b89d77
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 9e0a1dc81a83526932d9d847c5cbaa4c47fe9024
+
+COCOAPODS: 1.2.0

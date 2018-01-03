@@ -46,8 +46,5 @@
 */
 
 
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    [TAppDelegateManager gotoLoginController];
-}
 
 @end

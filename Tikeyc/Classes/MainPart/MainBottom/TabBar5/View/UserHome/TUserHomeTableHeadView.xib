@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="fnV-Xo-P34" customClass="TUserHomeTableHeadView">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beauty.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="6r5-Y2-ytL">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iuH-Fh-XzM">
+                    <rect key="frame" x="157" y="120" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="BUK-am-1Al"/>
+                        <constraint firstAttribute="width" constant="60" id="ebj-lW-xNd"/>
+                    </constraints>
+                    <state key="normal" image="glenceLuanch.jpg"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="userIconButtonAction:" destination="fnV-Xo-P34" eventType="touchUpInside" id="lBD-HC-yUI"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="iuH-Fh-XzM" firstAttribute="centerY" secondItem="fnV-Xo-P34" secondAttribute="centerY" id="B2L-cC-Wvd"/>
+                <constraint firstItem="iuH-Fh-XzM" firstAttribute="centerX" secondItem="fnV-Xo-P34" secondAttribute="centerX" id="EEP-UZ-X3g"/>
+                <constraint firstAttribute="trailing" secondItem="6r5-Y2-ytL" secondAttribute="trailing" id="W5m-eP-AyC"/>
+                <constraint firstItem="6r5-Y2-ytL" firstAttribute="leading" secondItem="fnV-Xo-P34" secondAttribute="leading" id="rPj-6X-Ife"/>
+                <constraint firstItem="6r5-Y2-ytL" firstAttribute="top" secondItem="fnV-Xo-P34" secondAttribute="top" id="s6I-Ii-QdQ"/>
+                <constraint firstAttribute="bottom" secondItem="6r5-Y2-ytL" secondAttribute="bottom" id="tZZ-21-bxb"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bgImageView" destination="6r5-Y2-ytL" id="phw-on-M0w"/>
+            </connections>
+            <point key="canvasLocation" x="-21.5" y="-230"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="beauty.jpg" width="1280" height="960"/>
+        <image name="glenceLuanch.jpg" width="200" height="200"/>
+    </resources>
+</document>

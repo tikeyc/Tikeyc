@@ -31,11 +31,28 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.customSupportedInterfaceOrientations = UIInterfaceOrientationMaskPortrait;//默认只能竖屏
+    self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL)prefersStatusBarHidden
+{
+    return NO;
+}
+
+//是否旋转
+-(BOOL)shouldAutorotate{
+    return YES;
+}
+//支持的方向
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return self.customSupportedInterfaceOrientations;
 }
 
 #pragma mark - Table view data source

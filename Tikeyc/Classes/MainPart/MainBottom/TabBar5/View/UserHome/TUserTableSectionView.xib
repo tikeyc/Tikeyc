@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lqf-3U-UDk">
+                    <rect key="frame" x="0.0" y="0.0" width="187.5" height="65"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Fa-hF-qMT">
+                            <rect key="frame" x="74" y="5" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Hts-hq-uAY"/>
+                                <constraint firstAttribute="width" constant="40" id="tHO-4V-bKD"/>
+                            </constraints>
+                            <state key="normal" image="发布需求_58x58_"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发布管理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Cj-tj-Qyq">
+                            <rect key="frame" x="73.5" y="50" width="41" height="12"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="3Cj-tj-Qyq" secondAttribute="bottom" constant="3" id="VtT-Ka-ylO"/>
+                        <constraint firstItem="4Fa-hF-qMT" firstAttribute="centerX" secondItem="3Cj-tj-Qyq" secondAttribute="centerX" id="fjL-nZ-VLz"/>
+                        <constraint firstItem="4Fa-hF-qMT" firstAttribute="centerX" secondItem="Lqf-3U-UDk" secondAttribute="centerX" id="flS-SG-RGj"/>
+                        <constraint firstItem="4Fa-hF-qMT" firstAttribute="top" secondItem="Lqf-3U-UDk" secondAttribute="top" constant="5" id="lw0-9S-qRg"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Brf-Qm-DQs">
+                    <rect key="frame" x="187.5" y="0.0" width="187.5" height="65"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gYr-za-KU0">
+                            <rect key="frame" x="74" y="5" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="4UC-bC-2Qc"/>
+                                <constraint firstAttribute="height" constant="40" id="EHn-CV-aMe"/>
+                            </constraints>
+                            <state key="normal" image="发布技能_58x58_"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="技能管理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WbI-2V-fAQ">
+                            <rect key="frame" x="73.5" y="50" width="41" height="12"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="gYr-za-KU0" firstAttribute="centerX" secondItem="Brf-Qm-DQs" secondAttribute="centerX" id="9ah-Dr-Zwk"/>
+                        <constraint firstItem="gYr-za-KU0" firstAttribute="top" secondItem="Brf-Qm-DQs" secondAttribute="top" constant="5" id="QP8-DX-JL6"/>
+                        <constraint firstItem="gYr-za-KU0" firstAttribute="centerX" secondItem="WbI-2V-fAQ" secondAttribute="centerX" id="f80-l8-tC1"/>
+                        <constraint firstAttribute="bottom" secondItem="WbI-2V-fAQ" secondAttribute="bottom" constant="3" id="gV6-wV-dls"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CRz-EX-zIx">
+                    <rect key="frame" x="0.0" y="64" width="375" height="1"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="I4Q-Sq-fz7"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Brf-Qm-DQs" firstAttribute="leading" secondItem="Lqf-3U-UDk" secondAttribute="trailing" id="4sM-dy-68f"/>
+                <constraint firstAttribute="bottom" secondItem="CRz-EX-zIx" secondAttribute="bottom" id="DNf-Mj-GSM"/>
+                <constraint firstItem="Brf-Qm-DQs" firstAttribute="width" secondItem="Lqf-3U-UDk" secondAttribute="width" id="SdA-je-pdJ"/>
+                <constraint firstItem="Brf-Qm-DQs" firstAttribute="height" secondItem="Lqf-3U-UDk" secondAttribute="height" id="YFh-X3-s4o"/>
+                <constraint firstItem="Lqf-3U-UDk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cbq-GU-3w3"/>
+                <constraint firstItem="Lqf-3U-UDk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="d7e-1U-hnl"/>
+                <constraint firstAttribute="trailing" secondItem="Brf-Qm-DQs" secondAttribute="trailing" id="een-pB-09z"/>
+                <constraint firstAttribute="bottom" secondItem="Lqf-3U-UDk" secondAttribute="bottom" id="jo0-zl-Jhl"/>
+                <constraint firstAttribute="trailing" secondItem="CRz-EX-zIx" secondAttribute="trailing" id="q2N-5b-Rua"/>
+                <constraint firstItem="Brf-Qm-DQs" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="r9Y-ja-WQi"/>
+                <constraint firstItem="CRz-EX-zIx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="v2T-LT-zRO"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="35.5" y="54"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="发布技能_58x58_" width="58" height="58"/>
+        <image name="发布需求_58x58_" width="58" height="58"/>
+    </resources>
+</document>

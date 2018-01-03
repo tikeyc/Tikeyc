@@ -10,4 +10,7 @@
 
 @interface TBaseTableViewController : UITableViewController
 
+
+@property (nonatomic,assign)UIInterfaceOrientationMask customSupportedInterfaceOrientations;
+
 @end

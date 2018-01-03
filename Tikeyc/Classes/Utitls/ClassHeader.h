@@ -21,11 +21,10 @@
 #import "TKCAppTools.h"
 #import "TNotificationDefine.h"
 #import "TServiceTool.h"
-#import "UIView+ViewController.h"
 #import "TResourceDefine.h"
 
 #import "TAlertView.h"
-
+#import "TConst.h"
 //pod
 
 #import "Masonry.h"
@@ -35,12 +34,9 @@
 #import "MJRefresh.h"
 #import "MJExtension.h"
 #import "POP.h"
-#import "MagicalRecord.h"
+//#import "MagicalRecord.h"
 // RAC
-#import "ReactiveCocoa.h"
-#import "EXTScope.h"
-#import "NSObject+RACKVOWrapper.h"
-#import "RACReturnSignal.h"
+#import "ReactiveObjC.h"
 
 
 #endif /* ClassHeader_h */

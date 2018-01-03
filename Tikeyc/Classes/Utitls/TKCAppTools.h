@@ -19,6 +19,9 @@ typedef enum : NSUInteger {
 
 @interface TKCAppTools : NSObject
 
++ (float)huDuFromdu:(float)du;
++ (float)sin:(float)du;
++ (float)cos:(float)du;
 
 #pragma mark - 拨打电话
 /**
@@ -127,6 +130,16 @@ typedef enum : NSUInteger {
  *  @return xx分钟前、xx小时前、xx天前
  */
 + (NSString *)timeIntervalFromLastTime:(NSDate *)lastTime ToCurrentTime:(NSDate *)currentTime;
+
+#pragma mark - 判断身份证格式是否真确
+/**
+  判断身份证格式是否真确
+ 
+ @param identityCard 身份证
+ @return 身份证格式是否真确
+ */
++ (BOOL)validateIdentityCard:(NSString *)identityCard;
+
 #pragma mark - 判断手机号码格式是否正确
 /**
  *  判断手机号码格式是否正确
@@ -377,6 +390,38 @@ typedef enum : NSUInteger {
  */
 + (void)constraintRotationDeviceWithUIDeviceOrientation:(UIDeviceOrientation)deviceOrientation;
 
+
+/**
+ 数组排序
+ 
+ @param dicArray 需要排序的数组
+ @param key 按数组中的对象的那个属性来排序
+ @param yesOrNo 升序还是降序
+ @return 返回排序后的数组
+ */
++ (NSMutableArray *) changeArray:(NSMutableArray *)dicArray orderWithKey:(NSString *)key ascending:(BOOL)yesOrNo;
+
+/**
+ 打开iPhone设置对应界面
+ */
++ (void)openiPhomeSettingUI;
+
+
+/**
+ textField需要设置的textField，index要设置的光标位置
+ 
+ @param textField textField
+ @param index 光标位置
+ */
++ (void)cursorLocation:(UITextField *)textField index:(NSInteger)index;
+
+
+/**
+ 去除webView底部黑色
+ 
+ @param webView webView
+ */
++ (void)clearBottomBlackImageViewWithWebView:(UIWebView *)webView;
 
 @end
 

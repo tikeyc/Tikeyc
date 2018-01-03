@@ -28,9 +28,9 @@
 - (void)setLiveListModel:(TLiveListModel *)liveListModel{
     _liveListModel = liveListModel;
     
-    [self.headImgView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://img.meelive.cn/%@",_liveListModel.creator[@"portrait"]]] placeholder:nil];
+    [self.headImgView setImageWithURL:[NSURL URLWithString:_liveListModel.creator[@"portrait"]] placeholder:nil];
     //
-    [self.ShowImgView setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://img.meelive.cn/%@",_liveListModel.creator[@"portrait"]]] placeholder:nil];
+    [self.ShowImgView setImageWithURL:[NSURL URLWithString:_liveListModel.creator[@"portrait"]] placeholder:nil];
     //
     self.nickNameLabel.text = _liveListModel.creator[@"nick"];
     //

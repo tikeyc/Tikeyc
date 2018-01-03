@@ -14,6 +14,11 @@
 #import "TMenuRightCell.h"
 
 #import "TQRCodeWebViewController.h"
+#import "TLanguageTableViewController.h"
+
+
+//rightModule
+#import "TCircleAnimationViewController.h"
 
 @interface TMenuViewModel ()<UITableViewDataSource,UITableViewDelegate>
 
@@ -62,7 +67,7 @@
     //
     if (_currentShowTableViewIsLeft) {
         
-        NSArray *leftMenuTitles = @[@"个人技术博客",@"个人GitHub",@"个人Oschina",@"title_test",@"title_test",@"title_test",@"登出"];
+        NSArray *leftMenuTitles = @[@"个人技术博客",@"个人GitHub",@"个人Oschina",@"个人简书",@"语言切换",@"title_test",@"title_test",@"登出"];
         __block NSMutableArray *leftMenuModels = [NSMutableArray array];
         self.leftMenuModels = leftMenuModels;
         [leftMenuTitles enumerateObjectsUsingBlock:^(NSString   * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -76,7 +81,7 @@
     }else{
         
         //
-        NSArray *rightMenuTitles = @[@"title_test",@"title_test",@"title_test",@"title_test",@"title_test"];
+        NSArray *rightMenuTitles = @[@"Path动画",@"title_test",@"title_test",@"title_test",@"title_test"];
         __block NSMutableArray *rightMenuModels = [NSMutableArray array];
         self.rightMenuModels = rightMenuModels;
         [rightMenuTitles enumerateObjectsUsingBlock:^(NSString   * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -142,6 +147,7 @@
              cell = [[TMenuLeftCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:leftMenuTableViewCellIdentifier];
          }
          
+         
          TLeftMenuModel *model = self.leftMenuModels[indexPath.row];
          cell.textLabel.text = model.title;//[NSString stringWithFormat:@"left cell %ld",(long)indexPath.row];
          
@@ -199,12 +205,28 @@
                 }else if (indexPath.row == 2){
                     TQRCodeWebViewController *codeWebVC = [[TQRCodeWebViewController alloc] initWithURL:[NSURL URLWithString:Tikeyc_Oschina_url]];
                     [mainMenuVC showCenterControllerWithAnimation:YES toShowNextController:codeWebVC];
+                }else if (indexPath.row == 3){
+                    TQRCodeWebViewController *codeWebVC = [[TQRCodeWebViewController alloc] initWithURL:[NSURL URLWithString:Tikeyc_jianshu_url]];
+                    [mainMenuVC showCenterControllerWithAnimation:YES toShowNextController:codeWebVC];
+                }else if (indexPath.row == 4){
+                    TLanguageTableViewController *languageVC = [[TLanguageTableViewController alloc] init];
+                    [mainMenuVC showCenterControllerWithAnimation:YES toShowNextController:languageVC];
                 }else{
                     
                 }
                 
             }else{//rightMenu的特殊处理
-                
+                switch (indexPath.row) {
+                    case 0:
+                    {
+                        TCircleAnimationViewController *vc = [[TCircleAnimationViewController alloc] init];
+                        [mainMenuVC showCenterControllerWithAnimation:YES toShowNextController:vc];
+                    }
+                        break;
+                        
+                    default:
+                        break;
+                }
             }
             
         }

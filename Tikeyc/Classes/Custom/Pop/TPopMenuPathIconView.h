@@ -15,7 +15,7 @@ typedef enum : NSUInteger {
     TPopMenuPathIconAnimationDirectionTop,
 } TPopMenuPathIconAnimationDirection;
 
-typedef void(^MenuIconClick)(NSInteger index);
+typedef UIViewController* (^MenuIconClick)(NSInteger index, BOOL is3DTouch);
 
 @interface TPopMenuPathIconView : UIView
 

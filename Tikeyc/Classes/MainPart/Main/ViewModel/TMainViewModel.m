@@ -253,20 +253,20 @@
     
     
     if (_scrollViewArrays.count > 1) {
-        
+
         NSLog(@"animateWithDuration 0");
         __block UIScrollView *scrollView2 = _scrollViewArrays[1];
 //        TWeakSelf(self)
         [UIView animateWithDuration:0 animations:^{
-            
+
             mainViewController.childViewControllers[TMainVCChildVCIndexValueBottom].view.top = 0;
             scrollView2.bottom = mainViewController.childViewControllers[TMainVCChildVCIndexValueBottom].view.top;
             mainViewController.childViewControllers[TMainVCChildVCIndexValueTop].view.bottom = scrollView2.top;
         } completion:^(BOOL finished) {
-            
+
             mainViewController.selectedViewController = mainViewController;
             mainViewController.selectedIndex = 1;
-            
+
             scrollView2.top = 0;
             mainViewController.childViewControllers[TMainVCChildVCIndexValueTop].view.bottom = scrollView2.top;
             mainViewController.childViewControllers[TMainVCChildVCIndexValueBottom].view.top = scrollView2.bottom;
@@ -284,12 +284,15 @@
     if (![object isKindOfClass:[UIScrollView class]]) {
         return;
     }
+    
     id nsPoint = change[NSKeyValueChangeNewKey];
+    NSLog(@"dispatch_async:%@",nsPoint);
     CGFloat y_offSet = [nsPoint CGPointValue].y;
     if (y_offSet == 0) {
         NSLog(@"y_offSet is 0");
         
     }else{
+        //return;
         TMainViewController *mainViewController = self.mainViewController;
         UIScrollView *scrollView = object;
         
@@ -355,7 +358,7 @@
             if (scrollView.tag == TMainVCChildVCIndexValueTop) {
                 
             }else if (scrollView.tag == TMainVCChildVCIndexValueCenter){//show top
-                
+                [scrollView removeObserver:self forKeyPath:@"contentOffset"];//iOS 11上出现了野指针的BUG
                 mainViewController.selectedViewController = mainViewController.childViewControllers[TMainVCChildVCIndexValueTop];//self.mainTopNAVC;
                 mainViewController.selectedIndex = 0;
                 //                        [self.mainBottomNAVC setNavigationBarHidden:YES animated:NO];
@@ -370,10 +373,11 @@
                     mainViewController.childViewControllers[TMainVCChildVCIndexValueBottom].view.top = scrollView2.bottom;
                 } completion:^(BOOL finished) {
                     [mainViewController.mainMenuViewController removePanGestureRecognizerTarget:YES];
+                    [scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL];//iOS 11上出现了野指针的BUG
                 }];
                 
             }else if (scrollView.tag == TMainVCChildVCIndexValueBottom){//show center
-                
+                [scrollView removeObserver:self forKeyPath:@"contentOffset"];//iOS 11上出现了野指针的BUG
                 mainViewController.selectedViewController = mainViewController;
                 mainViewController.selectedIndex = 1;
                 //                        [mainViewController.childViewControllers[TMainVCChildVCIndexValueBottom] setNavigationBarHidden:YES animated:NO];
@@ -390,6 +394,7 @@
                     mainViewController.childViewControllers[TMainVCChildVCIndexValueBottom].view.top = scrollView2.bottom;
                 } completion:^(BOOL finished) {
                     [mainViewController.mainMenuViewController removePanGestureRecognizerTarget:NO];
+                    [scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL];//iOS 11上出现了野指针的BUG
                 }];
                 
             }
@@ -399,6 +404,7 @@
             NSLog(@"should show bottom View:%f",y_offSet - (scrollView.contentSize.height - scrollView.height));
             
             if (scrollView.tag == TMainVCChildVCIndexValueTop) {//show center
+                [scrollView removeObserver:self forKeyPath:@"contentOffset"];//iOS 11上出现了野指针的BUG
                 mainViewController.selectedViewController = mainViewController;
                 mainViewController.selectedIndex = 1;
                 [mainViewController.childViewControllers[TMainVCChildVCIndexValueBottom] setNavigationBarHidden:YES animated:NO];
@@ -415,9 +421,12 @@
                     mainViewController.childViewControllers[TMainVCChildVCIndexValueBottom].view.top = scrollView2.bottom;
                 } completion:^(BOOL finished) {
                     [mainViewController.mainMenuViewController removePanGestureRecognizerTarget:NO];
+                    [scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL];//iOS 11上出现了野指针的BUG
                 }];
                 
             }else if (scrollView.tag == TMainVCChildVCIndexValueCenter){//show bottom
+                [scrollView removeObserver:self forKeyPath:@"contentOffset"];//iOS 11上出现了野指针的BUG
+                
                 mainViewController.selectedViewController = mainViewController.childViewControllers[TMainVCChildVCIndexValueBottom];
                 mainViewController.selectedIndex = 2;
                 [mainViewController.navigationController setNavigationBarHidden:YES animated:NO];
@@ -435,6 +444,7 @@
                     mainViewController.childViewControllers[TMainVCChildVCIndexValueTop].view.bottom = scrollView2.top;
                 } completion:^(BOOL finished) {
                     [mainViewController.mainMenuViewController removePanGestureRecognizerTarget:YES];
+                    [scrollView addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:NULL];//iOS 11上出现了野指针的BUG
                 }];
                 
             }else if (scrollView.tag == TMainVCChildVCIndexValueBottom){
@@ -445,6 +455,8 @@
         }
         
     }
+    
+    
     
 }
 

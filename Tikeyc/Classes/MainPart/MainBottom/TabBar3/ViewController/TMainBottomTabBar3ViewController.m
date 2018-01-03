@@ -17,6 +17,8 @@
 
 
 @property (strong, nonatomic) IBOutlet TMainBottomTB3CollectionView *collectionView;
+- (IBAction)rightItemfinishButtonAction:(UIBarButtonItem *)sender;
+
 
 
 @property (nonatomic,strong)TLiveListViewModel *liveListViewModel;
@@ -36,6 +38,7 @@
         @strongify(self)
         self.collectionView.liveListModels = self.liveListViewModel.liveListModels;
         [self.collectionView reloadData];
+        
     }];
 }
 
@@ -57,11 +60,20 @@
 
 #pragma mark - get
 
+
+
 - (TLiveListViewModel *)liveListViewModel{
     if (!_liveListViewModel) {
         _liveListViewModel = [[TLiveListViewModel alloc] init];
     }
     return _liveListViewModel;
+}
+
+#pragma mark - Actions Method
+
+- (IBAction)rightItemfinishButtonAction:(UIBarButtonItem *)sender {
+    
+    
 }
 
 @end

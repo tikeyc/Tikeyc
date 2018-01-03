@@ -9,70 +9,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Tikeyc/Classes/MainPart/MainCenter/Live/View/Custom/TPLCGiftView.m"
-            timestampString = "496831557.573352"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "-dealloc"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Tikeyc/Classes/Base/ViewModel/TBaseViewModel.m"
-            timestampString = "498118124.225809"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "-initRACSignal"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__31-[TBaseViewModel initRACSignal]_block_invoke_2"
-                  moduleName = "Tikeyc"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/public1/Desktop/Me/Tikeyc/Tikeyc/Classes/Base/ViewModel/TBaseViewModel.m"
-                  timestampString = "502364335.631218"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "80">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__31-[TBaseViewModel initRACSignal]_block_invoke_3"
-                  moduleName = "Tikeyc"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/public1/Desktop/Me/Tikeyc/Tikeyc/Classes/Base/ViewModel/TBaseViewModel.m"
-                  timestampString = "502364335.633174"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "56">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Tikeyc/Classes/MainPart/MainCenter/Echarts/ViewModel/RMMapper/NSObject+RMArchivable.m"
             timestampString = "500350274.789302"
             startingColumnNumber = "9223372036854775807"
@@ -353,6 +289,18 @@
             endingLineNumber = "249"
             landmarkName = "+mutableArrayOfClass:fromArrayOfDictionary:exclude:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            symbolName = ""
+            moduleName = "">
+            <Locations>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

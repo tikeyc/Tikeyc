@@ -21,6 +21,7 @@
         _image = [UIImage imageNamed:imageName];
         _title = title;
         self.bounds = CGRectMake(0, 0, _image.size.width, _image.size.height + 6 + 13);
+        [self addTarget:self action:@selector(clickIcon:) forControlEvents:UIControlEventTouchUpInside];
         [self initSubViews];
     }
     return self;
@@ -28,30 +29,30 @@
 
 - (void)initSubViews{
     //
-    UIButton *iconButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    iconButton.frame = CGRectMake(0, 0, _image.size.width, _image.size.height);
-    [iconButton setImage:_image forState:UIControlStateNormal];
-    iconButton.showsTouchWhenHighlighted = YES;
-    [iconButton addTarget:self action:@selector(clickIcon:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:iconButton];
+    _iconButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _iconButton.frame = CGRectMake(0, 0, _image.size.width, _image.size.height);
+    [_iconButton setImage:_image forState:UIControlStateNormal];
+    _iconButton.showsTouchWhenHighlighted = YES;
+    [_iconButton addTarget:self action:@selector(clickIcon:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:_iconButton];
     //
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, iconButton.bottom + 6, iconButton.width, 13)];
-    label.backgroundColor = [UIColor clearColor];
-    label.font = [UIFont systemFontOfSize:13.0f];
-    label.textColor = TColor_RGB(0, 0, 0);
-    label.textAlignment = NSTextAlignmentCenter;
-    label.text = _title;
-    [label sizeToFit];
-    label.left = (self.width - label.width)/2;
-    label.layer.shadowOffset = CGSizeMake(5, 5);
-    label.layer.shadowOpacity = 0.5;
-    [self addSubview:label];
+    _label = [[UILabel alloc] initWithFrame:CGRectMake(0, _iconButton.bottom + 6, _iconButton.width, 13)];
+    _label.backgroundColor = [UIColor clearColor];
+    _label.font = [UIFont systemFontOfSize:13.0f];
+    _label.textColor = TColor_RGB(0, 0, 0);
+    _label.textAlignment = NSTextAlignmentCenter;
+    _label.text = _title;
+    [_label sizeToFit];
+    _label.left = (self.width - _label.width)/2;
+    _label.layer.shadowOffset = CGSizeMake(5, 5);
+    _label.layer.shadowOpacity = 0.5;
+    [self addSubview:_label];
 }
 
 #pragma mark - Actions method
 
 
-- (void)clickIcon:(UIButton *)button{
+- (void)clickIcon:(id)button{
     if (self.clickBlock) {
         self.clickBlock(self);
     }

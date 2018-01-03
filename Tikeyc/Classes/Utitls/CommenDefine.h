@@ -13,7 +13,7 @@
 #ifdef DEBUG
 #define DLog(fmt, ...) NSLog((@"[文件名:%s]\n" "[函数名:%s]\n" "[行号:%d] \n" fmt), __FILE__, __FUNCTION__, __LINE__, ##__VA_ARGS__);
 #define DeBugLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
-#define NSLog(...) NSLog(__VA_ARGS__);
+#define NSLog(...) NSLog(__VA_ARGS__);//printf([[NSString stringWithFormat:__VA_ARGS__] UTF8String]);
 #define MyNSLog(FORMAT, ...) fprintf(stderr,"[%s]:[line %d行] %s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
 #else
 #define DLog(...)
@@ -21,7 +21,6 @@
 #define NSLog(...)
 #define MyNSLog(FORMAT, ...) nil
 #endif
-
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -50,10 +49,18 @@
 #define TScreenBounds [UIScreen mainScreen].bounds
 /** 屏幕伸缩度（Retina时值为2,非Retina值为1）*/
 #define TScreenScale [UIScreen mainScreen].scale
-/** 系统状态栏高度 */
-#define kAppStatusBarHeight 20
+/*
+Item            Normal Height    iPhone X Height
+UINavigationBar      64         88 (96 large title)
+UIStatusBar          20                 44
+UITabBar             49                 83
+ */
+/** 系统状态栏高度: iPhone X的高度是44，其他情况是20*/
+#define kAppStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
 /** 系统导航栏高度 */
 #define kAppNavigationBarHeight 44
+/** iPhone X Height: 88 = 44 + 44; [large title: 96 = 44 + (44 + 8); ]*/
+#define kAppNavigationBarLargeTitleHeight 44 + 8
 /** 系统tabbar高度 */
 #define kAppTabBarHeight 49
 

@@ -69,7 +69,7 @@
      }
      }
      */
-    [self loadAttachmentForUrlString:imgUrl withType:@"png" completionHandle:^(UNNotificationAttachment *attach) {
+    [self loadAttachmentForUrlString:imgUrl withType:@"audio" completionHandle:^(UNNotificationAttachment *attach) {
         
         if (attach) {
             self.bestAttemptContent.attachments = [NSArray arrayWithObject:attach];
