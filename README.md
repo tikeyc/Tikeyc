@@ -18,6 +18,24 @@
 
 ```
 
+####功能点
+
+- 国际化 (多语言切换)     
+- 推送 （gif图片、音频播放、推送拓展、Voip推送等）   
+- widget (配合3DTouch使用)   
+- 直播 (播放直播流等)   
+- 百思不得姐 视频、图片、GIF、文字、音频等信息列表展示   
+- DragDrop ( @available(iOS 11, *) )   iOS11新增拖拽功能   
+- AR 虚拟现实  
+- chart 图表   
+- Bluetooth 蓝牙   
+- socket 即时通讯   
+- CoreML 机器学习    
+- JS与OC交互   
+- 九宫格（添加3DTouch等）    
+- 路径动画   
+- 3DView    
+- 其它特效
 
 ![image](https://git.oschina.net/tikeyc/Tikeyc/raw/master/Tikeyc/ReadMe/screen1.gif)![image](https://git.oschina.net/tikeyc/Tikeyc/raw/master/Tikeyc/ReadMe/screen2.gif)![image](https://git.oschina.net/tikeyc/Tikeyc/raw/master/Tikeyc/ReadMe/screen3.gif)      
 ![image](https://git.oschina.net/tikeyc/Tikeyc/raw/master/Tikeyc/ReadMe/screen4.gif)![image](https://git.oschina.net/tikeyc/Tikeyc/raw/master/Tikeyc/ReadMe/screen5.gif)![image](https://git.oschina.net/tikeyc/Tikeyc/raw/master/Tikeyc/ReadMe/screen6.gif)    
